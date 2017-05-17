@@ -63,6 +63,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataModels\Card.cs" />
+    <Compile Include="DataModels\FileIO.cs" />
     <Compile Include="DataModels\Ingredient.cs" />
     <Compile Include="DataModels\Recipe.cs" />
     <Compile Include="MainWindow.xaml.cs">
