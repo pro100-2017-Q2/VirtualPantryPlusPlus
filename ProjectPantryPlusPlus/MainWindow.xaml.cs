@@ -48,5 +48,13 @@ namespace PantryProject
                 string filename = dlg.FileName;
             }
         }
+
+        private void meatContent_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (meatContent.Height > 0)
+                meatContent.Height = 0;
+            else
+                meatContent.Height = 30;
+        }
     }
 }
