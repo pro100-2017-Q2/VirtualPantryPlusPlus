@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ProjectPantryPlusPlus"
+    "\\ProjectPantryPlusPlus",
+    "\\ProjectPantryPlusPlus\\DataModels",
+    "\\ProjectPantryPlusPlus\\Recipes",
+    "\\ProjectPantryPlusPlus\\Recipes\\user created"
   ],
-  "SelectedNode": "\\ProjectPantryPlusPlus\\Solution1.sln",
+  "SelectedNode": "\\ProjectPantryPlusPlus\\DataModels\\FileIO.cs",
   "PreviewInSolutionExplorer": false
 }
