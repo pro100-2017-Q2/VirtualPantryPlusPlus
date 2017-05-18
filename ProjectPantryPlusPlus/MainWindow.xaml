@@ -1,12 +1,115 @@
-﻿<Window x:Class="ProjectPantryPlusPlus.MainWindow"
+﻿<Window x:Class="PantryProject.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjectPantryPlusPlus"
+        xmlns:local="clr-namespace:PantryProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="My Pantry V0.01" Height="550" Width="725"
+        ResizeMode="NoResize">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel
+            x:Name="spMain"
+            Orientation="Horizontal"    
+            Grid.Column="0"
+        />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="pantryList" 
+                     Grid.ColumnSpan="3"
+                     Grid.Row="1"
+                     Margin="10">
+                <StackPanel x:Name="meatStack">
+                    <Label x:Name="meatName" Content="-Meats" MouseLeftButtonDown="meatContent_MouseDoubleClick"/>
+                    <Label x:Name="meatContent" Margin="20 0 7 0" Background="Green"  Height="30"/>
+                </StackPanel>
+                <StackPanel x:Name="dairyStack">
+                    <Label x:Name="dairyName" Content="-Dairy Products"/>
+                    <Label x:Name="dairyContent" Margin="20 0 7 20" Background="Green"/>
+                </StackPanel>
+                <StackPanel x:Name="fruitVegsStack">
+                    <Label x:Name="fruitsVegsName" Content="-Fruits, Vegetables, and Juices."/>
+                    <Label x:Name="fruitsVegsContent" Margin="20 0 7 20" Background="Green"/>
+
+                </StackPanel>
+             </StackPanel>
+            <Button
+            x:Name="addIngredient"
+            Height="20"
+            Width="100"
+            Content="Add an Ingredient" Click="AddIngredientClick" 
+            Grid.Row="2"
+            VerticalAlignment="Top"
+            Margin="0 10"
+            />
+            <Button
+                x:Name="import"
+                Grid.Column="1"
+                Height="20"
+                Width="50"
+                Content="Import"
+                Click="import_Click"
+                Grid.Row="2"
+                VerticalAlignment="Top"
+                Margin="0 10"
+            />
+            <Button
+                x:Name="export"
+                Grid.Column="2"
+                Height="20"
+                Width="50"
+                Content="Export"
+                Grid.Row="2"
+                VerticalAlignment="Top"
+                Margin="0 10"
+                Click="export_Click"
+            />
+        </Grid>
+
+
+
+        <Label
+            x:Name="pantryLabel"
+            Content="My Pantry"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Height="25"
+            Grid.Row="0"
+        />
+
+        <TabControl
+            x:Name="navTab"
+            Grid.Column="1"
+  
+        >
+            <TabItem Header="Popular Recipes">
+                <Label Content="We like food."/>
+            </TabItem>
+            <TabItem Header="What Can I Make?">
+                <Label Content="Food duh."/>
+            </TabItem>
+            <TabItem Header="My Recipes">
+                <ScrollViewer Height="100" Width="100"/>
+
+
+            </TabItem>
+
+        </TabControl>
+
     </Grid>
+
 </Window>

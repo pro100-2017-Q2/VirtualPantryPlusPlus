@@ -1,28 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
+using System.Windows.Markup;
 
-namespace ProjectPantryPlusPlus
+namespace PantryProject
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window
-	{
-		public MainWindow()
-		{
-			InitializeComponent();
-		}
-	}
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window, IAddChild
+    {
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+        }
+
+        private void AddIngredientClick(object sender, RoutedEventArgs e)
+        {
+            IngredientPopUp i = new IngredientPopUp();
+            DialogResult dr = i.ShowDialog();
+
+        }
+
+        private void export_Click(object sender, RoutedEventArgs e)
+        {
+            //Figure out how to save a pantry
+        }
+
+        private void import_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+            }
+        }
+
+        private void meatContent_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (meatContent.Height > 0)
+                meatContent.Height = 0;
+            else
+                meatContent.Height = 30;
+        }
+    }
 }
