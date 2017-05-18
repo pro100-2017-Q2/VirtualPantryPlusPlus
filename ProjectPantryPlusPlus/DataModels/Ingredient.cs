@@ -54,7 +54,16 @@ namespace ProjectPantryPlusPlus.DataModels
 
 		//		   ToDo : Catagories need to be flushed out
 		// Additionally : consider making this an enum rather than a string array (consult with team first)
-		public static string[] IngredientCatagories { get; private set; } = new string[] { "Dairy", "Meats", "ect." };
+		public static string[] IngredientCatagories { get; private set; } = new string[] { 
+		"Dairy and Cheeses",
+		"Meats",
+		"Egg",
+		"Nuts, Grains, and beans",
+		"Fruits",
+		"Vegetables",
+		"Beverages",
+		"Spices and Oils" 
+		};
 
 
 
