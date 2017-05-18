@@ -23,6 +23,7 @@ namespace ProjectPantryPlusPlus.DataModels
 		private string author;
 		private string servingSize;
 		private string prepTime;
+		private Ingredient[] ingredients;
 		private string instructions;
 		private Dictionary<Ingredient, String> ingredientPortions;
 
@@ -48,6 +49,10 @@ namespace ProjectPantryPlusPlus.DataModels
 			get { return prepTime; }
 			set { prepTime = value; NotifyChange(); }
 		}
+		public Ingredient[] Ingredients{
+			get { return ingredients; }
+			set { ingredients = value; NotifyChange(); }
+		}
 		public string Instructions
 		{
 			get { return instructions; }
@@ -66,6 +71,7 @@ namespace ProjectPantryPlusPlus.DataModels
 			this.Author = author;
 			this.ServingSize = servingSize;
 			this.PrepTime = prepTime;
+			this.Ingredients = ingredients;
 			this.Instructions = instructions;
 			this.IngredientPortions = ingredientPortions;
 		}
