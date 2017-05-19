@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectPantryPlusPlus.DataModels
 {
-	class Recipe : INotifyPropertyChanged
+	public class Recipe : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		protected void NotifyChange([CallerMemberName] string field = null)

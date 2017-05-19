@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ProjectPantryPlusPlus.DataModels
 {
-	static class FileIO
+	public static class FileIO
 	{
-		public static void SaveRecipies(List<Recipe> recipieList, string filename)
+		public static void SaveRecipies(List<Recipe> recipeList, string filename)
 		{
-			
-
+			XmlSerializer xs = new XmlSerializer(typeof(List<Recipe>));
+			using (var writer = new StringWriter())
+			{
+				xs.Serialize(writer, recipeList);
+			}
 		}
 
 		public static List<Recipe> LoadRecipes(string filename)
