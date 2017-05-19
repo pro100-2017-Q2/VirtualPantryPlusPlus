@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,8 @@ namespace ProjectPantryPlusPlus.DataModels
 	{
 		public static void SaveRecipies(List<Recipe> recipieList, string filename)
 		{
-            
+			
+
 		}
 
 		public static List<Recipe> LoadRecipes(string filename)
@@ -28,6 +30,7 @@ namespace ProjectPantryPlusPlus.DataModels
 
 		}
 		//comment
+		//TODO: Add methods for saving individual recipes as well as reading in a single recipe from a file.
         
 
 	}
