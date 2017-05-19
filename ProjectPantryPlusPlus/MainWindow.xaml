@@ -29,24 +29,21 @@
                 <RowDefinition Height="300"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <StackPanel x:Name="pantryList" 
+            <ScrollViewer BorderBrush="Black" Grid.ColumnSpan="3" Grid.Row ="1">
+                <StackPanel x:Name="pantryList" 
                      Grid.ColumnSpan="3"
                      Grid.Row="1"
                      Margin="10">
-                <StackPanel x:Name="meatStack">
-                    <Label x:Name="meatName" Content="-Meats" MouseLeftButtonDown="meatContent_MouseDoubleClick"/>
-                    <Label x:Name="meatContent" Margin="20 0 7 0" Background="Green"  Height="30"/>
+                    <!--<Label x:Name="meatName" Content="-Meats" MouseLeftButtonDown="Content_MouseLeftButtonDown"/>
+                <TextBlock x:Name="meatContent" Visibility="Collapsed"  Margin="20 0 7 0" Background="Green" Width="200" TextWrapping="Wrap" Text="@reuscam: I don't think it's the way the viewbox works. It doesn't resize already rendered content, it applies transformations that are used when the content is rendered. At least I hope it does so, because it's part of WPF's rendering concept"/>
+                <Label x:Name="dairyName" Content="-Dairy Products"/>
+                <TextBlock x:Name="dairyContent" Margin="20 0 7 20" Background="Green"/>
+                <Label x:Name="fruitsVegsName" Content="-Fruits, Vegetables, and Juices."/>
+                <TextBlock x:Name="fruitsVegsContent" Margin="20 0 7 20" Background="Green"/>-->
                 </StackPanel>
-                <StackPanel x:Name="dairyStack">
-                    <Label x:Name="dairyName" Content="-Dairy Products"/>
-                    <Label x:Name="dairyContent" Margin="20 0 7 20" Background="Green"/>
-                </StackPanel>
-                <StackPanel x:Name="fruitVegsStack">
-                    <Label x:Name="fruitsVegsName" Content="-Fruits, Vegetables, and Juices."/>
-                    <Label x:Name="fruitsVegsContent" Margin="20 0 7 20" Background="Green"/>
-
-                </StackPanel>
-             </StackPanel>
+            </ScrollViewer>
+            
+            
             <Button
             x:Name="addIngredient"
             Height="20"
@@ -97,7 +94,9 @@
   
         >
             <TabItem Header="Popular Recipes">
-                <Label Content="We like food."/>
+                <Label>
+                    <Button x:Name="addRecipeButton" Content="Add a Recipe" Width="75" Click="addRecipeClick"/>
+                </Label>
             </TabItem>
             <TabItem Header="What Can I Make?">
                 <Label Content="Food duh."/>
