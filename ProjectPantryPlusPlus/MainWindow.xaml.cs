@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectPantryPlusPlus;
+using System;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
@@ -55,6 +56,14 @@ namespace PantryProject
                 meatContent.Height = 0;
             else
                 meatContent.Height = 30;
+        }
+
+        private void addRecipeClick(object sender, RoutedEventArgs e)
+        {
+            //Creating hard-coded recipes
+            RecipePopUp r = new RecipePopUp();
+            r.ShowDialog();
+
         }
     }
 }

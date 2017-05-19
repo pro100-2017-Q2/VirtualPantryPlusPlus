@@ -97,7 +97,9 @@
   
         >
             <TabItem Header="Popular Recipes">
-                <Label Content="We like food."/>
+                <Label>
+                    <Button x:Name="addRecipeButton" Content="Add a Recipe" Width="75" Click="addRecipeClick"/>
+                </Label>
             </TabItem>
             <TabItem Header="What Can I Make?">
                 <Label Content="Food duh."/>
