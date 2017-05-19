@@ -25,7 +25,7 @@ namespace ProjectPantryPlusPlus.DataModels
 		private string prepTime;
 		private Ingredient[] ingredients;
 		private string instructions;
-		private Dictionary<Ingredient, String> ingredientPortions;
+		private Dictionary<String, String> ingredientPortions;
 
 
 
@@ -58,15 +58,18 @@ namespace ProjectPantryPlusPlus.DataModels
 			get { return instructions; }
 			set { instructions = value; NotifyChange(); }
 		}
-		public Dictionary<Ingredient, String> IngredientPortions
+		public Dictionary<String, String> IngredientPortions
 		{
+			//Key should be name of ingredient, refferenced via ingredient.Name, and the value should be the ammount to be added 
+			//(example being "1 cup", refferenced by the ingredient name "Milk")
 			get { return ingredientPortions; }
 			set { ingredientPortions = value; NotifyChange(); }
 		}
 
 
-		public Recipe(String title, string servingSize, string prepTime, Ingredient[] ingredients, string instructions, Dictionary<Ingredient, String> ingredientPortions)
+		public Recipe(String title, string servingSize, string prepTime, Ingredient[] ingredients, string instructions, Dictionary<String, String> ingredientPortions)
 		{
+			
 			this.Title = title;
 			this.Author = author;
 			this.ServingSize = servingSize;
