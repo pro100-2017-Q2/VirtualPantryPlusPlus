@@ -1,0 +1,33 @@
+[
+	{
+
+		"title": "Japanese Mentaiko Spaghetti",
+		"author": "Danile Gritzer",
+		"prepTime": "15 Minutes",
+		"servingSize": "serves 2",
+		"instructions": [
+			" 1. In a pot of salted boiling water, cook spaghetti until al dente, according to timing given in package instructions.2. Meanwhile, using a sharp paring knife, slice mentaiko lobes open and scrape out roe. Reserve 2 teaspoons (10g) roe for garnish and place the rest in a large heatproof bowl. Add soy sauce and melted butter to bowl with roe, stirring to combine. 3. When spaghetti is done, transfer to bowl with butter sauce using tongs. Add 1/4 cup (60ml) pasta-cooking water, then stir and toss pasta until it is evenly coated in sauce, any excess liquid has been absorbed, and a smooth, creamy sauce has formed. Transfer to serving bowls, top each bowl with reserved roe, and garnish with nori strips. Serve right away, mixing nori and roe garnish in with chopsticks before eating."
+		],
+		"ingredients": [
+			"Kosher salt",
+			"Dried spaghetti",
+			"mentaiko",
+			"Light usukuchi soy sauce",
+			"Unsalted butter, melted",
+			"Nori seaweed strips"
+		],
+
+
+		"ingredientPortions": {
+			"Dried spaghetti": " 1/2 pound (225g)",
+			"mentaiko": "1 1/2 to 2 ounces (40 to 55g; about 2 small lobes), depending on how strong you want the flavor to be (see note)",
+			"Light usukuchi soy sauce": "1 1/2 tablespoons (20ml)",
+			"Unsalted butter, melted": "6 tablespoons (90g)"
+
+
+		}
+	},
+	{
+		/* ... */
+	}
+]

@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Markup;
+using ProjectPantryPlusPlus.DataModels;
 
 namespace PantryProject
 {
@@ -16,7 +17,37 @@ namespace PantryProject
         public MainWindow()
         {
             InitializeComponent();
+            
+            foreach (string Category in Ingredient.IngredientCatagories)
+            {
+                Thickness Thicc = new Thickness();
+                Thicc.Left = 20;
+                Thicc.Right = 7;
+                Thicc.Bottom = 3;
+                Thicc.Top = 1;
+                pantryList.Children.Add(new System.Windows.Controls.Label
+                {
+                    Content = "-"+Category+""
+                });
+                pantryList.Children.Add(new System.Windows.Controls.TextBlock
+                {
+                    Margin = Thicc,
+                    Width = 200,
+                    TextWrapping = TextWrapping.Wrap,
+                    Text = "This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting.This is sample text, I hope I get replaced with something interesting."                    
+                });
+            }
+        }
 
+        private MouseEventHandler Content_MouseLeftButtonDown()
+        {
+            if (this.Visibility == Visibility.Collapsed)
+            {
+                this.Visibility = Visibility.Visible;
+            }
+            else
+                this.Visibility = Visibility.Collapsed;
+            return null;
         }
 
         private void AddIngredientClick(object sender, RoutedEventArgs e)
@@ -50,12 +81,15 @@ namespace PantryProject
             }
         }
 
-        private void meatContent_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Content_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (meatContent.Height > 0)
-                meatContent.Height = 0;
+
+            if (this.Visibility == Visibility.Collapsed)
+            {
+                this.Visibility = Visibility.Visible;
+            }
             else
-                meatContent.Height = 30;
+               this.Visibility = Visibility.Collapsed;
         }
 
         private void addRecipeClick(object sender, RoutedEventArgs e)

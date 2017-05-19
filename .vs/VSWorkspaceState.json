@@ -3,9 +3,10 @@
     "",
     "\\ProjectPantryPlusPlus",
     "\\ProjectPantryPlusPlus\\DataModels",
+    "\\ProjectPantryPlusPlus\\Properties",
     "\\ProjectPantryPlusPlus\\Recipes",
     "\\ProjectPantryPlusPlus\\Recipes\\user created"
   ],
-  "SelectedNode": "\\ProjectPantryPlusPlus\\DataModels\\FileIO.cs",
+  "SelectedNode": "\\ProjectPantryPlusPlus\\Recipes\\user created\\temp.json",
   "PreviewInSolutionExplorer": false
 }
