@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectPantryPlusPlus.DataModels
 {
-	static class FileIO
+	public static class FileIO
 	{
 		public static void SaveRecipies(List<Recipe> recipieList, string filename)
 		{
