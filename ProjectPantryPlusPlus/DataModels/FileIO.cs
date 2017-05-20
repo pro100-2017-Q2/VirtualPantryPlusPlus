@@ -112,7 +112,10 @@ namespace ProjectPantryPlusPlus.DataModels
 
 					foreach (Ingredient ings in ingredients)
 					{
-						ingredientPortions.Add(ings.Name, (string)rawDictionary[ings.Name]);
+						if (rawDictionary.ContainsKey(ings.Name))
+						{
+							ingredientPortions.Add(ings.Name, (string)rawDictionary[ings.Name]);
+						}
 					}
 
 
