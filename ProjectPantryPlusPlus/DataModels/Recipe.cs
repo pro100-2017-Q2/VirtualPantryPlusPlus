@@ -5,11 +5,16 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace ProjectPantryPlusPlus.DataModels
 {
 	public class Recipe : INotifyPropertyChanged
 	{
+		public Recipe()
+		{
+
+		}
 		public event PropertyChangedEventHandler PropertyChanged;
 		protected void NotifyChange([CallerMemberName] string field = null)
 		{
