@@ -58,7 +58,7 @@ namespace ProjectPantryPlusPlus.DataModels
 		
 		public static void SaveRecipesJson(List<Recipe> recipeList, string filename)
 		{
-			if(!File.Exists(filename)){ File.Create(filename); }
+			if(!File.Exists(filename)){ File.Create(filename).Close(); }
 
 			var json = new JavaScriptSerializer().Serialize(recipeList);
 			Console.WriteLine(json);
