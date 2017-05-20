@@ -5,6 +5,8 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Markup;
 using ProjectPantryPlusPlus.DataModels;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace PantryProject
 {
@@ -13,30 +15,17 @@ namespace PantryProject
     /// </summary>
     public partial class MainWindow : Window, IAddChild
     {
+        private PantryManager PM = new PantryManager();
+
+        public object ColumnDefinitions { get; private set; }
+        public Brush SolidColorBRush { get; private set; }
 
         public MainWindow()
         {
             InitializeComponent();
+            populate_List();
+            populate_MyRepTab();
             
-            foreach (string Category in Ingredient.IngredientCatagories)
-            {
-                Thickness Thicc = new Thickness();
-                Thicc.Left = 20;
-                Thicc.Right = 7;
-                Thicc.Bottom = 3;
-                Thicc.Top = 1;
-                pantryList.Children.Add(new System.Windows.Controls.Label
-                {
-                    Content = "-"+Category+""
-                });
-                pantryList.Children.Add(new System.Windows.Controls.TextBlock
-                {
-                    Margin = Thicc,
-                    Width = 200,
-                    TextWrapping = TextWrapping.Wrap,
-                    Text = "This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting.This is sample text, I hope I get replaced with something interesting."                    
-                });
-            }
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -99,5 +88,89 @@ namespace PantryProject
             r.ShowDialog();
 
         }
+
+        private void populate_List()
+        {
+            foreach (string Category in Ingredient.IngredientCatagories)
+            {
+                Thickness ListThic = new Thickness();
+                ListThic.Left = 20;
+                ListThic.Right = 7;
+                ListThic.Bottom = 3;
+                ListThic.Top = 1;
+                pantryList.Children.Add(new System.Windows.Controls.Label
+                {
+                    Content = "-" + Category + ""
+                });
+                pantryList.Children.Add(new System.Windows.Controls.TextBlock
+                {
+                    Margin = ListThic,
+                    Width = 200,
+                    TextWrapping = TextWrapping.Wrap,
+                    Text = "This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting.This is sample text, I hope I get replaced with something interesting."
+                });
+            }
+        }
+
+        private void populate_MyRepTab()
+        {
+            
+            foreach (Recipe rec in PM.UserRecipeList)
+            {
+                System.Windows.Controls.Grid gri = new System.Windows.Controls.Grid();
+                System.Windows.Controls.StackPanel Stkpnl = new System.Windows.Controls.StackPanel();
+
+                Thickness Thic = new Thickness();
+                Thic.Bottom = 20;
+
+                ColumnDefinition col1 = new ColumnDefinition();
+                ColumnDefinition col2 = new ColumnDefinition();
+                col1.Width = new GridLength(1, GridUnitType.Star);
+                col2.Width = new GridLength(5, GridUnitType.Star);
+
+                gri.ColumnDefinitions.Add(col1);
+                gri.ColumnDefinitions.Add(col2);
+
+                Stkpnl.Width = 250;
+                Stkpnl.Margin = Thic;
+
+
+                Image img = new Image();
+                System.Windows.Controls.Label RecName = new System.Windows.Controls.Label();
+                System.Windows.Controls.Label RecServe = new System.Windows.Controls.Label();
+                System.Windows.Controls.Label RecTime = new System.Windows.Controls.Label();
+                System.Windows.Controls.Label RecDesc = new System.Windows.Controls.Label();
+
+                RecName.Content = rec.Title;
+                RecName.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
+                RecName.Width = 230;
+
+                RecServe.Content = "Serves:"+ rec.ServingSize;
+                RecServe.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
+                RecServe.Width = 230;
+
+                RecTime.Content = "Time:"+ rec.PrepTime;
+                RecTime.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
+                RecTime.Width = 230;
+
+                RecDesc.Content = rec.Instructions;
+                RecDesc.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
+                RecDesc.Width = 230;
+
+                Grid.SetColumn(Stkpnl, 1);
+                Grid.SetColumn(img, 0);
+
+                gri.Children.Add(img);
+                gri.Children.Add(Stkpnl);
+                Stkpnl.Children.Add(RecName);
+                Stkpnl.Children.Add(RecServe);
+                Stkpnl.Children.Add(RecTime);
+                Stkpnl.Children.Add(RecDesc);
+                
+                MyRecipeList.Children.Add(gri);
+               
+            }
+        }
+
     }
 }
