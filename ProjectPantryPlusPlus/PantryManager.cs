@@ -9,7 +9,6 @@ namespace ProjectPantryPlusPlus
 {
 	class PantryManager
 	{
-
 		//Display list will be what we're expecting to put in the main panel. 
 		//At first this will just be all of our recipes, 
 		//with perhaps a way to make a few suggested ones float to the top.
