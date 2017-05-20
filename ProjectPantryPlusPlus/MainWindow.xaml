@@ -94,19 +94,23 @@
   
         >
             <TabItem Header="Popular Recipes">
-                <Label>
-                    <Button x:Name="addRecipeButton" Content="Add a Recipe" Width="75" Click="addRecipeClick"/>
-                </Label>
+                <ScrollViewer x:Name="popular_Scroller">
+                    
+                </ScrollViewer>
+                    
             </TabItem>
             <TabItem Header="What Can I Make?">
                 <Label Content="Food duh."/>
             </TabItem>
             <TabItem Header="My Recipes">
-                <ScrollViewer Height="100" Width="100"/>
-
-
+                <ScrollViewer x:Name="MyRecipe_Scroller">
+                    <StackPanel x:Name="MyRecipeList">
+                        <Label>
+                            <Button x:Name="addRecipeButton" Content="Add a Recipe" Width="75" Click="addRecipeClick"/>
+                        </Label>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
-
         </TabControl>
 
     </Grid>
