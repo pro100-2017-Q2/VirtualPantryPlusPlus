@@ -15,11 +15,11 @@ namespace ProjectPantryPlusPlus
 		//However, after the user has entered their available ingredients, 
 		//Display list will be the filtered list of what the user can make. 
 
-		private List<Recipe> recipeList;
-		private List<Recipe> userRecipeList;
-		private List<Ingredient> ingredientList;
-		private List<Ingredient> userIngredientList;
-		private List<Recipe> displayRecipeList;
+		private List<Recipe> recipeList = new List<Recipe>();
+		private List<Recipe> userRecipeList = new List<Recipe>();
+		private List<Ingredient> ingredientList = new List<Ingredient>();
+		private List<Ingredient> userIngredientList = new List<Ingredient>();
+		private List<Recipe> displayRecipeList = new List<Recipe>();
 
 
 		public List<Recipe> RecipeList
