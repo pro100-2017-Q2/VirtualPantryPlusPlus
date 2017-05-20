@@ -115,7 +115,7 @@ namespace PantryProject
         private void populate_MyRepTab()
         {
             
-            foreach (Recipe rec in PM.UserRecipeList)
+            foreach(Recipe rec in PM.DisplayRecipeList)
             {
                 System.Windows.Controls.Grid gri = new System.Windows.Controls.Grid();
                 System.Windows.Controls.StackPanel Stkpnl = new System.Windows.Controls.StackPanel();
@@ -156,6 +156,7 @@ namespace PantryProject
                 RecDesc.Content = rec.Instructions;
                 RecDesc.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
                 RecDesc.Width = 230;
+                RecDesc.MaxHeight = 50;
 
                 Grid.SetColumn(Stkpnl, 1);
                 Grid.SetColumn(img, 0);
