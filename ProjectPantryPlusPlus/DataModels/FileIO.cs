@@ -24,7 +24,8 @@ namespace ProjectPantryPlusPlus.DataModels
 
 		public static List<Recipe> LoadRecipes(string filename)
 		{
-			List<Recipe> rec;
+			List<Recipe> rec = null;
+			if(File.Exists(filename))
 			using (var stream = File.OpenRead(filename))
 			{
 				var serializer = new XmlSerializer(typeof(List<Recipe>));
@@ -74,48 +75,49 @@ namespace ProjectPantryPlusPlus.DataModels
 			var output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
 
 			List<Recipe> outputRecipes = new List<Recipe>();
-
-			foreach(Object recipeDictionary in output)
-			{//create the recipe object based on available JSON;
-
-				
-				Dictionary<String,Object> Dictionary = (Dictionary<String, Object>)recipeDictionary;
-
-				string title = (string)Dictionary["Title"];
-				string author = (string)Dictionary["Author"];
-				string servingSize = (string)Dictionary["ServingSize"];
-				string prepTime = (string)Dictionary["PrepTime"];
-				string instructions = (string)Dictionary["Instructions"];
+			if (!String.IsNullOrEmpty(json))
+			{
+				foreach (Object recipeDictionary in output)
+				{//create the recipe object based on available JSON;
 
 
-				//Ingredients parsing
-				List<Ingredient> ing = new List<Ingredient>();
-				foreach (Dictionary<String, Object> ingredient in (Object[])Dictionary["Ingredients"])
-				{
-					string name = (String)ingredient["Name"];
-					string catagory = (string)ingredient["Catagory"];
-					bool isInUserPantry = (bool)ingredient["IsInUserPantry"];
+					Dictionary<String, Object> Dictionary = (Dictionary<String, Object>)recipeDictionary;
 
-					ing.Add(new Ingredient(name, catagory, isInUserPantry));
+					string title = (string)Dictionary["Title"];
+					string author = (string)Dictionary["Author"];
+					string servingSize = (string)Dictionary["ServingSize"];
+					string prepTime = (string)Dictionary["PrepTime"];
+					string instructions = (string)Dictionary["Instructions"];
+
+
+					//Ingredients parsing
+					List<Ingredient> ing = new List<Ingredient>();
+					foreach (Dictionary<String, Object> ingredient in (Object[])Dictionary["Ingredients"])
+					{
+						string name = (String)ingredient["Name"];
+						string catagory = (string)ingredient["Catagory"];
+						bool isInUserPantry = (bool)ingredient["IsInUserPantry"];
+
+						ing.Add(new Ingredient(name, catagory, isInUserPantry));
+					}
+					Ingredient[] ingredients = ing.ToArray();
+
+
+					//ingredientPortions parsing
+					Dictionary<String, String> ingredientPortions = new Dictionary<string, string>();
+
+					Dictionary<String, object> rawDictionary = (Dictionary<String, Object>)Dictionary["IngredientPortions"];
+
+					foreach (Ingredient ings in ingredients)
+					{
+						ingredientPortions.Add(ings.Name, (string)rawDictionary[ings.Name]);
+					}
+
+
+					//outputing recipe
+					outputRecipes.Add(new Recipe(title, servingSize, prepTime, ingredients, instructions, ingredientPortions));
 				}
-				Ingredient[] ingredients = ing.ToArray();
-
-
-				//ingredientPortions parsing
-				Dictionary<String, String> ingredientPortions = new Dictionary<string, string>();
-
-				Dictionary<String, object> rawDictionary = (Dictionary<String, Object>)Dictionary["IngredientPortions"];
-
-				foreach (Ingredient ings in ingredients)
-				{
-					ingredientPortions.Add(ings.Name,(string)rawDictionary[ings.Name]);
-				}
-
-
-				//outputing recipe
-				outputRecipes.Add(new Recipe(title, servingSize, prepTime, ingredients, instructions, ingredientPortions));
 			}
-
 			return outputRecipes;
 			
 		}
