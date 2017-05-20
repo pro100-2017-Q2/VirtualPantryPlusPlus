@@ -95,14 +95,19 @@
         >
             <TabItem Header="Popular Recipes">
                 <Label>
-                    <Button x:Name="addRecipeButton" Content="Add a Recipe" Width="75" Click="addRecipeClick"/>
+                   
                 </Label>
             </TabItem>
             <TabItem Header="What Can I Make?">
                 <Label Content="Food duh."/>
             </TabItem>
             <TabItem Header="My Recipes">
-                <ScrollViewer Height="100" Width="100"/>
+                
+                <Button x:Name="addRecipeButton" 
+                        Content="Add a Recipe" 
+                        Height="25" 
+                        Width="75" 
+                        Click="addRecipeClick"/>
 
 
             </TabItem>
