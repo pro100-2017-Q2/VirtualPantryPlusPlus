@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="instructionsBox.Text" xml:space="preserve">
+    <value>1. Bring two quarts of water to a boil.
+2. Stir in macaroni, salt and pepper to taste.
+3. Cook for about 7 minutes, stirring occasionally.
+4. Drain pasta and set aside.
+5. Melt butter and cheese in saucepan, stirring occasionally.
+6. Mix cheese with macaroni well, top with more cheese if you'd like.
+7. Enjoy some fine mac.</value>
+  </data>
 </root>

@@ -64,6 +64,16 @@ namespace ProjectPantryPlusPlus.DataModels
 		"Spices and Oils" 
 		};
 
+		public Ingredient(string name,string catagory,bool isInUserPantry)
+		{
+			this.Name = name;
+			this.Catagory = catagory;
+			this.IsInUserPantry = isInUserPantry;
+		}
+		public Ingredient()
+		{
+
+		}
 
 
 	}
