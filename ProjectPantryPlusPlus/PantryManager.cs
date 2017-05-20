@@ -56,7 +56,7 @@ namespace ProjectPantryPlusPlus
 			//Example: 
 			//		Recipes/userRecipeList.bin
 
-			string fileExtension = ".bin";
+			string fileExtension = ".json";
 			string recipeFilePath = "Recipes/";
 			string ingredientFilePath = "Ingredients/";
 			string userTag = "user";
@@ -64,20 +64,20 @@ namespace ProjectPantryPlusPlus
 			string ingredientTag = "Ingredient";
 
 
-			this.RecipeList			= FileIO.LoadRecipes(recipeFilePath			+ recipeTag					+ fileExtension);
-			this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
-			this.IngredientList		= FileIO.LoadIngredients(ingredientFilePath + ingredientTag				+ fileExtension);
-			this.UserIngredientList = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
+			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
+			//this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
+			//this.IngredientList		= FileIO.LoadIngredients(ingredientFilePath + ingredientTag				+ fileExtension);
+			//this.UserIngredientList = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
 
 			this.DisplayRecipeList	= new List<Recipe>(); 
 			foreach(Recipe recipe in RecipeList){
 				DisplayRecipeList.Add(recipe);
 			}
-			foreach (Recipe recipe in UserRecipeList)
+			/*foreach (Recipe recipe in UserRecipeList)
 			{
 				DisplayRecipeList.Add(recipe);
-			}
+			}*/
 
 
 
