@@ -64,7 +64,7 @@ namespace ProjectPantryPlusPlus
 			string ingredientTag = "Ingredient";
 
 
-			this.RecipeList			= FileIO.LoadRecipesJson("../../"+ recipeFilePath			+ recipeTag					+ fileExtension);
+			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
 			//this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
 			//this.IngredientList		= FileIO.LoadIngredients(ingredientFilePath + ingredientTag				+ fileExtension);
 			//this.UserIngredientList = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
