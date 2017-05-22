@@ -1,0 +1,13 @@
+May 19th - Recipes Update
+File I/O able to load recipes.
+Code capable of parsing files, and turning them into recipe objects
+Ingredients displayable (in recipes), functionality not yet implemented.
+UI Displaying basic recipe cards and information. (Not yet clickable but able to show recipes loaded into the program.)
+
+
+Completed points
+-UI Displaying basic recipe cards and information. (Not yet clickable but able to show recipes loaded into the program.)
+-Code capable of parsing files, and turning them into recipe objects
+-File I/O able to load recipes
+-Ingredients displayable (in recipes), functionality not yet implemented.
+
