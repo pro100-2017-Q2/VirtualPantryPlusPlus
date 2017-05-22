@@ -139,11 +139,12 @@ namespace PantryProject
                 System.Windows.Controls.Label RecName = new System.Windows.Controls.Label();
                 System.Windows.Controls.Label RecServe = new System.Windows.Controls.Label();
                 System.Windows.Controls.Label RecTime = new System.Windows.Controls.Label();
-                System.Windows.Controls.Label RecDesc = new System.Windows.Controls.Label();
+                System.Windows.Controls.TextBlock RecIng = new System.Windows.Controls.TextBlock();
+                System.Windows.Controls.TextBlock RecDesc = new System.Windows.Controls.TextBlock();
 
                 RecName.Content = rec.Title;
                 RecName.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
-                RecName.Width = 230;
+                
 
                 RecServe.Content = "Serves:"+ rec.ServingSize;
                 RecServe.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
@@ -153,10 +154,16 @@ namespace PantryProject
                 RecTime.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
                 RecTime.Width = 230;
 
-                RecDesc.Content = rec.Instructions;
-                RecDesc.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
-                RecDesc.Width = 230;
-                RecDesc.MaxHeight = 50;
+
+                foreach (Ingredient ingrid in rec.Ingredients)
+                {
+                    RecIng.Text += "-" + ingrid.Name + "\n";
+                }
+
+
+                RecDesc.Text = rec.Instructions;
+                RecDesc.TextWrapping = TextWrapping.Wrap;
+                RecDesc.Width = 250;
 
                 Grid.SetColumn(Stkpnl, 1);
                 Grid.SetColumn(img, 0);
@@ -166,6 +173,7 @@ namespace PantryProject
                 Stkpnl.Children.Add(RecName);
                 Stkpnl.Children.Add(RecServe);
                 Stkpnl.Children.Add(RecTime);
+                Stkpnl.Children.Add(RecIng);
                 Stkpnl.Children.Add(RecDesc);
                 
                 MyRecipeList.Children.Add(gri);
