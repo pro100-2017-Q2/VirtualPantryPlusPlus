@@ -79,7 +79,10 @@ namespace ProjectPantryPlusPlus.DataModels
 					json = streamReader.ReadToEnd();
 				}
 				output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
-			}catch(System.ArgumentException){}
+			}
+			catch(System.ArgumentException){}
+			catch(System.IO.DirectoryNotFoundException){ }
+			catch(System.IO.FileNotFoundException){ }
 
 
 			List<Recipe> outputRecipes = new List<Recipe>();
