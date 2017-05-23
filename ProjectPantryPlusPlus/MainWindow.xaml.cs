@@ -5,8 +5,8 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Markup;
 using ProjectPantryPlusPlus.DataModels;
-using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Controls;
 
 namespace PantryProject
 {
