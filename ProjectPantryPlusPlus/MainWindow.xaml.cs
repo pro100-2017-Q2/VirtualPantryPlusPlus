@@ -17,9 +17,6 @@ namespace PantryProject
     {
         private PantryManager PM = new PantryManager();
 
-        public object ColumnDefinitions { get; private set; }
-        public Brush SolidColorBRush { get; private set; }
-
         public MainWindow()
         {
             InitializeComponent();
@@ -136,11 +133,16 @@ namespace PantryProject
 
 
                 Image img = new Image();
+                System.Windows.Controls.Label Seperator = new System.Windows.Controls.Label();
                 System.Windows.Controls.Label RecName = new System.Windows.Controls.Label();
                 System.Windows.Controls.Label RecServe = new System.Windows.Controls.Label();
                 System.Windows.Controls.Label RecTime = new System.Windows.Controls.Label();
                 System.Windows.Controls.TextBlock RecIng = new System.Windows.Controls.TextBlock();
                 System.Windows.Controls.TextBlock RecDesc = new System.Windows.Controls.TextBlock();
+
+                Seperator.Background = Brushes.DarkGray;
+                Seperator.Height = 3;
+                Seperator.Width = 400;
 
                 RecName.Content = rec.Title;
                 RecName.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
@@ -175,7 +177,7 @@ namespace PantryProject
                 Stkpnl.Children.Add(RecTime);
                 Stkpnl.Children.Add(RecIng);
                 Stkpnl.Children.Add(RecDesc);
-                
+                MyRecipeList.Children.Add(Seperator);
                 MyRecipeList.Children.Add(gri);
                
             }
