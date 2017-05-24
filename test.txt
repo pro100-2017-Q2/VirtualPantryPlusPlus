@@ -1,3 +1,4 @@
 test DeeGinge
 Fritz - Ping
 Murador - Ping
+Worked on assigning point values with team.
