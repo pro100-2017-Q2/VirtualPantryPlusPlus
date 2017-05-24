@@ -51,11 +51,6 @@ namespace ProjectPantryPlusPlus
             
         }
 
-        private void GoToPantryClick(object sender, EventArgs e)
-        {
-
-        }
-
         private void authorBoxClick(object sender, EventArgs e)
         {
             authorBox.Text = "";
