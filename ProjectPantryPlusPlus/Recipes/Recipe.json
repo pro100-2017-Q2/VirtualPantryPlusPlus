@@ -10,34 +10,28 @@
 					"Ingredients": [
 						{
 							"Name": "Kosher salt",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 						{
 							"Name": "Dried spaghetti",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 						{
 							"Name": "mentaiko",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 						{
 							"Name": "Light usukuchi soy sauce",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 
 						{
 							"Name": "Unsalted butter, melted",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 						{
 							"Name": "Nori seaweed strips",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						}
 					],
 
@@ -60,18 +54,15 @@
 					"Ingredients": [
 											{
 												"Name": "asparagus",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "olive oil",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "kosher salt",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											}
 					],
 				"IngredientPortions": {
@@ -91,38 +82,31 @@
 					"Ingredients": [
 											{
 												"Name": "bread crumbs",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "garlic powder",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "dried thyme",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "Dijon mustard",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "light mayonnaise",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "chicken tenders",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "green beans",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											}
 					],
 				"IngredientPortions": {
@@ -146,58 +130,47 @@
 					"Ingredients": [
 											{
 												"Name": "dried pinto beans",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "Kosher Salt",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "diced bacon",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "white or yellow onion",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "jalapeño",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "garlic cloves",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "fire-roasted tomatoes",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "low-sodium chicken stock",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "bay leaves",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "spring epazote",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "cilantro leaves and fine stems",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											}
 
 					],
@@ -229,73 +202,59 @@
 					"Ingredients": [
 											{
 												"Name": "cinnamon sticks",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "star anise pods",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "cardamom pods",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "cloves",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "water",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "sugar",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "orange peel",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "fresh cranberries",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "fresh lime juice",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "kosher salt",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "Spiced Cranberry Cordial",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "freshly squeezed grapefruit juice",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "London Dry gin",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											},
 											{
 												"Name": "chilled sparkling wine",
-												"Catagory": "Other",
-												"IsInUserPantry": false
+												"Catagory": "Other"
 											}
 
 					],
