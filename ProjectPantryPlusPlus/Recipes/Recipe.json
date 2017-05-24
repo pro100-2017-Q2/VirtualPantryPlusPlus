@@ -10,34 +10,28 @@
 					"Ingredients": [
 						{
 							"Name": "Kosher salt",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 						{
 							"Name": "Dried spaghetti",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 						{
 							"Name": "mentaiko",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 						{
 							"Name": "Light usukuchi soy sauce",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 
 						{
 							"Name": "Unsalted butter, melted",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						},
 						{
 							"Name": "Nori seaweed strips",
-							"Catagory": "Other",
-							"IsInUserPantry": false
+							"Catagory": "Other"
 						}
 					],
 
