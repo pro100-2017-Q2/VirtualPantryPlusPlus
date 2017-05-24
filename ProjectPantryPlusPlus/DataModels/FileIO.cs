@@ -68,13 +68,22 @@ namespace ProjectPantryPlusPlus.DataModels
 
 
 		public static List<Recipe> LoadRecipesJson(string filename){
-			string json;
-			var fileStream = new FileStream(@filename, FileMode.Open, FileAccess.Read);
-			using (var streamReader = new StreamReader(fileStream, Encoding.UTF8)){
-				json = streamReader.ReadToEnd();
-			}
 
-			var output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
+			Object[] output = new Object[0];
+			string json = "";
+			try
+			{
+				var fileStream = new FileStream(@filename, FileMode.Open, FileAccess.Read);
+				using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+				{
+					json = streamReader.ReadToEnd();
+				}
+				output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
+			}
+			catch(System.ArgumentException){}
+			catch(System.IO.DirectoryNotFoundException){ }
+			catch(System.IO.FileNotFoundException){ }
+
 
 			List<Recipe> outputRecipes = new List<Recipe>();
 			if (!String.IsNullOrEmpty(json))
