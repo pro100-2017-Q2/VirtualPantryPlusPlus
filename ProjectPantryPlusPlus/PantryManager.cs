@@ -19,6 +19,7 @@ namespace ProjectPantryPlusPlus
 		private List<Recipe> userRecipeList = new List<Recipe>();
 		private List<Ingredient> ingredientList = new List<Ingredient>();
 		private List<Ingredient> userIngredientList = new List<Ingredient>();
+		private List<Ingredient> AvailableIngredients = new List<Ingredient>();
 		private List<Recipe> displayRecipeList = new List<Recipe>();
 
 
@@ -42,6 +43,13 @@ namespace ProjectPantryPlusPlus
 			get { return userIngredientList; }
 			set { userIngredientList = value; }
 		}
+		private List<Ingredient> availableIngredients
+		{
+			get { return availableIngredients; }
+			set { availableIngredients = value; }
+		}
+		
+
 		public List<Recipe> DisplayRecipeList
 		{
 			get { return displayRecipeList; }

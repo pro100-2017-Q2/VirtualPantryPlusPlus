@@ -44,15 +44,15 @@
             </ScrollViewer>
             
             
-            <!--<Button
+            <Button
             x:Name="addIngredient"
             Height="20"
             Width="100"
             Content="Add an Ingredient"
             Grid.Row="2"
             VerticalAlignment="Top"
-            Margin="0 10"
-            />-->
+            Margin="0 10" Click="AddIngredientClick"
+            />
             <Button
                 x:Name="import"
                 Grid.Column="1"

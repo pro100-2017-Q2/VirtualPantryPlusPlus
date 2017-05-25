@@ -7,6 +7,7 @@ using System.Windows.Markup;
 using ProjectPantryPlusPlus.DataModels;
 using System.Windows.Media;
 using System.Windows.Controls;
+using ProjectPantryPlusPlus.Popups;
 
 namespace PantryProject
 {
@@ -39,8 +40,10 @@ namespace PantryProject
 
         private void AddIngredientClick(object sender, RoutedEventArgs e)
         {
-            IngredientPopUp i = new IngredientPopUp();
-            DialogResult dr = i.ShowDialog();
+            AddIngredient popup = new AddIngredient();
+            popup.ShowDialog();
+            //IngredientPopUp i = new IngredientPopUp();
+            //DialogResult dr = i.ShowDialog();
 
         }
 

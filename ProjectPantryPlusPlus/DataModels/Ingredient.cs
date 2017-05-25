@@ -21,7 +21,6 @@ namespace ProjectPantryPlusPlus.DataModels
 
 		private string name;
 		private string catagory;
-		private bool isInUserPantry;
 
 		public string Name
 		{
@@ -43,17 +42,12 @@ namespace ProjectPantryPlusPlus.DataModels
 				}
 			}
 		}
-		public bool IsInUserPantry
-		{
-			get { return isInUserPantry; }
-			set { isInUserPantry = value; }
-		}
+		
 
 
 
 
-		//		   ToDo : Catagories need to be flushed out
-		// Additionally : consider making this an enum rather than a string array (consult with team first)
+		//		   ToDo : consider making this an enum rather than a string array (consult with team first)
 		public static string[] IngredientCatagories { get; private set; } = new string[] { 
 		"Meats",
         "Eggs & Dairy",
@@ -64,11 +58,10 @@ namespace ProjectPantryPlusPlus.DataModels
 		"Spices and Oils" 
 		};
 
-		public Ingredient(string name,string catagory,bool isInUserPantry)
+		public Ingredient(string name,string catagory)
 		{
 			this.Name = name;
 			this.Catagory = catagory;
-			this.IsInUserPantry = isInUserPantry;
 		}
 		public Ingredient()
 		{
