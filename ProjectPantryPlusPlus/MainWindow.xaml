@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PantryProject"
         mc:Ignorable="d"
-        Title="My Pantry V0.01" Height="550" Width="725"
+        Title="My Pantry V0.01" Height="550" Width="1000"
         ResizeMode="NoResize">
     <Grid>
+
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -100,8 +101,10 @@
                     
             </TabItem>
             <TabItem Header="What Can I Make?">
-                <Label Content="Food duh."/>
             </TabItem>
+            
+            
+            
             <TabItem Header="My Recipes">
                 <ListBox x:Name="MyRecipeList"
                          SelectionMode="Single"
@@ -109,26 +112,26 @@
                          Background="DarkGray" Margin="0,4,-0.2,-4">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border BorderBrush="Silver" BorderThickness="3" Width="450">
+                            <Border BorderBrush="Silver" BorderThickness="3" Width="610">
                                 <Grid Background="White"  MouseLeftButtonDown="MyRecipeList_MouseLeftButtonDown">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="4*"/>
                                     </Grid.ColumnDefinitions>
                                     <Image Grid.Column="0"
-                                               Width="100"
+                                               Width="150"
                                                Height="100"/>
                                     <StackPanel Grid.Column="1" Margin="5">
                                         <Label Content="{Binding Title}" FontWeight="ExtraBold" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300">
+                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
                                             <Run Text="Serves: " FontWeight="Bold"/>
                                             <Run Text="{Binding ServingSize}"/>
                                         </TextBlock>
-                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300">
+                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
                                             <Run Text="PrepTime: " FontWeight="Bold"/>
                                             <Run Text="{Binding PrepTime}"/>
                                         </TextBlock>
-                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300">
+                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
                                             <Run Text="{Binding Instructions}"/>
                                         </TextBlock>
                                     </StackPanel>
