@@ -1,0 +1,104 @@
+[
+	{
+
+		"Title": "Mom's Baked Macaroni and Cheese",
+		"Author": "Alex fritz (Thugdere)",
+		"PrepTime": "45 min",
+		"ServingSize": "6 servings",
+		"Instructions": "1. Preheat oven to 350 degrees F (175 degrees C). Bring a large pot of lightly salted water to a boil. Add pasta and cook for 8 to 10 minutes or until al dente; drain.\n2. Place macaroni in a 2 quart casserole dish. Stir in cheese soup and milk until well combined. Sprinkle with shredded Colby. \n 3. Bake 25 to 30 minutes, or until cheese is brown and bubbly.",
+		"Ingredients": [
+			{
+				"Name": "macaroni",
+				"Catagory": "Other"
+			},
+			{
+				"Name": "condensed Cheddar cheese soup",
+				"Catagory": "Other"
+			},
+			{
+				"Name": "milk",
+				"Catagory": "Other"
+			},
+			{
+				"Name": "shredded Colby cheese",
+				"Catagory": "Other"
+			}
+		],
+
+
+		"IngredientPortions": {
+			"macaroni": "1 Package (16 ounces)",
+			"condensed Cheddar cheese soup": "1 can (10.75 ounces)",
+			"milk": "1 cup",
+			"shredded Colby cheese": "1 lb."
+		}
+	},
+	{
+
+		"Title": "Pizza Bombs w/o sauce",
+		"Author": "Alex Fritz (Thugdere)",
+		"PrepTime": "18 minutes",
+		"ServingSize": "10 pizza bombs",
+		"Instructions": "1. Preheat oven to 375 degrees.\n 2. Roll each biscuit out very thin. Place one cube of cheese and 1 to 1-1/2 tablespoons toppings on each.\n 3. Fold the biscuits is to fold it in half (like a taco), pinch the edges shut and then bring the corners under and roll to make a ball.\n 4. Top each pizza bomb with a sprinkle of your favorite pizza toppings and seasonings.\n 5. Place biscuits on a parchment lined pan seam side down.\n 6. Put them in the oven and lower the heat to 350 degrees. Bake 13-16 minutes or until lightly browned.\n 7. Serve with warm pizza sauce for dipping.\n\n *Note Mistakes like pineapple should be dabbed dry.",
+		"Ingredients": [
+			{
+				"Name": "Pillsbury biscuits",
+				"Catagory": "Other"
+			},
+			{
+				"Name": "mozzarella cheese sticks",
+				"Catagory": "Other"
+			},
+			{
+				"Name": "your favorite pizza toppings",
+				"Catagory": "Other"
+			},
+			{
+				"Name": "Pizza Sauce",
+				"Catagory": "Other"
+			}
+		],
+
+
+		"IngredientPortions": {
+			"Pillsbury biscuits": "1 can",
+			"mozzarella cheese stick": "user prefrence, but go with at least 4 to be safe",
+			"your favorite pizza toppings": "10-15 tablespoons",
+			"Pizza Sauce": "User prefrence, for dipping"
+		}
+	},
+	{
+
+		"Title": "Crispy Cheese Torrtillas",
+		"Author": "Alex Fritz (Thugdere)",
+		"PrepTime": "about 15 minutes",
+		"ServingSize": "1 large tortilla",
+		"Instructions": "1. Preheat your oven to 350°F with a rack in the middle.\n 2. Butter a flour tortilla all the way to the edges: Place the flour tortilla on a large baking sheet (a dark baking sheet or cookie sheet will work best. Spread the butter all over the top of the tortilla, all the way to the edges.\n 3. Bake the tortilla until lightly toasted: Bake the plain buttered tortilla for about 6 minutes or until it begins to get lightly toasted (time depends on oven).\n 4. Sprinkle with cheese, add green chile strips, return to oven: Remove the tortilla from the oven and sprinkle with the cheddar cheese, leaving about 1/2-inch from the edges. Add strips of green chiles in a star pattern if you want.\n Return the tortilla to the oven and cook for 2 more minutes, or until all of the cheese has melted.",
+		"Ingredients": [
+			{
+				"Name": "large flour tortilla",
+				"Catagory": "Other"
+			},
+			{
+				"Name": "butter",
+				"Catagory": "Other"
+			},
+			{
+				"Name": "grated  or shredded cheese",
+				"Catagory": "Other"
+			},
+			{
+				"Name": "*Optional roasted green chilies",
+				"Catagory": "Other"
+			}
+		],
+
+
+		"IngredientPortions": {
+			"large flour tortilla": "1",
+			"butter": "1 Tbsp",
+			"grated  or shredded cheese": "1/2 cup",
+			"*Optional roasted green chilies": "As many as you would like"
+		}
+	}
+]
