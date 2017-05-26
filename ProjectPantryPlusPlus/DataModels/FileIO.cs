@@ -109,7 +109,7 @@ namespace ProjectPantryPlusPlus.DataModels
 						string catagory = (string)ingredient["Catagory"];
 						bool isInUserPantry = (bool)ingredient["IsInUserPantry"];
 
-						ing.Add(new Ingredient(name, catagory, isInUserPantry));
+						ing.Add(new Ingredient(name, catagory));
 					}
 					Ingredient[] ingredients = ing.ToArray();
 

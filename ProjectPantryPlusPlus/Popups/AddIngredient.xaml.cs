@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectPantryPlusPlus.DataModels;
+using ProjectPantryPlusPlus.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,18 @@ namespace ProjectPantryPlusPlus.Popups
     /// </summary>
     public partial class AddIngredient : Window
     {
+        PantryManager pm = new PantryManager();
         public AddIngredient()
         {
             InitializeComponent();
+            categoryBox.ItemsSource = Enum.GetValues(typeof(FoodCategories));
+
+        }
+
+        private void addIngredientButton_Click(object sender, RoutedEventArgs e)
+        {
+            Ingredient i = new Ingredient(this.nameBox.Text, this.categoryBox.Text);
+            pm.UserIngredientList.Add(i);
         }
     }
 }

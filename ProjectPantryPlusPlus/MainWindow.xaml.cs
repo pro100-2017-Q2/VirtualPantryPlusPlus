@@ -8,6 +8,7 @@ using ProjectPantryPlusPlus.DataModels;
 using System.Windows.Media;
 using System.Windows.Controls;
 using ProjectPantryPlusPlus.Popups;
+using ProjectPantryPlusPlus.Enums;
 
 namespace PantryProject
 {
@@ -23,6 +24,7 @@ namespace PantryProject
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
+            ingredientList.ItemsSource = PM.UserIngredientList;
             //populate_MyRepTab();
             
         }
@@ -85,13 +87,39 @@ namespace PantryProject
         private void addRecipeClick(object sender, RoutedEventArgs e)
         {
             //Creating hard-coded recipes
-            RecipePopUp r = new RecipePopUp();
-            r.ShowDialog();
+           
 
         }
 
         private void populate_List()
         {
+            FoodCategories f = FoodCategories.Meat;
+            foreach (Ingredient i in PM.UserIngredientList)
+            {
+                switch (f)
+                {
+                    case FoodCategories.Beans:
+                        break;
+                    case FoodCategories.Dairy:
+                        break;
+                    case FoodCategories.Eggs:
+                        break;
+                    case FoodCategories.Fruits:
+                        break;
+                    case FoodCategories.Grains:
+                        break;
+                    case FoodCategories.Meat:
+                        break;
+                    case FoodCategories.Nuts:
+                        break;
+                    case FoodCategories.Oils:
+                        break;
+                    case FoodCategories.Spices:
+                        break;
+                    case FoodCategories.Vegetables:
+                        break;
+                }
+            }
             foreach (string Category in Ingredient.IngredientCatagories)
             {
                 Thickness ListThic = new Thickness();

@@ -34,7 +34,17 @@
                      Grid.ColumnSpan="3"
                      Grid.Row="1"
                      Margin="10">
-                    <!--<Label x:Name="meatName" Content="-Meats" MouseLeftButtonDown="Content_MouseLeftButtonDown"/>
+
+                    <ListBox
+                        x:Name="ingredientList"
+                    >
+                        <!--<ListBox.ItemTemplate>
+                            <DataTemplate>
+                                
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>-->                       
+                    </ListBox>    
+                <!--<Label x:Name="meatName" Content="-Meats" MouseLeftButtonDown="Content_MouseLeftButtonDown"/>
                 <TextBlock x:Name="meatContent" Visibility="Collapsed"  Margin="20 0 7 0" Background="Green" Width="200" TextWrapping="Wrap" Text="@reuscam: I don't think it's the way the viewbox works. It doesn't resize already rendered content, it applies transformations that are used when the content is rendered. At least I hope it does so, because it's part of WPF's rendering concept"/>
                 <Label x:Name="dairyName" Content="-Dairy Products"/>
                 <TextBlock x:Name="dairyContent" Margin="20 0 7 20" Background="Green"/>
