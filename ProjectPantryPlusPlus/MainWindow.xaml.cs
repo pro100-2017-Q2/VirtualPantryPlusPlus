@@ -224,5 +224,26 @@ namespace PantryProject
         //    }
         //}
 
+
+		private void FilterCheckBoxToggled(object sender, RoutedEventArgs e)
+		{
+			//Checkboxes should have a DataContext that is the Ingredient they're representing
+
+			System.Windows.Controls.CheckBox senderAsCheck = sender as System.Windows.Controls.CheckBox;
+			Ingredient relevantIngredient = (Ingredient)senderAsCheck.DataContext;
+
+			if((bool)senderAsCheck.IsChecked) //must be cast as bool because IsChecked is a bool? Which basically means it can be null, and the if statement doesn't like that.
+			{
+				if (!PM.AvailableIngredients.Contains(relevantIngredient))
+				{//Don't add the ingredient twice, so check if it's already there first. (shouldn't be an issue but better safe than sorry)
+					PM.AvailableIngredients.Add(relevantIngredient);
+				}
+			}else{
+				while(PM.AvailableIngredients.Contains(relevantIngredient))
+				{
+					PM.AvailableIngredients.Remove(relevantIngredient);
+				}
+			}
+		}
     }
 }
