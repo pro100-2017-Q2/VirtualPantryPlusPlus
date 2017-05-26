@@ -18,8 +18,7 @@ namespace ProjectPantryPlusPlus
 		private List<Recipe> recipeList = new List<Recipe>();
 		private List<Recipe> userRecipeList = new List<Recipe>();
 		private List<Ingredient> ingredientList = new List<Ingredient>();
-		private List<Ingredient> userIngredientList = new List<Ingredient>();
-		private List<Ingredient> AvailableIngredients = new List<Ingredient>();
+		private List<Ingredient> availableIngredients = new List<Ingredient>();
 		private List<Recipe> displayRecipeList = new List<Recipe>();
 
 
@@ -38,18 +37,11 @@ namespace ProjectPantryPlusPlus
 			get { return ingredientList; }
 			set { ingredientList = value; }
 		}
-		public List<Ingredient> UserIngredientList
+		public List<Ingredient> AvailableIngredients
 		{
-			get { return userIngredientList; }
-			set { userIngredientList = value; }
-		}
-		private List<Ingredient> availableIngredients
-		{
-			get { return availableIngredients; }
-			set { availableIngredients = value; }
-		}
-		
-
+			get { return AvailableIngredients; }
+			set { AvailableIngredients = value; }
+		}	
 		public List<Recipe> DisplayRecipeList
 		{
 			get { return displayRecipeList; }
@@ -71,21 +63,27 @@ namespace ProjectPantryPlusPlus
 			string recipeTag = "Recipe";
 			string ingredientTag = "Ingredient";
 
+			List<Ingredient> tempIngredients = new List<Ingredient>();
+
 
 			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
 			//this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
 			//this.IngredientList		= FileIO.LoadIngredients(ingredientFilePath + ingredientTag				+ fileExtension);
-			//this.UserIngredientList = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
+			//tempIngredients = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
 
 			this.DisplayRecipeList	= new List<Recipe>(); 
 			foreach(Recipe recipe in RecipeList){
 				DisplayRecipeList.Add(recipe);
 			}
-			/*foreach (Recipe recipe in UserRecipeList)
+			foreach (Recipe recipe in UserRecipeList)
 			{
 				DisplayRecipeList.Add(recipe);
-			}*/
+			}
+			foreach (Ingredient ing in tempIngredients)
+			{
+				IngredientList.Add(ing);
+			}
 
 
 
