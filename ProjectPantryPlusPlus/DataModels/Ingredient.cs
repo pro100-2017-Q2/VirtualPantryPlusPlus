@@ -21,7 +21,6 @@ namespace ProjectPantryPlusPlus.DataModels
 
 		private string name;
 		private string catagory;
-
 		public string Name
 		{
 			get { return name; }
@@ -42,10 +41,6 @@ namespace ProjectPantryPlusPlus.DataModels
 				}
 			}
 		}
-		
-
-
-
 
 		//		   ToDo : consider making this an enum rather than a string array (consult with team first)
 		public static string[] IngredientCatagories { get; private set; } = new string[] { 

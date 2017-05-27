@@ -20,7 +20,7 @@ namespace ProjectPantryPlusPlus
 		private List<Ingredient> ingredientList = new List<Ingredient>();
 		private List<Ingredient> availableIngredients = new List<Ingredient>();
 		private List<Recipe> displayRecipeList = new List<Recipe>();
-
+ 
 
 		public List<Recipe> RecipeList
 		{

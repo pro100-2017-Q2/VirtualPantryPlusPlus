@@ -1,12 +1,15 @@
-﻿<Window x:Class="PantryProject.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PantryProject"
+        xmlns:DataModels="clr-namespace:ProjectPantryPlusPlus.DataModels" x:Class="PantryProject.MainWindow"
         mc:Ignorable="d"
         Title="My Pantry V0.01" Height="550" Width="725"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        >
+
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -29,8 +32,68 @@
                 <RowDefinition Height="300"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <ScrollViewer BorderBrush="Black" Grid.ColumnSpan="3" Grid.Row ="1">
-                <StackPanel x:Name="pantryList" 
+            <ScrollViewer x:Name="mainScrollViewer"
+                BorderBrush="Black" Grid.ColumnSpan="3" Grid.Row ="1">
+                <Grid x:Name="PantryCategories">
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Name="Meats"/>
+                        <RowDefinition x:Name="DairyEggs"/>
+                        <RowDefinition x:Name="NutsGrainsBeans"/>
+                        <RowDefinition x:Name="Fruits"/>
+                        <RowDefinition x:Name="Vegetables"/>
+                        <RowDefinition x:Name="Beverages"/>
+                        <RowDefinition x:Name="SpicesOils"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Meats"/>
+                    <Label Content="Dairy/Eggs"
+                           Grid.Row="1"/>
+                    <Label Content="Nuts, Grains, Beans"
+                           Grid.Row="2"/>
+                    <Label Content="Fruits"
+                           Grid.Row="3"/>
+                    <Label Content="Vegetables"
+                           Grid.Row="4"/>
+                    <Label Content="SpicesOils"
+                           Grid.Row="5"
+                    />
+                    <ListBox x:Name="meatsList"
+                             Grid.Row="0"
+                             Width="150"
+                             Margin="70,0,0,0" 
+                             IsSynchronizedWithCurrentItem="True"
+                             ItemsSource="{Binding meats}">
+                        <ListBox.DataContext>
+                            <DataModels:Ingredient/>
+                        </ListBox.DataContext>
+                    </ListBox>
+                    <ListBox x:Name="dairyList"
+                             Grid.Row="1"
+                             Width="150"
+                             Margin="70,0,0,0"/>
+                    <ListBox x:Name="grainsList"
+                             Grid.Row="2"
+                             Width="150"
+                             Margin="70,0,0,0"/>
+                    <ListBox x:Name="fruitsList"
+                             Grid.Row="3"
+                             Width="150"
+                             Margin="70,0,0,0"/>
+                    <ListBox x:Name="vegetablesList"
+                             Grid.Row="4"
+                             Width="150"
+                             Margin="70,0,0,0"/>
+                    <ListBox x:Name="spicesList"
+                             Grid.Row="5"
+                             Width="150"
+                             Margin="70,0,0,0"
+                    />
+
+
+
+
+                </Grid>
+
+                <!--<StackPanel x:Name="pantryList" 
                      Grid.ColumnSpan="3"
                      Grid.Row="1"
                      Margin="10">
@@ -38,22 +101,25 @@
                     <ListBox
                         x:Name="ingredientList"
                     >
-                        <!--<ListBox.ItemTemplate>
+                        -->
+                <!--<ListBox.ItemTemplate>
                             <DataTemplate>
                                 
                             </DataTemplate>
-                        </ListBox.ItemTemplate>-->                       
+                        </ListBox.ItemTemplate>-->
+                <!--                       
                     </ListBox>    
+                -->
                 <!--<Label x:Name="meatName" Content="-Meats" MouseLeftButtonDown="Content_MouseLeftButtonDown"/>
                 <TextBlock x:Name="meatContent" Visibility="Collapsed"  Margin="20 0 7 0" Background="Green" Width="200" TextWrapping="Wrap" Text="@reuscam: I don't think it's the way the viewbox works. It doesn't resize already rendered content, it applies transformations that are used when the content is rendered. At least I hope it does so, because it's part of WPF's rendering concept"/>
                 <Label x:Name="dairyName" Content="-Dairy Products"/>
                 <TextBlock x:Name="dairyContent" Margin="20 0 7 20" Background="Green"/>
                 <Label x:Name="fruitsVegsName" Content="-Fruits, Vegetables, and Juices."/>
                 <TextBlock x:Name="fruitsVegsContent" Margin="20 0 7 20" Background="Green"/>-->
-                </StackPanel>
+                <!--</StackPanel>-->
             </ScrollViewer>
-            
-            
+
+
             <Button
             x:Name="addIngredient"
             Height="20"
@@ -104,10 +170,8 @@
   
         >
             <TabItem Header="Popular Recipes">
-                <ScrollViewer x:Name="popular_Scroller">
-                    
-                </ScrollViewer>
-                    
+                <ScrollViewer x:Name="popular_Scroller"/>
+
             </TabItem>
             <TabItem Header="What Can I Make?">
                 <Label Content="Food duh."/>
@@ -130,17 +194,9 @@
                                                Height="100"/>
                                     <StackPanel Grid.Column="1" Margin="5">
                                         <Label Content="{Binding Title}" FontWeight="ExtraBold" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300">
-                                            <Run Text="Serves: " FontWeight="Bold"/>
-                                            <Run Text="{Binding ServingSize}"/>
-                                        </TextBlock>
-                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300">
-                                            <Run Text="PrepTime: " FontWeight="Bold"/>
-                                            <Run Text="{Binding PrepTime}"/>
-                                        </TextBlock>
-                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300">
-                                            <Run Text="{Binding Instructions}"/>
-                                        </TextBlock>
+                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300"><Run Text="Serves: " FontWeight="Bold"/><Run Text=" "/><Run Text="{Binding ServingSize}"/></TextBlock>
+                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300"><Run Text="PrepTime: " FontWeight="Bold"/><Run Text=" "/><Run Text="{Binding PrepTime}"/></TextBlock>
+                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300"><Run Text="{Binding Instructions}"/></TextBlock>
                                     </StackPanel>
                                 </Grid>
                             </Border>

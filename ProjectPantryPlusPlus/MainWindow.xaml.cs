@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using ProjectPantryPlusPlus.Popups;
 using ProjectPantryPlusPlus.Enums;
+using System.Collections.Generic;
 
 namespace PantryProject
 {
@@ -18,13 +19,23 @@ namespace PantryProject
     public partial class MainWindow : Window, IAddChild
     {
         private PantryManager PM = new PantryManager();
+        List<Ingredient> meats = new List<Ingredient>();
+        List<Ingredient> dairy = new List<Ingredient>();
+        List<Ingredient> fruits = new List<Ingredient>();
+        List<Ingredient> vegetables = new List<Ingredient>();
+        List<Ingredient> beverages = new List<Ingredient>();
+        List<Ingredient> spices = new List<Ingredient>();
+        List<Ingredient> grains = new List<Ingredient>();
 
         public MainWindow()
         {
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            ingredientList.ItemsSource = PM.UserIngredientList;
+            meatsList.DataContext = meats;
+            Ingredient i = new Ingredient("Chicken", "Meat");
+            meats.Add(i);
+            
             //populate_MyRepTab();
             
         }
@@ -91,54 +102,105 @@ namespace PantryProject
 
         }
 
-        private void populate_List()
+        public void populate_List()
         {
+            
             FoodCategories f = FoodCategories.Meat;
-            foreach (Ingredient i in PM.UserIngredientList)
+            foreach (Ingredient i in PM.IngredientList)
             {
+                if (i.Catagory == "Meat")
+                {
+                    f = FoodCategories.Meat;
+                }
+                else if (i.Catagory == "Eggs")
+                {
+                    f = FoodCategories.Eggs;
+                }
+                else if (i.Catagory == "Dairy")
+                {
+                    f = FoodCategories.Dairy;
+                }
+                else if (i.Catagory == "Fruits")
+                {
+                    f = FoodCategories.Fruits;
+                }
+                else if (i.Catagory == "Vegetables")
+                {
+                    f = FoodCategories.Vegetables;
+                }
+                else if (i.Catagory == "Nuts")
+                {
+                    f = FoodCategories.Nuts;
+                }
+                else if (i.Catagory == "Beans")
+                {
+                    f = FoodCategories.Beans;
+                }
+                else if (i.Catagory == "Grains")
+                {
+                    f = FoodCategories.Grains;
+                }else if (i.Catagory == "Spices")
+                {
+                    f = FoodCategories.Spices;
+                }
+                else 
+                {
+                    f = FoodCategories.Oils;
+                }
                 switch (f)
                 {
                     case FoodCategories.Beans:
+                        grains.Add(i);
                         break;
                     case FoodCategories.Dairy:
+                        dairy.Add(i);
                         break;
                     case FoodCategories.Eggs:
+                        dairy.Add(i);
                         break;
                     case FoodCategories.Fruits:
+                        fruits.Add(i);
                         break;
                     case FoodCategories.Grains:
+                        grains.Add(i);
                         break;
                     case FoodCategories.Meat:
+                        meats.Add(i);
                         break;
                     case FoodCategories.Nuts:
+                        grains.Add(i);
                         break;
                     case FoodCategories.Oils:
+                        spices.Add(i);
                         break;
                     case FoodCategories.Spices:
+                        spices.Add(i);
                         break;
                     case FoodCategories.Vegetables:
+                        vegetables.Add(i);
                         break;
                 }
             }
-            foreach (string Category in Ingredient.IngredientCatagories)
-            {
-                Thickness ListThic = new Thickness();
-                ListThic.Left = 20;
-                ListThic.Right = 7;
-                ListThic.Bottom = 3;
-                ListThic.Top = 1;
-                pantryList.Children.Add(new System.Windows.Controls.Label
-                {
-                    Content = "-" + Category + ""
-                });
-                pantryList.Children.Add(new System.Windows.Controls.TextBlock
-                {
-                    Margin = ListThic,
-                    Width = 200,
-                    TextWrapping = TextWrapping.Wrap,
-                    Text = "This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting.This is sample text, I hope I get replaced with something interesting."
-                });
-            }
+           
+            //foreach (string Category in Ingredient.IngredientCatagories)
+            //{
+            //    Thickness ListThic = new Thickness();
+            //    ListThic.Left = 20;
+            //    ListThic.Right = 7;
+            //    ListThic.Bottom = 3;
+            //    ListThic.Top = 1;
+            //    //pantryList.Children.Add(new System.Windows.Controls.Label
+            //    //{
+            //    //    Content = "-" + Category + ""
+            //    //});
+            //    //pantryList.Children.Add(new System.Windows.Controls.TextBlock
+            //    //{
+            //    //    Margin = ListThic,
+            //    //    Width = 200,
+            //    //    TextWrapping = TextWrapping.Wrap,
+            //    //    Text = "This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting.This is sample text, I hope I get replaced with something interesting."
+            //    //});
+            //}
         }
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
