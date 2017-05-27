@@ -94,8 +94,50 @@ namespace ProjectPantryPlusPlus
 
 
 
-		public void FilterList(){
-			throw new NotImplementedException();
+		public List<Recipe> FilterList() {
+			List<Recipe> outputRecipes = new List<Recipe>();
+
+			//Foreach duplicated in order to go through both RecipeList, and UserRecipeList, this seperation exists in order to create the "My recipes" tab easily.
+
+			foreach (Recipe rec in RecipeList)
+			{
+				//Check the recipe. If the user is missing even one ingredient, then do no add it to the list. 
+				//Only if all ingredients are available will the recipe be added.
+				bool canBeMadeWithAvailable = true;
+				foreach(Ingredient ing in rec.Ingredients)
+				{
+					if(canBeMadeWithAvailable && !AvailableIngredients.Contains(ing))
+					{
+						canBeMadeWithAvailable = false;
+					}
+				}
+
+				if(canBeMadeWithAvailable)
+				{ outputRecipes.Add(rec); }
+
+
+			}
+
+			foreach (Recipe rec in UserRecipeList)
+			{
+				//Check the recipe. If the user is missing even one ingredient, then do no add it to the list. 
+				//Only if all ingredients are available will the recipe be added.
+				bool canBeMadeWithAvailable = true;
+				foreach (Ingredient ing in rec.Ingredients)
+				{
+					if (canBeMadeWithAvailable && !AvailableIngredients.Contains(ing))
+					{
+						canBeMadeWithAvailable = false;
+					}
+				}
+
+				if (canBeMadeWithAvailable)
+				{ outputRecipes.Add(rec); }
+
+
+			}
+
+			return outputRecipes;
 		}
 
 
