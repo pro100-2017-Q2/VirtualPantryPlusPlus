@@ -32,7 +32,7 @@ namespace ProjectPantryPlusPlus.Popups
         private void addIngredientButton_Click(object sender, RoutedEventArgs e)
         {
             Ingredient i = new Ingredient(this.nameBox.Text, this.categoryBox.Text);
-            pm.UserIngredientList.Add(i);
+            pm.IngredientList.Add(i);
         }
     }
 }

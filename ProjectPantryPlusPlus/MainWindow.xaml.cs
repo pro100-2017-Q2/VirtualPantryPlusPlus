@@ -93,7 +93,7 @@ namespace PantryProject
         private void populate_List()
         {
             FoodCategories f = FoodCategories.Meat;
-            foreach (Ingredient i in PM.UserIngredientList)
+            foreach (Ingredient i in PM.IngredientList)
             {
                 switch (f)
                 {
@@ -142,10 +142,80 @@ namespace PantryProject
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            //Popup popup = new Popup();
-            //popup.IsOpen = true;
-            //popup.Width = 100;
-            //popup.Height = 100;
+
+            Thickness Thick = new Thickness();
+            Thick.Left = 5;
+            Thick.Right = 5;
+            Thick.Bottom = 5;
+            Thick.Top = 5;
+
+            Recipe Selected = (Recipe)(((Grid)sender).DataContext);
+            Window RecipeWindow = new Window()
+            {
+                ResizeMode = ResizeMode.NoResize,
+                Height = 700,
+                Width = 800,
+                Padding = Thick
+            };
+
+            StackPanel StkPnl = new StackPanel();
+            Image RecImg = new Image()
+            {
+               Height = 300,
+               Width = 790
+            };
+
+            ScrollViewer Scroller = new ScrollViewer()
+            {
+                CanContentScroll = false
+            };
+
+            System.Windows.Controls.Label Title = new System.Windows.Controls.Label()
+            {
+                MaxWidth = 700,
+                MaxHeight = 200,
+                Content = Selected.Title,
+                FontSize = 20,
+                FontWeight = FontWeights.Bold,
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Stretch
+            };
+
+            TextBlock PrepTime = new TextBlock()
+            {
+                Background = Brushes.Aqua,
+                MaxWidth = 700,
+                MaxHeight = 200,
+                Text = "Preperation Time: " + Selected.PrepTime,
+                FontSize = 18,
+                TextWrapping = TextWrapping.Wrap,
+            };
+
+            TextBlock ServSize = new TextBlock()
+            {
+                MaxWidth = 700,
+                MaxHeight = 200,
+                Text = "Serves :  " + Selected.ServingSize,
+                FontSize = 18,
+                TextWrapping = TextWrapping.Wrap,
+            };
+
+            TextBlock Instructions = new TextBlock()
+            {
+                MaxWidth = 700,
+                Text = "Instructions: \n" + Selected.Instructions,
+                FontSize = 18,
+                TextWrapping = TextWrapping.Wrap,
+            };
+
+            StkPnl.Children.Add(RecImg);
+            StkPnl.Children.Add(Title);
+            StkPnl.Children.Add(PrepTime);
+            StkPnl.Children.Add(ServSize);
+            StkPnl.Children.Add(Instructions);
+            Scroller.Content = StkPnl;
+            RecipeWindow.Content = Scroller;   
+
+            RecipeWindow.Show();
 
         }
 

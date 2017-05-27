@@ -112,18 +112,18 @@
             </TabItem>
             <TabItem Header="What Can I Make?">
             </TabItem>
-            
-            
+             
             
             <TabItem Header="My Recipes">
                 <ListBox x:Name="MyRecipeList"
                          SelectionMode="Single"
+                         
                          ScrollViewer.CanContentScroll="False"
                          Background="DarkGray" Margin="0,4,-0.2,-4">
                     <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="Silver" BorderThickness="3" Width="610">
-                                <Grid Background="White"  MouseLeftButtonDown="MyRecipeList_MouseLeftButtonDown">
+                        <DataTemplate >
+                            <Border BorderBrush="Silver" BorderThickness="3" Width="610" >
+                                <Grid Background="White"  MouseLeftButtonDown="MyRecipeList_MouseLeftButtonDown" DataContext="{Binding}" >
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="2*"/>
                                         <ColumnDefinition Width="4*"/>
