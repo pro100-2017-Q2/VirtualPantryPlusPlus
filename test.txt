@@ -2,3 +2,4 @@ test DeeGinge
 Fritz - Ping
 Murador - Ping
 Worked on assigning point values with team.
+Finsihing touches on Reading and parsing JSON recipes
