@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPantryPlusPlus.Popups"
         mc:Ignorable="d"
-        Title="Add an Ingredient" Height="200" Width="300">
+        Title="Add an Ingredient" Height="250" Width="300">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -15,6 +15,7 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
@@ -46,6 +47,7 @@
             Height="25"
         />
         <ComboBox
+            x:Name="categoryBox"
             Grid.Column="1"
             Grid.Row="1"
             Margin="10,0,0,0"
@@ -59,6 +61,16 @@
             Grid.Row="2"
             Width="90"
             Height="25"
+        />
+        <Button
+            x:Name="addIngredientButton"
+            Content="Add"
+            Width="50"
+            Height="25"
+            Grid.Row="3"
+            Grid.ColumnSpan="2" Click="addIngredientButton_Click"
+            
+            
         />
     </Grid>
 </Window>
