@@ -8,8 +8,8 @@ using ProjectPantryPlusPlus.DataModels;
 using System.Windows.Media;
 using System.Windows.Controls;
 using ProjectPantryPlusPlus.Popups;
+using System.Collections.ObjectModel;
 using ProjectPantryPlusPlus.Enums;
-using System.Collections.Generic;
 
 namespace PantryProject
 {
@@ -19,21 +19,6 @@ namespace PantryProject
     public partial class MainWindow : Window, IAddChild
     {
         private PantryManager PM = new PantryManager();
-       // List<Ingredient> meats = new List<Ingredient>();
-        List<Ingredient> dairy = new List<Ingredient>();
-        List<Ingredient> fruits = new List<Ingredient>();
-        List<Ingredient> vegetables = new List<Ingredient>();
-        List<Ingredient> beverages = new List<Ingredient>();
-        List<Ingredient> spices = new List<Ingredient>();
-        List<Ingredient> grains = new List<Ingredient>();
-
-        private List<Ingredient> meats = new List<Ingredient>();
-
-        public List<Ingredient> Meat
-        {
-            get { return meats; }
-            set { meats = value; }
-        }
 
 
         public MainWindow()
@@ -41,12 +26,6 @@ namespace PantryProject
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            meatsList.DataContext = PM;
-            Ingredient i = new Ingredient("Chicken", "Meat");
-            meats.Add(i);
-            
-            //populate_MyRepTab();
-            
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -62,7 +41,7 @@ namespace PantryProject
 
         private void AddIngredientClick(object sender, RoutedEventArgs e)
         {
-            AddIngredient popup = new AddIngredient(PM);
+            AddIngredient popup = new AddIngredient();
             popup.ShowDialog();
             //IngredientPopUp i = new IngredientPopUp();
             //DialogResult dr = i.ShowDialog();
@@ -111,210 +90,136 @@ namespace PantryProject
 
         }
 
-        public void populate_List()
+        private void populate_List()
         {
-            
-            FoodCategories f = FoodCategories.Meats;
-            //foreach (Ingredient i in PM.IngredientList)
-            //{
-            //    if (i.Catagory == "Meat")
-            //    {
-            //        f = FoodCategories.Meats;
-            //    }
-            //    else if (i.Catagory == "Eggs")
-            //    {
-            //        f = FoodCategories.Eggs;
-            //    }
-            //    else if (i.Catagory == "Dairy")
-            //    {
-            //        f = FoodCategories.Dairy;
-            //    }
-            //    else if (i.Catagory == "Fruits")
-            //    {
-            //        f = FoodCategories.Fruits;
-            //    }
-            //    else if (i.Catagory == "Vegetables")
-            //    {
-            //        f = FoodCategories.Vegetables;
-            //    }
-            //    else if (i.Catagory == "Nuts")
-            //    {
-            //        f = FoodCategories.Nuts;
-            //    }
-            //    else if (i.Catagory == "Beans")
-            //    {
-            //        f = FoodCategories.Beans;
-            //    }
-            //    else if (i.Catagory == "Grains")
-            //    {
-            //        f = FoodCategories.Grains;
-            //    }else if (i.Catagory == "Spices")
-            //    {
-            //        f = FoodCategories.Spices;
-            //    }
-            //    else 
-            //    {
-            //        f = FoodCategories.Oils;
-            //    }
-            //    switch (f)
-            //    {
-            //        case FoodCategories.Beans:
-            //            grains.Add(i);
-            //            break;
-            //        case FoodCategories.Dairy:
-            //            dairy.Add(i);
-            //            break;
-            //        case FoodCategories.Eggs:
-            //            dairy.Add(i);
-            //            break;
-            //        case FoodCategories.Fruits:
-            //            fruits.Add(i);
-            //            break;
-            //        case FoodCategories.Grains:
-            //            grains.Add(i);
-            //            break;
-            //        case FoodCategories.Meats:
-            //            meats.Add(i);
-            //            break;
-            //        case FoodCategories.Nuts:
-            //            grains.Add(i);
-            //            break;
-            //        case FoodCategories.Oils:
-            //            spices.Add(i);
-            //            break;
-            //        case FoodCategories.Spices:
-            //            spices.Add(i);
-            //            break;
-            //        case FoodCategories.Vegetables:
-            //            vegetables.Add(i);
-            //            break;
-            //    }
-            //}
-           
-            //foreach (string Category in Ingredient.IngredientCatagories)
-            //{
-            //    Thickness ListThic = new Thickness();
-            //    ListThic.Left = 20;
-            //    ListThic.Right = 7;
-            //    ListThic.Bottom = 3;
-            //    ListThic.Top = 1;
-            //    //pantryList.Children.Add(new System.Windows.Controls.Label
-            //    //{
-            //    //    Content = "-" + Category + ""
-            //    //});
-            //    //pantryList.Children.Add(new System.Windows.Controls.TextBlock
-            //    //{
-            //    //    Margin = ListThic,
-            //    //    Width = 200,
-            //    //    TextWrapping = TextWrapping.Wrap,
-            //    //    Text = "This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting. This is sample text, I hope I get replaced with something interesting.This is sample text, I hope I get replaced with something interesting."
-            //    //});
-            //}
+            FoodCategories f = FoodCategories.Meat;
+            foreach (Ingredient i in PM.IngredientList)
+            {
+                switch (f)
+                {
+                    case FoodCategories.Beans:
+                        break;
+                    case FoodCategories.Dairy:
+                        break;
+                    case FoodCategories.Eggs:
+                        break;
+                    case FoodCategories.Fruits:
+                        break;
+                    case FoodCategories.Grains:
+                        break;
+                    case FoodCategories.Meat:
+                        break;
+                    case FoodCategories.Nuts:
+                        break;
+                    case FoodCategories.Oils:
+                        break;
+                    case FoodCategories.Spices:
+                        break;
+                    case FoodCategories.Vegetables:
+                        break;
+                }
+            }
+            foreach (string Category in Ingredient.IngredientCatagories)
+            {
+                Thickness ListThic = new Thickness();
+                ListThic.Left = 20;
+                ListThic.Right = 7;
+                ListThic.Bottom = 3;
+                ListThic.Top = 1;
+                pantryList.Children.Add(new System.Windows.Controls.Label
+                {
+                    Content = "-" + Category + ""
+                });
+                pantryList.Children.Add(new System.Windows.Controls.TextBlock
+                {
+                    Margin = ListThic,
+                    Width = 200,
+                    TextWrapping = TextWrapping.Wrap,
+                    
+                });
+            }
         }
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Popup popup = new Popup();
-            popup.IsOpen = true;
-            popup.Width = 100;
-            popup.Height = 100;
+
+            Thickness Thick = new Thickness();
+            Thick.Left = 5;
+            Thick.Right = 5;
+            Thick.Bottom = 5;
+            Thick.Top = 5;
+
+            Recipe Selected = (Recipe)(((Grid)sender).DataContext);
+            Window RecipeWindow = new Window()
+            {
+                ResizeMode = ResizeMode.NoResize,
+                Height = 700,
+                Width = 800,
+                Padding = Thick
+            };
+
+            StackPanel StkPnl = new StackPanel();
+            Image RecImg = new Image()
+            {
+               Height = 300,
+               Width = 790
+            };
+
+            ScrollViewer Scroller = new ScrollViewer()
+            {
+                CanContentScroll = false
+            };
+
+            System.Windows.Controls.Label Title = new System.Windows.Controls.Label()
+            {
+                MaxWidth = 700,
+                MaxHeight = 200,
+                Content = Selected.Title,
+                FontSize = 20,
+                FontWeight = FontWeights.Bold,
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Stretch
+            };
+
+            TextBlock PrepTime = new TextBlock()
+            {
+                Background = Brushes.Aqua,
+                MaxWidth = 700,
+                MaxHeight = 200,
+                Text = "Preperation Time: " + Selected.PrepTime,
+                FontSize = 18,
+                TextWrapping = TextWrapping.Wrap,
+            };
+
+            TextBlock ServSize = new TextBlock()
+            {
+                MaxWidth = 700,
+                MaxHeight = 200,
+                Text = "Serves :  " + Selected.ServingSize,
+                FontSize = 18,
+                TextWrapping = TextWrapping.Wrap,
+            };
+
+            TextBlock Instructions = new TextBlock()
+            {
+                MaxWidth = 700,
+                Text = "Instructions: \n" + Selected.Instructions,
+                FontSize = 18,
+                TextWrapping = TextWrapping.Wrap,
+            };
+
+            StkPnl.Children.Add(RecImg);
+            StkPnl.Children.Add(Title);
+            StkPnl.Children.Add(PrepTime);
+            StkPnl.Children.Add(ServSize);
+            StkPnl.Children.Add(Instructions);
+            Scroller.Content = StkPnl;
+            RecipeWindow.Content = Scroller;   
+
+            RecipeWindow.Show();
 
         }
 
-        //private void populate_MyRepTab()
-        //{
-
-        //    foreach(Recipe rec in PM.DisplayRecipeList)
-        //    {
-        //        System.Windows.Controls.Grid gri = new System.Windows.Controls.Grid();
-        //        System.Windows.Controls.StackPanel Stkpnl = new System.Windows.Controls.StackPanel();
-
-        //        Thickness Thic = new Thickness();
-        //        Thic.Bottom = 20;
-
-        //        ColumnDefinition col1 = new ColumnDefinition();
-        //        ColumnDefinition col2 = new ColumnDefinition();
-        //        col1.Width = new GridLength(1, GridUnitType.Star);
-        //        col2.Width = new GridLength(5, GridUnitType.Star);
-
-        //        gri.ColumnDefinitions.Add(col1);
-        //        gri.ColumnDefinitions.Add(col2);
-
-        //        Stkpnl.Width = 250;
-        //        Stkpnl.Margin = Thic;
 
 
-        //        Image img = new Image();
-        //        System.Windows.Controls.Label Seperator = new System.Windows.Controls.Label();
-        //        System.Windows.Controls.Label RecName = new System.Windows.Controls.Label();
-        //        System.Windows.Controls.Label RecServe = new System.Windows.Controls.Label();
-        //        System.Windows.Controls.Label RecTime = new System.Windows.Controls.Label();
-        //        System.Windows.Controls.TextBlock RecIng = new System.Windows.Controls.TextBlock();
-        //        System.Windows.Controls.TextBlock RecDesc = new System.Windows.Controls.TextBlock();
-
-        //        Seperator.Background = Brushes.DarkGray;
-        //        Seperator.Height = 3;
-        //        Seperator.Width = 400;
-
-        //        RecName.Content = rec.Title;
-        //        RecName.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
-
-
-        //        RecServe.Content = "Serves:"+ rec.ServingSize;
-        //        RecServe.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
-        //        RecServe.Width = 230;
-
-        //        RecTime.Content = "Time:"+ rec.PrepTime;
-        //        RecTime.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
-        //        RecTime.Width = 230;
-
-
-        //        foreach (Ingredient ingrid in rec.Ingredients)
-        //        {
-        //            RecIng.Text += "-" + ingrid.Name + "\n";
-        //        }
-
-
-        //        RecDesc.Text = rec.Instructions;
-        //        RecDesc.TextWrapping = TextWrapping.Wrap;
-        //        RecDesc.Width = 250;
-
-        //        Grid.SetColumn(Stkpnl, 1);
-        //        Grid.SetColumn(img, 0);
-
-        //        gri.Children.Add(img);
-        //        gri.Children.Add(Stkpnl);
-        //        Stkpnl.Children.Add(RecName);
-        //        Stkpnl.Children.Add(RecServe);
-        //        Stkpnl.Children.Add(RecTime);
-        //        Stkpnl.Children.Add(RecIng);
-        //        Stkpnl.Children.Add(RecDesc);
-        //        MyRecipeList.Children.Add(Seperator);
-        //        MyRecipeList.Children.Add(gri);
-
-        //    }
-        //}
-
-
-		private void FilterCheckBoxToggled(object sender, RoutedEventArgs e)
-		{
-			//Checkboxes should have a DataContext that is the Ingredient they're representing
-
-			System.Windows.Controls.CheckBox senderAsCheck = sender as System.Windows.Controls.CheckBox;
-			Ingredient relevantIngredient = (Ingredient)senderAsCheck.DataContext;
-
-			if((bool)senderAsCheck.IsChecked) //must be cast as bool because IsChecked is a bool? Which basically means it can be null, and the if statement doesn't like that.
-			{
-				if (!PM.AvailableIngredients.Contains(relevantIngredient))
-				{//Don't add the ingredient twice, so check if it's already there first. (shouldn't be an issue but better safe than sorry)
-					PM.AvailableIngredients.Add(relevantIngredient);
-				}
-			}else{
-				while(PM.AvailableIngredients.Contains(relevantIngredient))
-				{
-					PM.AvailableIngredients.Remove(relevantIngredient);
-				}
-			}
-		}
     }
 }
