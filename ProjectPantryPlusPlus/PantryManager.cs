@@ -7,7 +7,7 @@ using ProjectPantryPlusPlus.DataModels;
 
 namespace ProjectPantryPlusPlus
 {
-	class PantryManager
+	public class PantryManager
 	{
 		//Display list will be what we're expecting to put in the main panel. 
 		//At first this will just be all of our recipes, 

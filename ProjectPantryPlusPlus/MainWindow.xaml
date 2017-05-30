@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="My Pantry V0.01" Height="550" Width="725"
         ResizeMode="NoResize"
+        x:Name="mainWindow"
         >
 
     <Grid>
@@ -61,10 +62,8 @@
                              Width="150"
                              Margin="70,0,0,0" 
                              IsSynchronizedWithCurrentItem="True"
-                             ItemsSource="{Binding meats}">
-                        <ListBox.DataContext>
-                            <DataModels:Ingredient/>
-                        </ListBox.DataContext>
+                             ItemsSource="{Binding IngredientList}">
+                       
                     </ListBox>
                     <ListBox x:Name="dairyList"
                              Grid.Row="1"

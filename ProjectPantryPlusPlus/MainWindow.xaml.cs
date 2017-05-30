@@ -19,7 +19,7 @@ namespace PantryProject
     public partial class MainWindow : Window, IAddChild
     {
         private PantryManager PM = new PantryManager();
-        List<Ingredient> meats = new List<Ingredient>();
+       // List<Ingredient> meats = new List<Ingredient>();
         List<Ingredient> dairy = new List<Ingredient>();
         List<Ingredient> fruits = new List<Ingredient>();
         List<Ingredient> vegetables = new List<Ingredient>();
@@ -27,12 +27,21 @@ namespace PantryProject
         List<Ingredient> spices = new List<Ingredient>();
         List<Ingredient> grains = new List<Ingredient>();
 
+        private List<Ingredient> meats = new List<Ingredient>();
+
+        public List<Ingredient> Meat
+        {
+            get { return meats; }
+            set { meats = value; }
+        }
+
+
         public MainWindow()
         {
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            meatsList.DataContext = meats;
+            meatsList.DataContext = PM;
             Ingredient i = new Ingredient("Chicken", "Meat");
             meats.Add(i);
             
@@ -53,7 +62,7 @@ namespace PantryProject
 
         private void AddIngredientClick(object sender, RoutedEventArgs e)
         {
-            AddIngredient popup = new AddIngredient();
+            AddIngredient popup = new AddIngredient(PM);
             popup.ShowDialog();
             //IngredientPopUp i = new IngredientPopUp();
             //DialogResult dr = i.ShowDialog();
@@ -105,82 +114,82 @@ namespace PantryProject
         public void populate_List()
         {
             
-            FoodCategories f = FoodCategories.Meat;
-            foreach (Ingredient i in PM.IngredientList)
-            {
-                if (i.Catagory == "Meat")
-                {
-                    f = FoodCategories.Meat;
-                }
-                else if (i.Catagory == "Eggs")
-                {
-                    f = FoodCategories.Eggs;
-                }
-                else if (i.Catagory == "Dairy")
-                {
-                    f = FoodCategories.Dairy;
-                }
-                else if (i.Catagory == "Fruits")
-                {
-                    f = FoodCategories.Fruits;
-                }
-                else if (i.Catagory == "Vegetables")
-                {
-                    f = FoodCategories.Vegetables;
-                }
-                else if (i.Catagory == "Nuts")
-                {
-                    f = FoodCategories.Nuts;
-                }
-                else if (i.Catagory == "Beans")
-                {
-                    f = FoodCategories.Beans;
-                }
-                else if (i.Catagory == "Grains")
-                {
-                    f = FoodCategories.Grains;
-                }else if (i.Catagory == "Spices")
-                {
-                    f = FoodCategories.Spices;
-                }
-                else 
-                {
-                    f = FoodCategories.Oils;
-                }
-                switch (f)
-                {
-                    case FoodCategories.Beans:
-                        grains.Add(i);
-                        break;
-                    case FoodCategories.Dairy:
-                        dairy.Add(i);
-                        break;
-                    case FoodCategories.Eggs:
-                        dairy.Add(i);
-                        break;
-                    case FoodCategories.Fruits:
-                        fruits.Add(i);
-                        break;
-                    case FoodCategories.Grains:
-                        grains.Add(i);
-                        break;
-                    case FoodCategories.Meat:
-                        meats.Add(i);
-                        break;
-                    case FoodCategories.Nuts:
-                        grains.Add(i);
-                        break;
-                    case FoodCategories.Oils:
-                        spices.Add(i);
-                        break;
-                    case FoodCategories.Spices:
-                        spices.Add(i);
-                        break;
-                    case FoodCategories.Vegetables:
-                        vegetables.Add(i);
-                        break;
-                }
-            }
+            FoodCategories f = FoodCategories.Meats;
+            //foreach (Ingredient i in PM.IngredientList)
+            //{
+            //    if (i.Catagory == "Meat")
+            //    {
+            //        f = FoodCategories.Meats;
+            //    }
+            //    else if (i.Catagory == "Eggs")
+            //    {
+            //        f = FoodCategories.Eggs;
+            //    }
+            //    else if (i.Catagory == "Dairy")
+            //    {
+            //        f = FoodCategories.Dairy;
+            //    }
+            //    else if (i.Catagory == "Fruits")
+            //    {
+            //        f = FoodCategories.Fruits;
+            //    }
+            //    else if (i.Catagory == "Vegetables")
+            //    {
+            //        f = FoodCategories.Vegetables;
+            //    }
+            //    else if (i.Catagory == "Nuts")
+            //    {
+            //        f = FoodCategories.Nuts;
+            //    }
+            //    else if (i.Catagory == "Beans")
+            //    {
+            //        f = FoodCategories.Beans;
+            //    }
+            //    else if (i.Catagory == "Grains")
+            //    {
+            //        f = FoodCategories.Grains;
+            //    }else if (i.Catagory == "Spices")
+            //    {
+            //        f = FoodCategories.Spices;
+            //    }
+            //    else 
+            //    {
+            //        f = FoodCategories.Oils;
+            //    }
+            //    switch (f)
+            //    {
+            //        case FoodCategories.Beans:
+            //            grains.Add(i);
+            //            break;
+            //        case FoodCategories.Dairy:
+            //            dairy.Add(i);
+            //            break;
+            //        case FoodCategories.Eggs:
+            //            dairy.Add(i);
+            //            break;
+            //        case FoodCategories.Fruits:
+            //            fruits.Add(i);
+            //            break;
+            //        case FoodCategories.Grains:
+            //            grains.Add(i);
+            //            break;
+            //        case FoodCategories.Meats:
+            //            meats.Add(i);
+            //            break;
+            //        case FoodCategories.Nuts:
+            //            grains.Add(i);
+            //            break;
+            //        case FoodCategories.Oils:
+            //            spices.Add(i);
+            //            break;
+            //        case FoodCategories.Spices:
+            //            spices.Add(i);
+            //            break;
+            //        case FoodCategories.Vegetables:
+            //            vegetables.Add(i);
+            //            break;
+            //    }
+            //}
            
             //foreach (string Category in Ingredient.IngredientCatagories)
             //{

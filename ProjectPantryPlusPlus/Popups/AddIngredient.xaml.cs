@@ -21,18 +21,21 @@ namespace ProjectPantryPlusPlus.Popups
     /// </summary>
     public partial class AddIngredient : Window
     {
-        PantryManager pm = new PantryManager();
-        public AddIngredient()
+        private PantryManager local_pm;
+        
+        public AddIngredient(PantryManager pm)
         {
             InitializeComponent();
-            categoryBox.ItemsSource = Enum.GetValues(typeof(FoodCategories));
-
+            categoryBox.ItemsSource = Ingredient.IngredientCatagories;
+            local_pm = pm;
         }
 
         private void addIngredientButton_Click(object sender, RoutedEventArgs e)
         {
             Ingredient i = new Ingredient(this.nameBox.Text, this.categoryBox.Text);
-            pm.IngredientList.Add(i);
+            local_pm.IngredientList.Add(i);
+            MessageBox.Show("Ingredient name: " + i.Name + "Category: " + i.Catagory);
+          
             this.Close();
         }
     }
