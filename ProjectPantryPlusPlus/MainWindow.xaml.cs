@@ -27,8 +27,7 @@ namespace PantryProject
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            mainWindow.DataContext = PM;
-            meatIngredients.DataContext = PM.IngredientList;
+           
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -90,9 +89,9 @@ namespace PantryProject
 
         }
 
-        private void populate_List()
+        public void populate_List()
         {
-            PM.IngredientList.Add(new Ingredient("Chicken", "Meats"));
+            PM.IngredientList.Add(new Ingredient("Steak", "Meats"));
             
             foreach (Ingredient i in PM.IngredientList)
             {
@@ -102,8 +101,8 @@ namespace PantryProject
                         meatsList.Children.Add(new System.Windows.Controls.Label
                         {
                             Content = i.Name
-
                         });
+                        
                         break;
                     case "Eggs & Dairy":
                         break;
