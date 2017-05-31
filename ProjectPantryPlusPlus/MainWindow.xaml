@@ -8,8 +8,7 @@
         mc:Ignorable="d"
         Title="My Pantry V0.01" Height="550" Width="725"
         ResizeMode="NoResize"
-        x:Name="mainWindow"
-        >
+        x:Name="mainWindow">
 
     <Grid>
 
@@ -32,6 +31,7 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="300"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition />
             </Grid.RowDefinitions>
             <ScrollViewer x:Name="mainScrollViewer"
                 BorderBrush="Black" Grid.ColumnSpan="3" Grid.Row ="1">
@@ -57,14 +57,15 @@
                     <Label Content="SpicesOils"
                            Grid.Row="5"
                     />
-                    <ListBox x:Name="meatsList"
+                    <WrapPanel x:Name="meatsList"
                              Grid.Row="0"
                              Width="150"
                              Margin="70,0,0,0" 
-                             IsSynchronizedWithCurrentItem="True"
-                             ItemsSource="{Binding IngredientList}">
-                       
-                    </ListBox>
+                    >
+                        
+                    </WrapPanel>
+
+
                     <ListBox x:Name="dairyList"
                              Grid.Row="1"
                              Width="150"
@@ -96,7 +97,6 @@
                      Grid.ColumnSpan="3"
                      Grid.Row="1"
                      Margin="10">
-
                     <ListBox
                         x:Name="ingredientList"
                     >
@@ -128,6 +128,14 @@
             VerticalAlignment="Top"
             Margin="0 10" Click="AddIngredientClick"
             />
+            <Button x:Name="Save"
+            Height="20"
+            Width="100"
+            Content="Save State"
+            Grid.Row="3"
+            Grid.ColumnSpan="3"
+            VerticalAlignment="Top"
+            Margin="0 10" Click="Save_Click"/>
             <Button
                 x:Name="import"
                 Grid.Column="1"
@@ -175,11 +183,24 @@
             <TabItem Header="What Can I Make?">
                 <Label Content="Food duh."/>
             </TabItem>
+
             <TabItem Header="My Recipes">
-                <ListBox x:Name="MyRecipeList"
-                         SelectionMode="Single"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Height="20"
+                            Width="70"
+                            HorizontalAlignment="Left"
+                            Content="Add Recipe"
+                    />
+                    
+                    <ListBox x:Name="MyRecipeList"
+                         SelectionMode="Single" 
                          ScrollViewer.CanContentScroll="False"
-                         Background="DarkGray" Margin="0,4,-0.2,-4">
+                         Grid.Row="1">
+
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="Silver" BorderThickness="3" Width="450">
@@ -189,19 +210,28 @@
                                         <ColumnDefinition Width="3*"/>
                                     </Grid.ColumnDefinitions>
                                     <Image Grid.Column="0"
-                                               Width="100"
-                                               Height="100"/>
+                                                   Width="150"
+                                                   Height="100"/>
                                     <StackPanel Grid.Column="1" Margin="5">
                                         <Label Content="{Binding Title}" FontWeight="ExtraBold" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300"><Run Text="Serves: " FontWeight="Bold"/><Run Text=" "/><Run Text="{Binding ServingSize}"/></TextBlock>
-                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300"><Run Text="PrepTime: " FontWeight="Bold"/><Run Text=" "/><Run Text="{Binding PrepTime}"/></TextBlock>
-                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300"><Run Text="{Binding Instructions}"/></TextBlock>
+                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="Serves: " FontWeight="Bold"/>
+                                                <Run Text="{Binding ServingSize}"/>
+                                        </TextBlock>
+                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="PrepTime: " FontWeight="Bold"/>
+                                                <Run Text="{Binding PrepTime}"/>
+                                        </TextBlock>
+                                        <TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="{Binding Instructions}"/>
+                                        </TextBlock>
                                     </StackPanel>
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+                </Grid>
             </TabItem>
         </TabControl>
 

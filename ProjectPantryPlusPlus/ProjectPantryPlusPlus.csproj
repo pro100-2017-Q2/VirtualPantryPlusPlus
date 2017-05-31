@@ -113,12 +113,24 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Recipes\RecipeList.json" />
+    <None Include="Recipes\userRecipeList.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\A Minnesota Good-Bye %28Cranberry French 75%29.jpg" />
+    <Resource Include="img\Crispy Cheese Torrtillas.jpg" />
+    <Resource Include="img\Frijoles Charros.jpg" />
+    <Resource Include="img\Japanese Mentaiko Spaghetti.jpg" />
+    <Resource Include="img\Quick Chicken Nuggets.jpeg" />
+    <Resource Include="img\Roasted Asparagus.jpg" />
+    <Resource Include="img\Strawberry Cool Brulee.jpg" />
+    <Resource Include="img\Terry Crews%27 Mac And Cheese.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
