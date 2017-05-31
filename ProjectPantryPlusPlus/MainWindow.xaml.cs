@@ -27,8 +27,7 @@ namespace PantryProject
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            mainWindow.DataContext = PM;
-            meatIngredients.DataContext = PM.IngredientList;
+           
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -90,35 +89,36 @@ namespace PantryProject
 
         }
 
-        private void populate_List()
+        public void populate_List()
         {
-            //FoodCategories f = FoodCategories.Meats;
-            //foreach (Ingredient i in PM.IngredientList)
-            //{
-            //    switch (f)
-            //    {
-                    //case FoodCategories.Beans:
-                    //    break;
-                    //case FoodCategories.Dairy:
-                    //    break;
-                    //case FoodCategories.Eggs:
-                    //    break;
-                    //case FoodCategories.Fruits:
-                    //    break;
-                    //case FoodCategories.Grains:
-                    //    break;
-                    //case FoodCategories.Meats:
-                    //    break;
-                    //case FoodCategories.Nuts:
-                    //    break;
-                    //case FoodCategories.Oils:
-                    //    break;
-                    //case FoodCategories.Spices:
-                    //    break;
-                    //case FoodCategories.Vegetables:
-                    //    break;
-            //    }
-            //}
+            PM.IngredientList.Add(new Ingredient("Steak", "Meats"));
+            
+            foreach (Ingredient i in PM.IngredientList)
+            {
+                switch (i.Catagory)
+                {
+                    case "Meats":
+                        meatsList.Children.Add(new System.Windows.Controls.Label
+                        {
+                            Content = i.Name
+                        });
+                        
+                        break;
+                    case "Eggs & Dairy":
+                        break;
+                    case "Nuts, Grains, and beans":
+                        break;
+                    case "Fruits":
+                        break;
+                    case "Vegetables":
+                        break;
+                    case "Beverages":
+                        break;
+                    case "Spices and Oils":
+                        break;
+                    
+                }
+            }
             //foreach (string Category in Ingredient.IngredientCatagories)
             //{
             //    Thickness ListThic = new Thickness();

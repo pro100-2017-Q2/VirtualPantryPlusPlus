@@ -62,12 +62,7 @@
                              Width="150"
                              Margin="70,0,0,0" 
                     >
-                        <Label x:Name="meatIngredients"
-                               Content="{Binding Name}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center">
-                                
-                        </Label>
+                        
                     </WrapPanel>
 
 
@@ -199,7 +194,7 @@
                             Width="70"
                             HorizontalAlignment="Left"
                             Content="Add Recipe"
-                            Click="Recipe_Add"/>
+                    />
                     
                     <ListBox x:Name="MyRecipeList"
                          SelectionMode="Single" 

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using ProjectPantryPlusPlus.DataModels;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 
 namespace ProjectPantryPlusPlus
 {
@@ -19,12 +21,12 @@ namespace ProjectPantryPlusPlus
 
 		private List<Recipe> recipeList = new List<Recipe>();
 		private List<Recipe> userRecipeList = new List<Recipe>();
-		private List<Ingredient> ingredientList = new List<Ingredient>();
+		private ObservableCollection<Ingredient> ingredientList = new ObservableCollection<Ingredient>();
 		private List<Ingredient> availableIngredients = new List<Ingredient>();
 		private List<Recipe> displayRecipeList = new List<Recipe>();
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
         public List<Recipe> RecipeList
 		{
 			get { return recipeList; }
@@ -35,7 +37,7 @@ namespace ProjectPantryPlusPlus
 			get { return userRecipeList; }
 			set { userRecipeList = value; FieldChanged(); }
 		}
-		public List<Ingredient> IngredientList
+		public ObservableCollection<Ingredient> IngredientList
 		{
 			get { return ingredientList; }
 			set { ingredientList = value; FieldChanged(); }
@@ -54,6 +56,7 @@ namespace ProjectPantryPlusPlus
 
 		public PantryManager()
 		{
+            ingredientList.CollectionChanged += HandleChange;
 			//file structure currently expected to be as follows
 			//(Recipes/Ingredients)/(user)(Recipe/Ingredient)List(.extension)
 			//Example: 
@@ -87,15 +90,12 @@ namespace ProjectPantryPlusPlus
 			{
 				IngredientList.Add(ing);
 			}
+		}
 
-
-
-
-
-
-		}//CTOR Pantry Manager
-
-
+        public void HandleChange(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            
+        }
 
 		public List<Recipe> FilterList() {
 			List<Recipe> outputRecipes = new List<Recipe>();
@@ -143,7 +143,7 @@ namespace ProjectPantryPlusPlus
 			return outputRecipes;
 		}
 
-        protected void FieldChanged([CallerMemberName] string field = null)
+        public void FieldChanged([CallerMemberName] string field = null)
         {
             if (PropertyChanged != null)
             {
