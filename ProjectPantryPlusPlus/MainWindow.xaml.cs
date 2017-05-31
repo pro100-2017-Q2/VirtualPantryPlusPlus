@@ -92,7 +92,7 @@ namespace PantryProject
 
         private void populate_List()
         {
-            PM.IngredientList.Add(new Ingredient("Chicken", "Meat"));
+            PM.IngredientList.Add(new Ingredient("Chicken", "Meats"));
             
             foreach (Ingredient i in PM.IngredientList)
             {
