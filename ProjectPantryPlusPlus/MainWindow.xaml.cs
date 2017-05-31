@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using ProjectPantryPlusPlus.Popups;
 using System.Collections.ObjectModel;
-
+using System.Collections.Generic;
 
 namespace PantryProject
 {
@@ -27,8 +27,7 @@ namespace PantryProject
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            mainWindow.DataContext = PM;
-            meatIngredients.DataContext = PM.IngredientList;
+           
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -90,54 +89,55 @@ namespace PantryProject
 
         }
 
-        private void populate_List()
+        public void populate_List()
         {
-            //FoodCategories f = FoodCategories.Meats;
-            //foreach (Ingredient i in PM.IngredientList)
-            //{
-            //    switch (f)
-            //    {
-                    //case FoodCategories.Beans:
-                    //    break;
-                    //case FoodCategories.Dairy:
-                    //    break;
-                    //case FoodCategories.Eggs:
-                    //    break;
-                    //case FoodCategories.Fruits:
-                    //    break;
-                    //case FoodCategories.Grains:
-                    //    break;
-                    //case FoodCategories.Meats:
-                    //    break;
-                    //case FoodCategories.Nuts:
-                    //    break;
-                    //case FoodCategories.Oils:
-                    //    break;
-                    //case FoodCategories.Spices:
-                    //    break;
-                    //case FoodCategories.Vegetables:
-                    //    break;
-            //    }
-            //}
-            foreach (string Category in Ingredient.IngredientCatagories)
+            PM.IngredientList.Add(new Ingredient("Steak", "Meats"));
+            
+            foreach (Ingredient i in PM.IngredientList)
             {
-                Thickness ListThic = new Thickness();
-                ListThic.Left = 20;
-                ListThic.Right = 7;
-                ListThic.Bottom = 3;
-                ListThic.Top = 1;
-                pantryList.Children.Add(new System.Windows.Controls.Label
+                switch (i.Catagory)
                 {
-                    Content = "-" + Category + ""
-                });
-                pantryList.Children.Add(new System.Windows.Controls.TextBlock
-                {
-                    Margin = ListThic,
-                    Width = 200,
-                    TextWrapping = TextWrapping.Wrap,
+                    case "Meats":
+                        meatsList.Children.Add(new System.Windows.Controls.Label
+                        {
+                            Content = i.Name
+                        });
+                        
+                        break;
+                    case "Eggs & Dairy":
+                        break;
+                    case "Nuts, Grains, and beans":
+                        break;
+                    case "Fruits":
+                        break;
+                    case "Vegetables":
+                        break;
+                    case "Beverages":
+                        break;
+                    case "Spices and Oils":
+                        break;
                     
-                });
+                }
             }
+            //foreach (string Category in Ingredient.IngredientCatagories)
+            //{
+            //    Thickness ListThic = new Thickness();
+            //    ListThic.Left = 20;
+            //    ListThic.Right = 7;
+            //    ListThic.Bottom = 3;
+            //    ListThic.Top = 1;
+            //    pantryList.Children.Add(new System.Windows.Controls.Label
+            //    {
+            //        Content = "-" + Category + ""
+            //    });
+            //    pantryList.Children.Add(new System.Windows.Controls.TextBlock
+            //    {
+            //        Margin = ListThic,
+            //        Width = 200,
+            //        TextWrapping = TextWrapping.Wrap,
+                    
+            //    });
+            //}
         }
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -152,7 +152,6 @@ namespace PantryProject
             Recipe Selected = (Recipe)(((Grid)sender).DataContext);
             Window RecipeWindow = new Window()
             {
-                Title = Selected.Title,
                 ResizeMode = ResizeMode.NoResize,
                 Height = 700,
                 Width = 800,
@@ -183,6 +182,7 @@ namespace PantryProject
 
             TextBlock PrepTime = new TextBlock()
             {
+                Background = Brushes.Aqua,
                 MaxWidth = 700,
                 MaxHeight = 200,
                 Text = "Preperation Time: " + Selected.PrepTime,
@@ -236,7 +236,7 @@ namespace PantryProject
             {
                 Title = "Add Recipe",
                 ResizeMode = ResizeMode.NoResize,
-                Height = 500,
+                Height = 550,
                 Width = 450,
                 Padding = Thick
             };
@@ -282,24 +282,26 @@ namespace PantryProject
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
                 VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
             };
-
             System.Windows.Controls.Label Lb_Serving = new System.Windows.Controls.Label
             {
-                Content = "Serves:",
+                Content = "Serving:",
+                //  Margin = Thick,
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
                 VerticalContentAlignment = VerticalAlignment.Bottom,
+                VerticalAlignment = VerticalAlignment.Bottom
             };
             System.Windows.Controls.TextBox TB_Serving = new System.Windows.Controls.TextBox
             {
                 BorderBrush = Brushes.Black,
                 BorderThickness = TB_Thick,
-               // Margin = Thick,
+                //  Margin = Thick,
                 Width = 400,
                 Height = 20,
                 HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
                 VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
             };
+
 
             System.Windows.Controls.Label Lb_Time = new System.Windows.Controls.Label
             {
@@ -314,6 +316,26 @@ namespace PantryProject
                 BorderBrush = Brushes.Black,
                 BorderThickness = TB_Thick,
                // Margin = Thick,
+                Width = 400,
+                Height = 20,
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
+            };
+
+            System.Windows.Controls.Label Lb_Ingridients = new System.Windows.Controls.Label
+            {
+                Content = "Ingridients (Seperate by ','):",
+                //  Margin = Thick,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = VerticalAlignment.Bottom,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            System.Windows.Controls.TextBox TB_Ingridients = new System.Windows.Controls.TextBox
+            {
+                BorderBrush = Brushes.Black,
+                BorderThickness = TB_Thick,
+                //  Margin = Thick,
                 Width = 400,
                 Height = 20,
                 HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
@@ -346,6 +368,14 @@ namespace PantryProject
                
             };
 
+
+            System.Windows.Controls.Button Save_Button = new System.Windows.Controls.Button
+            {
+                Content = "Save",
+                Width = 30
+            };
+
+           // Save_Button.Click += Save_Button_Click(TB_Title.Text, TB_Author.Text, TB_Serving.Text, TB_Time.Text, TB_Ingridients.Text, TB_Instructions.Text);
             Scroller.Content = TB_Instructions;
             Stkpnl.Children.Add(Lb_Title);
             Stkpnl.Children.Add(TB_Title);
@@ -355,10 +385,61 @@ namespace PantryProject
             Stkpnl.Children.Add(TB_Serving);
             Stkpnl.Children.Add(Lb_Time);
             Stkpnl.Children.Add(TB_Time);
+            Stkpnl.Children.Add(Lb_Ingridients);
+            Stkpnl.Children.Add(TB_Ingridients);
             Stkpnl.Children.Add(Lb_Instructions);
             Stkpnl.Children.Add(Scroller);
+            Stkpnl.Children.Add(Save_Button);
             AddWin.Content = Stkpnl;
             AddWin.Show();
         }
+
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            throw new NotImplementedException();
+        }
+
+        //(TB_Title.Text, TB_Author.Text, TB_Serving.Text, TB_Time.Text, TB_Ingridients.Text, TB_Instructions.Text)
+        private void Recipe_SaveClick(object sender, RoutedEventArgs e, string title, string author, string serving, string time, string ingridients, string instructions)
+        {
+
+            string[] ing = new string[30];
+
+            ingridients.Trim(' ');
+            ing = ingridients.Split(',');
+
+            Ingredient[] ings = new Ingredient[30];
+
+            foreach(string item in ing)
+            {
+                int index = 0;
+                ings[index] = new Ingredient()
+                 {
+                     Name = item,
+                     Catagory = "userinputted"
+                 };
+                index++;
+            };
+
+            Recipe rec = new Recipe()
+            {
+                Title = title,
+                Author = author,
+                ServingSize = serving,
+                PrepTime = time,
+                Ingredients = ings,
+                Instructions = instructions
+            };
+
+            PM.RecipeList.Add(rec);
+
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            FileIO.SaveIngredients(PM.IngredientList, "CurrentlySelectedIngridients");
+        }
+
     }
 }

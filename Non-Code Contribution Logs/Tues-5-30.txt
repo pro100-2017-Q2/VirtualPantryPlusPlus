@@ -1,0 +1,1 @@
+Couldn't really work directly on much code, so worked with Shai and Devin on their parts of the code (UI elements and the File Import Export). 

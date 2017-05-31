@@ -8,8 +8,7 @@
         mc:Ignorable="d"
         Title="My Pantry V0.01" Height="550" Width="725"
         ResizeMode="NoResize"
-        x:Name="mainWindow"
-        >
+        x:Name="mainWindow">
 
     <Grid>
 
@@ -32,6 +31,7 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="300"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition />
             </Grid.RowDefinitions>
             <ScrollViewer x:Name="mainScrollViewer"
                 BorderBrush="Black" Grid.ColumnSpan="3" Grid.Row ="1">
@@ -62,12 +62,7 @@
                              Width="150"
                              Margin="70,0,0,0" 
                     >
-                        <Label x:Name="meatIngredients"
-                               Content="{Binding Name}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center">
-                                
-                        </Label>
+                        
                     </WrapPanel>
 
 
@@ -133,6 +128,14 @@
             VerticalAlignment="Top"
             Margin="0 10" Click="AddIngredientClick"
             />
+            <Button x:Name="Save"
+            Height="20"
+            Width="100"
+            Content="Save State"
+            Grid.Row="3"
+            Grid.ColumnSpan="3"
+            VerticalAlignment="Top"
+            Margin="0 10" Click="Save_Click"/>
             <Button
                 x:Name="import"
                 Grid.Column="1"
@@ -191,7 +194,7 @@
                             Width="70"
                             HorizontalAlignment="Left"
                             Content="Add Recipe"
-                            Click="Recipe_Add"/>
+                    />
                     
                     <ListBox x:Name="MyRecipeList"
                          SelectionMode="Single" 

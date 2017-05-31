@@ -29,11 +29,12 @@ namespace ProjectPantryPlusPlus.Popups
             local_pm = pm;
         }
 
+
         private void addIngredientButton_Click(object sender, RoutedEventArgs e)
         {
             Ingredient i = new Ingredient(this.nameBox.Text, this.categoryBox.Text);
             local_pm.IngredientList.Add(i);
-            MessageBox.Show("Ingredient name: " + i.Name + " Category: " + i.Catagory);         
+            MessageBox.Show("Ingredient Name: " + i.Name + " Category: " + i.Catagory);
             this.Close();
         }
     }
