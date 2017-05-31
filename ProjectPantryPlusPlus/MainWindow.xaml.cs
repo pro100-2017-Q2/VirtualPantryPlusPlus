@@ -119,25 +119,25 @@ namespace PantryProject
                     //    break;
             //    }
             //}
-            foreach (string Category in Ingredient.IngredientCatagories)
-            {
-                Thickness ListThic = new Thickness();
-                ListThic.Left = 20;
-                ListThic.Right = 7;
-                ListThic.Bottom = 3;
-                ListThic.Top = 1;
-                pantryList.Children.Add(new System.Windows.Controls.Label
-                {
-                    Content = "-" + Category + ""
-                });
-                pantryList.Children.Add(new System.Windows.Controls.TextBlock
-                {
-                    Margin = ListThic,
-                    Width = 200,
-                    TextWrapping = TextWrapping.Wrap,
+            //foreach (string Category in Ingredient.IngredientCatagories)
+            //{
+            //    Thickness ListThic = new Thickness();
+            //    ListThic.Left = 20;
+            //    ListThic.Right = 7;
+            //    ListThic.Bottom = 3;
+            //    ListThic.Top = 1;
+            //    pantryList.Children.Add(new System.Windows.Controls.Label
+            //    {
+            //        Content = "-" + Category + ""
+            //    });
+            //    pantryList.Children.Add(new System.Windows.Controls.TextBlock
+            //    {
+            //        Margin = ListThic,
+            //        Width = 200,
+            //        TextWrapping = TextWrapping.Wrap,
                     
-                });
-            }
+            //    });
+            //}
         }
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -359,6 +359,11 @@ namespace PantryProject
             Stkpnl.Children.Add(Scroller);
             AddWin.Content = Stkpnl;
             AddWin.Show();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
