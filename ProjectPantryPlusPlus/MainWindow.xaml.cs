@@ -152,6 +152,7 @@ namespace PantryProject
             Recipe Selected = (Recipe)(((Grid)sender).DataContext);
             Window RecipeWindow = new Window()
             {
+                Title = Selected.Title,
                 ResizeMode = ResizeMode.NoResize,
                 Height = 700,
                 Width = 800,
@@ -182,7 +183,6 @@ namespace PantryProject
 
             TextBlock PrepTime = new TextBlock()
             {
-                Background = Brushes.Aqua,
                 MaxWidth = 700,
                 MaxHeight = 200,
                 Text = "Preperation Time: " + Selected.PrepTime,
@@ -219,7 +219,146 @@ namespace PantryProject
 
         }
 
+        private void Recipe_Add(object sender, RoutedEventArgs e)
+        {
+            Thickness Thick = new Thickness();
+            Thick.Left = 5;
+            Thick.Right = 5;
+            Thick.Bottom = 5;
+            Thick.Top = 5;
+
+            Thickness TB_Thick = new Thickness();
+            TB_Thick.Left = 2;
+            TB_Thick.Right = 2;
+            TB_Thick.Bottom = 2;
+            TB_Thick.Top = 2;
+            Window AddWin = new Window()
+            {
+                Title = "Add Recipe",
+                ResizeMode = ResizeMode.NoResize,
+                Height = 500,
+                Width = 450,
+                Padding = Thick
+            };
+
+            StackPanel Stkpnl = new StackPanel() { Margin = Thick};
+
+            System.Windows.Controls.Label Lb_Title = new System.Windows.Controls.Label
+            {
+                Content = "Title:",
+               // Margin = Thick,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = VerticalAlignment.Bottom,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            System.Windows.Controls.TextBox TB_Title = new System.Windows.Controls.TextBox
+            {
+                BorderBrush = Brushes.Black,
+                BorderThickness = TB_Thick,
+               // Margin = Thick,
+                Width = 400,
+                Height = 20,
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
+            };
+
+            System.Windows.Controls.Label Lb_Author = new System.Windows.Controls.Label
+            {
+                Content = "Author:",
+              //  Margin = Thick,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = VerticalAlignment.Bottom,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            System.Windows.Controls.TextBox TB_Author = new System.Windows.Controls.TextBox
+            {
+                BorderBrush = Brushes.Black,
+                BorderThickness = TB_Thick,
+              //  Margin = Thick,
+                Width = 400,
+                Height = 20,
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
+            };
+
+            System.Windows.Controls.Label Lb_Serving = new System.Windows.Controls.Label
+            {
+                Content = "Serves:",
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = VerticalAlignment.Bottom,
+            };
+            System.Windows.Controls.TextBox TB_Serving = new System.Windows.Controls.TextBox
+            {
+                BorderBrush = Brushes.Black,
+                BorderThickness = TB_Thick,
+               // Margin = Thick,
+                Width = 400,
+                Height = 20,
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
+            };
+
+            System.Windows.Controls.Label Lb_Time = new System.Windows.Controls.Label
+            {
+                Content = "Preperation Time:",
+               // Margin = Thick,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = VerticalAlignment.Bottom,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            System.Windows.Controls.TextBox TB_Time = new System.Windows.Controls.TextBox
+            {
+                BorderBrush = Brushes.Black,
+                BorderThickness = TB_Thick,
+               // Margin = Thick,
+                Width = 400,
+                Height = 20,
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
+            };
+
+            System.Windows.Controls.Label Lb_Instructions = new System.Windows.Controls.Label
+            {
+                Content = "Instructions:",
+                // Margin = Thick,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = VerticalAlignment.Bottom,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
 
 
+            ScrollViewer Scroller = new ScrollViewer()
+            {
+                CanContentScroll = false,
+                Width = 420,
+                Height = 200
+            };
+
+            System.Windows.Controls.TextBox TB_Instructions = new System.Windows.Controls.TextBox
+            {
+               TextWrapping = TextWrapping.Wrap,
+               Width = 400,
+               Margin = TB_Thick
+               
+            };
+
+            Scroller.Content = TB_Instructions;
+            Stkpnl.Children.Add(Lb_Title);
+            Stkpnl.Children.Add(TB_Title);
+            Stkpnl.Children.Add(Lb_Author);
+            Stkpnl.Children.Add(TB_Author);
+            Stkpnl.Children.Add(Lb_Serving);
+            Stkpnl.Children.Add(TB_Serving);
+            Stkpnl.Children.Add(Lb_Time);
+            Stkpnl.Children.Add(TB_Time);
+            Stkpnl.Children.Add(Lb_Instructions);
+            Stkpnl.Children.Add(Scroller);
+            AddWin.Content = Stkpnl;
+            AddWin.Show();
+        }
     }
 }
