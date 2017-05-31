@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectPantryPlusPlus.DataModels;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace ProjectPantryPlusPlus
 {
-	public class PantryManager
+	public class PantryManager: INotifyPropertyChanged
 	{
 		//Display list will be what we're expecting to put in the main panel. 
 		//At first this will just be all of our recipes, 
@@ -20,32 +22,33 @@ namespace ProjectPantryPlusPlus
 		private List<Ingredient> ingredientList = new List<Ingredient>();
 		private List<Ingredient> availableIngredients = new List<Ingredient>();
 		private List<Recipe> displayRecipeList = new List<Recipe>();
- 
 
-		public List<Recipe> RecipeList
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public List<Recipe> RecipeList
 		{
 			get { return recipeList; }
-			set { recipeList = value; }
+			set { recipeList = value; FieldChanged(); }
 		}
 		public List<Recipe> UserRecipeList
 		{
 			get { return userRecipeList; }
-			set { userRecipeList = value; }
+			set { userRecipeList = value; FieldChanged(); }
 		}
 		public List<Ingredient> IngredientList
 		{
 			get { return ingredientList; }
-			set { ingredientList = value; }
+			set { ingredientList = value; FieldChanged(); }
 		}
 		public List<Ingredient> AvailableIngredients
 		{
 			get { return AvailableIngredients; }
-			set { AvailableIngredients = value; }
+			set { AvailableIngredients = value; FieldChanged(); }
 		}	
 		public List<Recipe> DisplayRecipeList
 		{
 			get { return displayRecipeList; }
-			set { displayRecipeList = value; }
+			set { displayRecipeList = value; FieldChanged(); }
 		}
 
 
@@ -140,9 +143,15 @@ namespace ProjectPantryPlusPlus
 			return outputRecipes;
 		}
 
+        protected void FieldChanged([CallerMemberName] string field = null)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(field));
+            }
+        }
 
 
 
-
-	}
+    }
 }

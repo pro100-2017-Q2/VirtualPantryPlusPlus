@@ -1,5 +1,4 @@
 ﻿using ProjectPantryPlusPlus.DataModels;
-using ProjectPantryPlusPlus.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +33,7 @@ namespace ProjectPantryPlusPlus.Popups
         {
             Ingredient i = new Ingredient(this.nameBox.Text, this.categoryBox.Text);
             local_pm.IngredientList.Add(i);
-            MessageBox.Show("Ingredient name: " + i.Name + "Category: " + i.Catagory);
-          
+            MessageBox.Show("Ingredient name: " + i.Name + " Category: " + i.Catagory);         
             this.Close();
         }
     }

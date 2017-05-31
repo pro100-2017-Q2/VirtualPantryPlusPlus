@@ -57,14 +57,20 @@
                     <Label Content="SpicesOils"
                            Grid.Row="5"
                     />
-                    <ListBox x:Name="meatsList"
+                    <WrapPanel x:Name="meatsList"
                              Grid.Row="0"
                              Width="150"
                              Margin="70,0,0,0" 
-                             IsSynchronizedWithCurrentItem="True"
-                             ItemsSource="{Binding IngredientList}">
-                       
-                    </ListBox>
+                    >
+                        <Label x:Name="meatIngredients"
+                               Content="{Binding Name}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center">
+                                
+                        </Label>
+                    </WrapPanel>
+
+
                     <ListBox x:Name="dairyList"
                              Grid.Row="1"
                              Width="150"

@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using ProjectPantryPlusPlus.Popups;
 using System.Collections.ObjectModel;
-using ProjectPantryPlusPlus.Enums;
+
 
 namespace PantryProject
 {
@@ -17,6 +17,7 @@ namespace PantryProject
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, IAddChild
+
     {
         private PantryManager PM = new PantryManager();
 
@@ -26,6 +27,8 @@ namespace PantryProject
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
+            mainWindow.DataContext = PM;
+            meatIngredients.DataContext = PM.IngredientList;
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -41,11 +44,8 @@ namespace PantryProject
 
         private void AddIngredientClick(object sender, RoutedEventArgs e)
         {
-            AddIngredient popup = new AddIngredient();
+            AddIngredient popup = new AddIngredient(PM);
             popup.ShowDialog();
-            //IngredientPopUp i = new IngredientPopUp();
-            //DialogResult dr = i.ShowDialog();
-
         }
 
         private void export_Click(object sender, RoutedEventArgs e)
@@ -92,52 +92,53 @@ namespace PantryProject
 
         private void populate_List()
         {
-            FoodCategories f = FoodCategories.Meat;
+            PM.IngredientList.Add(new Ingredient("Chicken", "Meat"));
+            
             foreach (Ingredient i in PM.IngredientList)
             {
-                switch (f)
+                switch (i.Catagory)
                 {
-                    case FoodCategories.Beans:
+                    case "Meats":
+                        meatsList.Children.Add(new System.Windows.Controls.Label
+                        {
+                            Content = i.Name
+
+                        });
                         break;
-                    case FoodCategories.Dairy:
+                    case "Eggs & Dairy":
                         break;
-                    case FoodCategories.Eggs:
+                    case "Nuts, Grains, and beans":
                         break;
-                    case FoodCategories.Fruits:
+                    case "Fruits":
                         break;
-                    case FoodCategories.Grains:
+                    case "Vegetables":
                         break;
-                    case FoodCategories.Meat:
+                    case "Beverages":
                         break;
-                    case FoodCategories.Nuts:
+                    case "Spices and Oils":
                         break;
-                    case FoodCategories.Oils:
-                        break;
-                    case FoodCategories.Spices:
-                        break;
-                    case FoodCategories.Vegetables:
-                        break;
+                    
                 }
             }
-            foreach (string Category in Ingredient.IngredientCatagories)
-            {
-                Thickness ListThic = new Thickness();
-                ListThic.Left = 20;
-                ListThic.Right = 7;
-                ListThic.Bottom = 3;
-                ListThic.Top = 1;
-                pantryList.Children.Add(new System.Windows.Controls.Label
-                {
-                    Content = "-" + Category + ""
-                });
-                pantryList.Children.Add(new System.Windows.Controls.TextBlock
-                {
-                    Margin = ListThic,
-                    Width = 200,
-                    TextWrapping = TextWrapping.Wrap,
-                    
-                });
-            }
+            //foreach (string Category in Ingredient.IngredientCatagories)
+            //{
+            //    Thickness ListThic = new Thickness();
+            //    ListThic.Left = 20;
+            //    ListThic.Right = 7;
+            //    ListThic.Bottom = 3;
+            //    ListThic.Top = 1;
+            //    pantryList.Children.Add(new System.Windows.Controls.Label
+            //    {
+            //        Content = "-" + Category + ""
+            //    });
+            //    pantryList.Children.Add(new System.Windows.Controls.TextBlock
+            //    {
+            //        Margin = ListThic,
+            //        Width = 200,
+            //        TextWrapping = TextWrapping.Wrap,
+
+            //    });
+            //}
         }
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
