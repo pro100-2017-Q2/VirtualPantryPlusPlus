@@ -41,7 +41,7 @@ namespace PantryProject
 
         private void AddIngredientClick(object sender, RoutedEventArgs e)
         {
-            AddIngredient popup = new AddIngredient();
+            AddIngredient popup = new AddIngredient(PM);
             popup.ShowDialog();
             //IngredientPopUp i = new IngredientPopUp();
             //DialogResult dr = i.ShowDialog();
@@ -92,33 +92,33 @@ namespace PantryProject
 
         private void populate_List()
         {
-            FoodCategories f = FoodCategories.Meat;
-            foreach (Ingredient i in PM.IngredientList)
-            {
-                switch (f)
-                {
-                    case FoodCategories.Beans:
-                        break;
-                    case FoodCategories.Dairy:
-                        break;
-                    case FoodCategories.Eggs:
-                        break;
-                    case FoodCategories.Fruits:
-                        break;
-                    case FoodCategories.Grains:
-                        break;
-                    case FoodCategories.Meat:
-                        break;
-                    case FoodCategories.Nuts:
-                        break;
-                    case FoodCategories.Oils:
-                        break;
-                    case FoodCategories.Spices:
-                        break;
-                    case FoodCategories.Vegetables:
-                        break;
-                }
-            }
+            //FoodCategories f = FoodCategories.Meats;
+            //foreach (Ingredient i in PM.IngredientList)
+            //{
+            //    switch (f)
+            //    {
+                    //case FoodCategories.Beans:
+                    //    break;
+                    //case FoodCategories.Dairy:
+                    //    break;
+                    //case FoodCategories.Eggs:
+                    //    break;
+                    //case FoodCategories.Fruits:
+                    //    break;
+                    //case FoodCategories.Grains:
+                    //    break;
+                    //case FoodCategories.Meats:
+                    //    break;
+                    //case FoodCategories.Nuts:
+                    //    break;
+                    //case FoodCategories.Oils:
+                    //    break;
+                    //case FoodCategories.Spices:
+                    //    break;
+                    //case FoodCategories.Vegetables:
+                    //    break;
+            //    }
+            //}
             foreach (string Category in Ingredient.IngredientCatagories)
             {
                 Thickness ListThic = new Thickness();

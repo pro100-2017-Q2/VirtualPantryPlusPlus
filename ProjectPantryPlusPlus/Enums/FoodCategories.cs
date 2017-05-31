@@ -8,16 +8,16 @@ namespace ProjectPantryPlusPlus.Enums
 {
     public enum FoodCategories
     {
-        Meat,
-        Eggs,
-        Dairy,
-        Fruits,
-        Vegetables,
-        Nuts,
-        Beans,
-        Grains,
-        Spices,
-        Oils
+        //Meats,
+        //Eggs,
+        //Dairy,
+        //Fruits,
+        //Vegetables,
+        //Nuts,
+        //Beans,
+        //Grains,
+        //"Spices and Oils"
+       
 
     }
   //  "Meats",
