@@ -282,6 +282,25 @@ namespace PantryProject
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
                 VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
             };
+            System.Windows.Controls.Label Lb_Serving = new System.Windows.Controls.Label
+            {
+                Content = "Serving:",
+                //  Margin = Thick,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = VerticalAlignment.Bottom,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            System.Windows.Controls.TextBox TB_Serving = new System.Windows.Controls.TextBox
+            {
+                BorderBrush = Brushes.Black,
+                BorderThickness = TB_Thick,
+                //  Margin = Thick,
+                Width = 400,
+                Height = 20,
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
+            };
 
 
             System.Windows.Controls.Label Lb_Time = new System.Windows.Controls.Label
