@@ -1,14 +1,17 @@
-﻿<Window x:Class="PantryProject.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PantryProject"
+        xmlns:DataModels="clr-namespace:ProjectPantryPlusPlus.DataModels" x:Class="PantryProject.MainWindow"
         mc:Ignorable="d"
-        Title="My Pantry V0.01" Height="550" Width="1000"
-        ResizeMode="NoResize">
-    <Grid>
+        Title="My Pantry V0.01" Height="550" Width="725"
+        ResizeMode="NoResize"
+        x:Name="mainWindow"
+        >
 
+    <Grid>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -30,30 +33,97 @@
                 <RowDefinition Height="300"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <ScrollViewer BorderBrush="Black" Grid.ColumnSpan="3" Grid.Row ="1">
-                <StackPanel x:Name="pantryList" 
+            <ScrollViewer x:Name="mainScrollViewer"
+                BorderBrush="Black" Grid.ColumnSpan="3" Grid.Row ="1">
+                <Grid x:Name="PantryCategories">
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Name="Meats"/>
+                        <RowDefinition x:Name="DairyEggs"/>
+                        <RowDefinition x:Name="NutsGrainsBeans"/>
+                        <RowDefinition x:Name="Fruits"/>
+                        <RowDefinition x:Name="Vegetables"/>
+                        <RowDefinition x:Name="Beverages"/>
+                        <RowDefinition x:Name="SpicesOils"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Meats"/>
+                    <Label Content="Dairy/Eggs"
+                           Grid.Row="1"/>
+                    <Label Content="Nuts, Grains, Beans"
+                           Grid.Row="2"/>
+                    <Label Content="Fruits"
+                           Grid.Row="3"/>
+                    <Label Content="Vegetables"
+                           Grid.Row="4"/>
+                    <Label Content="SpicesOils"
+                           Grid.Row="5"
+                    />
+                    <WrapPanel x:Name="meatsList"
+                             Grid.Row="0"
+                             Width="150"
+                             Margin="70,0,0,0" 
+                    >
+                        <Label x:Name="meatIngredients"
+                               Content="{Binding Name}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center">
+                                
+                        </Label>
+                    </WrapPanel>
+
+
+                    <ListBox x:Name="dairyList"
+                             Grid.Row="1"
+                             Width="150"
+                             Margin="70,0,0,0"/>
+                    <ListBox x:Name="grainsList"
+                             Grid.Row="2"
+                             Width="150"
+                             Margin="70,0,0,0"/>
+                    <ListBox x:Name="fruitsList"
+                             Grid.Row="3"
+                             Width="150"
+                             Margin="70,0,0,0"/>
+                    <ListBox x:Name="vegetablesList"
+                             Grid.Row="4"
+                             Width="150"
+                             Margin="70,0,0,0"/>
+                    <ListBox x:Name="spicesList"
+                             Grid.Row="5"
+                             Width="150"
+                             Margin="70,0,0,0"
+                    />
+
+
+
+
+                </Grid>
+
+                <!--<StackPanel x:Name="pantryList" 
                      Grid.ColumnSpan="3"
                      Grid.Row="1"
                      Margin="10">
                     <ListBox
                         x:Name="ingredientList"
                     >
-                        <!--<ListBox.ItemTemplate>
+                        -->
+                <!--<ListBox.ItemTemplate>
                             <DataTemplate>
                                 
                             </DataTemplate>
-                        </ListBox.ItemTemplate>-->                       
+                        </ListBox.ItemTemplate>-->
+                <!--                       
                     </ListBox>    
+                -->
                 <!--<Label x:Name="meatName" Content="-Meats" MouseLeftButtonDown="Content_MouseLeftButtonDown"/>
                 <TextBlock x:Name="meatContent" Visibility="Collapsed"  Margin="20 0 7 0" Background="Green" Width="200" TextWrapping="Wrap" Text="@reuscam: I don't think it's the way the viewbox works. It doesn't resize already rendered content, it applies transformations that are used when the content is rendered. At least I hope it does so, because it's part of WPF's rendering concept"/>
                 <Label x:Name="dairyName" Content="-Dairy Products"/>
                 <TextBlock x:Name="dairyContent" Margin="20 0 7 20" Background="Green"/>
                 <Label x:Name="fruitsVegsName" Content="-Fruits, Vegetables, and Juices."/>
                 <TextBlock x:Name="fruitsVegsContent" Margin="20 0 7 20" Background="Green"/>-->
-                </StackPanel>
+                <!--</StackPanel>-->
             </ScrollViewer>
-            
-            
+
+
             <Button
             x:Name="addIngredient"
             Height="20"
@@ -104,12 +174,11 @@
   
         >
             <TabItem Header="Popular Recipes">
-                <ScrollViewer x:Name="popular_Scroller">
-                    
-                </ScrollViewer>
-                    
+                <ScrollViewer x:Name="popular_Scroller"/>
+
             </TabItem>
             <TabItem Header="What Can I Make?">
+                <Label Content="Food duh."/>
             </TabItem>
 
             <TabItem Header="My Recipes">
@@ -130,12 +199,12 @@
                          Grid.Row="1">
 
                     <ListBox.ItemTemplate>
-                        <DataTemplate >
-                            <Border BorderBrush="Silver" BorderThickness="3" Width="610" >
-                                <Grid Background="White"  MouseLeftButtonDown="MyRecipeList_MouseLeftButtonDown" DataContext="{Binding}" >
+                        <DataTemplate>
+                            <Border BorderBrush="Silver" BorderThickness="3" Width="450">
+                                <Grid Background="White"  MouseLeftButtonDown="MyRecipeList_MouseLeftButtonDown">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="3*"/>
                                     </Grid.ColumnDefinitions>
                                     <Image Grid.Column="0"
                                                    Width="150"

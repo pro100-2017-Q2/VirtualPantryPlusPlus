@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using ProjectPantryPlusPlus.Popups;
 using System.Collections.ObjectModel;
-using ProjectPantryPlusPlus.Enums;
+
 
 namespace PantryProject
 {
@@ -17,6 +17,7 @@ namespace PantryProject
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, IAddChild
+
     {
         private PantryManager PM = new PantryManager();
 
@@ -26,6 +27,8 @@ namespace PantryProject
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
+            mainWindow.DataContext = PM;
+            meatIngredients.DataContext = PM.IngredientList;
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -43,9 +46,6 @@ namespace PantryProject
         {
             AddIngredient popup = new AddIngredient(PM);
             popup.ShowDialog();
-            //IngredientPopUp i = new IngredientPopUp();
-            //DialogResult dr = i.ShowDialog();
-
         }
 
         private void export_Click(object sender, RoutedEventArgs e)

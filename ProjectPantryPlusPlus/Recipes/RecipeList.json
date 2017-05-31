@@ -3,7 +3,7 @@
 
 		"Title": "Japanese Mentaiko Spaghetti",
 		"Author": "Danile Gritzer",
-		"Img": "",
+		"Img": 1,
 		"PrepTime": "15 Minutes",
 		"ServingSize": "serves 2",
 		"Instructions": " 1. In a pot of salted boiling water, cook spaghetti until al dente, according to timing given in package Instructions. \n2. Meanwhile, using a sharp paring knife, slice mentaiko lobes open and scrape out roe. Reserve 2 teaspoons (10g) roe for garnish and place the rest in a large heatproof bowl. Add soy sauce and melted butter to bowl with roe, stirring to combine. \n3. When spaghetti is done, transfer to bowl with butter sauce using tongs. Add 1/4 cup (60ml) pasta-cooking water, then stir and toss pasta until it is evenly coated in sauce, any excess liquid has been absorbed, and a smooth, creamy sauce has formed. Transfer to serving bowls, top each bowl with reserved roe, and garnish with nori strips. Serve right away, mixing nori and roe garnish in with chopsticks before eating.",
@@ -46,7 +46,7 @@
 	{
 		"Title": "Roasted Asparagus",
 		"Author": "taylortwo",
-		"Img": "",
+		"Img": 1,
 		"PrepTime": "25 mins",
 		"ServingSize": "4",
 		"Instructions": "1. Preheat oven to 425°F. Cut off the woody bottom part of the asparagus spears and discard. With a vegetable peeler, peel off the skin on the bottom 2-3 inches of the spears (this keeps the asparagus from being all \"stringy\" and if you eat asparagus you know what I mean by that). \nPlace asparagus on foil-lined baking sheet and drizzle with olive oil. Sprinkle with salt. \nWith your hands, roll the asparagus around until they are evenly coated with oil and salt. \nRoast for 10-15 minutes, depending on the thickness of your stalks and how tender you like them. They should be tender when pierced with the tip of a knife. The tips of the spears will get very brown but watch them to prevent burning. \nThey are great plain, but sometimes I serve them with a light vinaigrette if we need something acidic to balance out our meal.",
@@ -73,7 +73,7 @@
 	{
 		"Title": "Quick Chicken Nuggets",
 		"Author": "Unknown",
-		"Img": "",
+		"Img": 1,
 		"PrepTime": "25 mins",
 		"ServingSize": "4 servings",
 		"Instructions": "1. Heat oven to broil. Coat baking rack with nonstick cooking spray. Place rack over baking sheet; set aside. \n2. Stir together bread crumbs, garlic powder and thyme in a pie plate; set aside. Stir together mustard and mayonnaise. \n3. Reserve about 1/2 cup of mustard mixture for dipping sauce. Brush chicken pieces with remaining mustard mix; place chicken in pie plate with bread crumb mixture, spooning crumbs on top of pieces and pressing to adhere. Transfer to prepared baking rack. Broil for 10 minutes or until cooked through. Serve with reserved dipping sauce and green beans on the side. ",
@@ -120,7 +120,7 @@
 	{
 		"Title": "Frijoles Charros",
 		"Author": "J. KENJI LÓPEZ-ALT",
-		"Img": "",
+		"Img": 1,
 		"PrepTime": "1 hour 10 minutes, plus overnight soaking time for beans",
 		"ServingSize": "Serves 8 to 12",
 		"Instructions": "1. Place beans in a large bowl and cover with water by double. Add 2 tablespoons (30g) kosher salt and stir to dissolve. Let soak 8 to 12 hours. Drain and rinse. \n2. Heat bacon in a large Dutch oven over medium-high heat, stirring constantly, until fat is rendered and bacon is just starting to brown around the edges, about 5 minutes. Add onion and chilies and cook, stirring, until softened and just starting to brown, about 4 minutes. Add garlic and cook, stirring, until fragrant, about 30 seconds. Add tomatoes (see note above) and cook, stirring and scraping up browned bits from the bottom of the pan, until the liquid is thick and the mixture begins to sizzle, about 3 minutes. \n3. Add beans, stock, bay leaves, 2 teaspoons (10g) kosher salt, and epazote (if using). Bring to a boil over high heat, reduce to a bare simmer, cover, and cook until beans are just tender, about 45 minutes. Remove lid and continue cooking, stirring occasionally, until beans are completely creamy and liquid has thickened into a rich, creamy broth. Season to taste with salt. Discard bay leaves, stir in cilantro, and serve. Beans can be stored in the refrigerator for up to 1 week. ",
@@ -190,8 +190,8 @@
 	},
 	{
 		"Title": "A Minnesota Good-Bye (Cranberry French 75) ",
-			"Author": "MAGGIE HOFFMAN",
-			"Img": "",
+		"Author": "MAGGIE HOFFMAN",
+		"Img": 1,
 		"PrepTime": "2 hours",
 		"ServingSize": "Makes 8 servings, plus extra syrup",
 		"Instructions": "1. For the Spiced Cranberry Cordial: Add cinnamon sticks, star anise, cardamom, and cloves to a saucepan and toast over medium heat, shaking pan frequently, until fragrant; make sure not to let them burn. Add water, sugar, orange peel, cranberries, lime juice, and salt and stir over medium-high heat until sugar dissolves. Bring to a simmer and cook, using a wooden spoon to smash fruit against side of pan, until all of the cranberries have popped. Remove from heat and let cool completely, 1 to 2 hours. Strain through a fine-mesh strainer into a resealable container. Cordial can be kept up to 3 weeks in the refrigerator. \n2. For the Cocktail Mix: Up to 2 hours before serving, mix cordial, grapefruit juice, and gin in a pitcher, bottle, or resealable container. Use immediately or store up to 2 hours in the refrigerator. Cocktail mix makes 8 servings; feel free to double the recipe. \n3. For Each Cocktail: Fill a Collins glass with ice and add 3 1/2 ounces (105ml) Cocktail Mix and 2 ounces (60ml) chilled sparkling wine. Stir gently and garnish with skewered cranberries.",
@@ -276,7 +276,7 @@
 	{
 		"Title": "Terry Crews' Mac And Cheese",
 		"Author": "Terry Crews",
-		"Img": "Terry Crews' Mac And Cheese",
+		"Img": 1,
 		"PrepTime": "",
 		"ServingSize": "4 - 6",
 		"Instructions": "1. Preheat oven to 350°F/180°C.\n 2. Cook macaroni “al dente” according to package directions. Drain with cold water.\n 3. In a bowl, combine cottage cheese, cheese, sour cream, egg, and salt. Fold in macaroni.\n 4. Grease a 2-quart casserole dish with coconut oil.\n 5. Spoon mixture into casserole dish and sprinkle with extra cheese and paprika.\n 6. Bake for 45 minutes",
@@ -323,6 +323,55 @@
 			"salt": "1/4 teaspoon",
 			"coconut oil": "1 tablespoon",
 			"paprika": "garnish"
+		}
+	},
+	{
+		"Title": "Strawberry Cool Brulee",
+		"Author": "midwestliving.com",
+		"Img": 1,
+		"PrepTime": "2 hours",
+		"ServingSize": "4 servings",
+		"Instructions": "1. Divide strawberries among four 8-ounce dessert dishes. Sprinkle 1 teaspoon demarara sugar over strawberries in each dish.\n 2. With electric mixer, whip cream to soft peaks. Fold in yogurt and spread evenly over strawberries.\n 3. Sprinkle 1 teaspoon of the remaining demerara sugar over each. Cover and chill for 2 to 6 hours.",
+			"Ingredients": [
+							{
+								"Name": "strawberries",
+								"Catagory": ""
+							},
+							{
+								"Name": "turbinado sugar",
+								"Catagory": ""
+							},
+							{
+								"Name": "whipping cream",
+								"Catagory": ""
+							},
+							{
+								"Name": "lowfat vanilla yogurt",
+								"Catagory": ""
+							}
+			],
+			"IngredientPortions": {
+				"strawberries": "2 cups",
+				"turbinado sugar": "8 teaspoons",
+				"whipping cream": "1/2 cup",
+				"lowfat vanilla yogurt": "1/3 cup"
+			}
+	},
+	{
+		"Title": "",
+		"Author": "",
+		"Img": "",
+		"PrepTime": 1,
+		"ServingSize": "",
+		"Instructions": "",
+		"Ingredients": [
+			{
+				"Name": "",
+				"Catagory": ""
+			}
+		],
+		"IngredientPortions": {
+			"": ""
 		}
 	}
 ]

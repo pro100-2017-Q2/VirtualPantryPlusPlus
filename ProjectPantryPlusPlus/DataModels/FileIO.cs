@@ -80,9 +80,9 @@ namespace ProjectPantryPlusPlus.DataModels
 				}
 				output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
 			}
-			catch(System.ArgumentException){}
-			catch(System.IO.DirectoryNotFoundException){ }
-			catch(System.IO.FileNotFoundException){ }
+			catch(System.ArgumentException e){ throw e; }//this is a system exception that we can't fix on our own, so we throw it back.
+			catch(System.IO.DirectoryNotFoundException e){ throw new DirectoryNotFoundException(String.Format("Filepath >{0}< could not be found.", @filename)); }
+			catch(System.IO.FileNotFoundException e){ throw new FileNotFoundException(String.Format("File >{0}< could not be found.", @filename)); }
 
 
 			List<Recipe> outputRecipes = new List<Recipe>();
