@@ -231,6 +231,18 @@ namespace PantryProject
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             //FileIO.SaveIngredients(PM.IngredientList, "CurrentlySelectedIngridients");
+            Window Thanks = new Window()
+            {
+                Width = 100,
+                Height = 60,
+                Content = "Saving complete",
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
+                Background = Brushes.DarkGray,
+                ResizeMode = ResizeMode.NoResize
+            };
+            Thanks.Topmost = true;
+            Thanks.Show();
         }
 
         private void SaveIngList_Click(object sender, RoutedEventArgs e)
