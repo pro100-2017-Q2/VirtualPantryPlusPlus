@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using ProjectPantryPlusPlus.Popups;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace PantryProject
 {
@@ -30,7 +31,7 @@ namespace PantryProject
            
         }
 
-        private MouseEventHandler Content_MouseLeftButtonDown()
+        private System.Windows.Input.MouseEventHandler Content_MouseLeftButtonDown()
         {
             if (this.Visibility == Visibility.Collapsed)
             {
@@ -82,12 +83,7 @@ namespace PantryProject
                this.Visibility = Visibility.Collapsed;
         }
 
-        private void addRecipeClick(object sender, RoutedEventArgs e)
-        {
-            //Creating hard-coded recipes
-           
 
-        }
 
         public void populate_List()
         {
@@ -374,8 +370,8 @@ namespace PantryProject
                 Content = "Save",
                 Width = 30
             };
-
-           // Save_Button.Click += Save_Button_Click(TB_Title.Text, TB_Author.Text, TB_Serving.Text, TB_Time.Text, TB_Ingridients.Text, TB_Instructions.Text);
+            
+            
             Scroller.Content = TB_Instructions;
             Stkpnl.Children.Add(Lb_Title);
             Stkpnl.Children.Add(TB_Title);
@@ -392,18 +388,12 @@ namespace PantryProject
             Stkpnl.Children.Add(Save_Button);
             AddWin.Content = Stkpnl;
             AddWin.Show();
+
+            Save_Button.MouseDown += Voidance;
         }
 
-        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        private MouseButtonEventHandler Save_Button_Click(string title, string author, string serving, string time, string ingridients, string instructions, Window addwin)
         {
-            
-            throw new NotImplementedException();
-        }
-
-        //(TB_Title.Text, TB_Author.Text, TB_Serving.Text, TB_Time.Text, TB_Ingridients.Text, TB_Instructions.Text)
-        private void Recipe_SaveClick(object sender, RoutedEventArgs e, string title, string author, string serving, string time, string ingridients, string instructions)
-        {
-
             string[] ing = new string[30];
 
             ingridients.Trim(' ');
@@ -411,14 +401,14 @@ namespace PantryProject
 
             Ingredient[] ings = new Ingredient[30];
 
-            foreach(string item in ing)
+            foreach (string item in ing)
             {
                 int index = 0;
                 ings[index] = new Ingredient()
-                 {
-                     Name = item,
-                     Catagory = "userinputted"
-                 };
+                {
+                    Name = item,
+                    Catagory = "userinputted"
+                };
                 index++;
             };
 
@@ -433,13 +423,32 @@ namespace PantryProject
             };
 
             PM.RecipeList.Add(rec);
-
+            //addwin.Close();
+            return Voidance; 
         }
+
+        private void Voidance(object sender, RoutedEventArgs e)
+        {
+            Window thanks = new Window()
+            {
+                Content= "Recipe Saved!",
+                Width = 100, 
+                Height = 100
+            };
+            thanks.Show();
+        }
+
+        //(TB_Title.Text, TB_Author.Text, TB_Serving.Text, TB_Time.Text, TB_Ingridients.Text, TB_Instructions.Text)
+
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            FileIO.SaveIngredients(PM.IngredientList, "CurrentlySelectedIngridients");
+            //FileIO.SaveIngredients(PM.IngredientList, "CurrentlySelectedIngridients");
         }
 
+        private void SaveIngList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
