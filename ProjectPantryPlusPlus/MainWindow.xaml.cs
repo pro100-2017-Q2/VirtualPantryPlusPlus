@@ -442,13 +442,14 @@ namespace PantryProject
 
 
         private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            //FileIO.SaveIngredients(PM.IngredientList, "CurrentlySelectedIngridients");
-        }
+		{//ToDo: Implement Letting the user change where they want to save their pantryState to.
+			FileIO.SaveIngredients(PM.AvailableIngredients, "pantryState.xml");
+		}
 
         private void SaveIngList_Click(object sender, RoutedEventArgs e)
         {
 
-        }
+			FileIO.SaveIngredients(PM.AvailableIngredients, "pantryState.xml");
+		}
     }
 }
