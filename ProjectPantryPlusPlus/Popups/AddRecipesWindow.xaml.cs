@@ -2,6 +2,7 @@
 using ProjectPantryPlusPlus.DataModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace ProjectPantryPlusPlus.Popups
     /// <summary>
     /// Interaction logic for AddRecipesWindow.xaml
     /// </summary>
-    public partial class AddRecipesWindow : UserControl
+    public partial class AddRecipesWindow : UserControl, INotifyCollectionChanged
     {
         PantryManager PM;
         public AddRecipesWindow(PantryManager PantryM)
@@ -28,6 +29,8 @@ namespace ProjectPantryPlusPlus.Popups
             InitializeComponent();
             PM = PantryM;
         }
+
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -58,8 +61,8 @@ namespace ProjectPantryPlusPlus.Popups
                 Instructions = instructions.Text
             };
 
-            //PM.DisplayRecipeList.Add(rec);
-            
+           // PM.DisplayRecipeList.Add(rec);
+           // PM.FieldChanged();
             //PM.UserRecipeList.Add(rec);
 
             Window.GetWindow(this).Close();
