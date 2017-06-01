@@ -157,7 +157,7 @@
 	},
 	{
 		"Name": "diced bacon",
-		"Catagory": "Other"
+		"Catagory": "Meats"
 	},
 	{
 		"Name": "white or yellow onion",
@@ -213,7 +213,7 @@
 	},
 	{
 		"Name": "chicken tenders",
-		"Catagory": "Other"
+		"Catagory": "Meats"
 	},
 	{
 		"Name": "green beans",
@@ -249,3 +249,15 @@
 		"Catagory": "Other"
 	}
 ]
+
+/**
+
+		"Meats",
+    "Eggs & Dairy",
+		"Nuts, Grains, and beans",
+		"Fruits",
+		"Vegetables",
+		"Beverages",
+		"Spices and Oils"
+
+**/
