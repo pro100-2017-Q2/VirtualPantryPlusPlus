@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="ProjectPantryPlusPlus.Popups.AddRecipesWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjectPantryPlusPlus.Popups"
+             mc:Ignorable="d"
+             d:DesignHeight="550" d:DesignWidth="450" Background="White" x:Name="addWindow">
+    <StackPanel Margin="15" x:Name="addRecipeWindow">
+        <Label Content="Title:"
+               VerticalAlignment="Bottom"
+               VerticalContentAlignment="Bottom"/>
+        <TextBox x:Name="title"
+            BorderBrush="Black"
+            HorizontalAlignment="Left"
+            VerticalContentAlignment="Bottom"
+            HorizontalContentAlignment="Left"
+            Width="400"
+            Height="20"
+            />
+        <Label Content="Author:"
+               VerticalAlignment="Bottom"
+               VerticalContentAlignment="Bottom"/>
+        <TextBox
+            x:Name="author"
+            BorderBrush="Black"
+            HorizontalAlignment="Left"
+            VerticalContentAlignment="Bottom"
+            HorizontalContentAlignment="Left"
+            Width="400"
+            Height="20"
+            />
+        <Label Content="Serving"
+               VerticalAlignment="Bottom"
+               VerticalContentAlignment="Bottom"/>
+        <TextBox
+            x:Name="serving"
+            BorderBrush="Black"
+            HorizontalAlignment="Left"
+            VerticalContentAlignment="Bottom"
+            HorizontalContentAlignment="Left"
+            Width="400"
+            Height="20"
+            />
+        <Label Content="Time"
+               VerticalAlignment="Bottom"
+               VerticalContentAlignment="Bottom"/>
+        <TextBox
+            x:Name="time"
+            BorderBrush="Black"
+            HorizontalAlignment="Left"
+            VerticalContentAlignment="Bottom"
+            HorizontalContentAlignment="Left"
+            Width="400"
+            Height="20"
+            />
+        <Label Content="Ingridients (Seperate by ','):"
+               VerticalAlignment="Bottom"
+               VerticalContentAlignment="Bottom"/>
+        <TextBox
+            x:Name="ingridients"
+            BorderBrush="Black"
+            HorizontalAlignment="Left"
+            VerticalContentAlignment="Bottom"
+            HorizontalContentAlignment="Left"
+            Width="400"
+            Height="20"
+            />
+        <Label Content="Instructions:"
+               VerticalAlignment="Bottom"
+               VerticalContentAlignment="Bottom"/>
+        <ScrollViewer
+            CanContentScroll="False"
+            Width="420"
+            Height="200">
+            <TextBox 
+                x:Name="instructions"
+                TextWrapping="Wrap"
+                Width="400"
+                Margin="2"
+                     />
+        </ScrollViewer>
+        <Button
+            Margin="10"
+            Content="Save"
+                Width="40"
+                Click="Button_Click"/>
+    </StackPanel>
+</UserControl>

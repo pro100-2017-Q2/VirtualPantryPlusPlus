@@ -82,15 +82,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Popups\AddRecipe.xaml">
+    <Page Include="Popups\AddRecipesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PantryManager.cs" />
-    <Compile Include="Popups\AddRecipe.xaml.cs">
-      <DependentUpon>AddRecipe.xaml</DependentUpon>
+    <Compile Include="Popups\AddRecipesWindow.xaml.cs">
+      <DependentUpon>AddRecipesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

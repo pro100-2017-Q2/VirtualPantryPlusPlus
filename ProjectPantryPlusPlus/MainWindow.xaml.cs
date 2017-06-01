@@ -26,10 +26,11 @@ namespace PantryProject
         public MainWindow()
         {
             InitializeComponent();
-            populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
+            
            
         }
+
 
         private System.Windows.Input.MouseEventHandler Content_MouseLeftButtonDown()
         {
@@ -82,7 +83,6 @@ namespace PantryProject
             else
                this.Visibility = Visibility.Collapsed;
         }
-
 
 
         public void populate_List()
@@ -217,229 +217,15 @@ namespace PantryProject
 
         private void Recipe_Add(object sender, RoutedEventArgs e)
         {
-            Thickness Thick = new Thickness();
-            Thick.Left = 5;
-            Thick.Right = 5;
-            Thick.Bottom = 5;
-            Thick.Top = 5;
-
-            Thickness TB_Thick = new Thickness();
-            TB_Thick.Left = 2;
-            TB_Thick.Right = 2;
-            TB_Thick.Bottom = 2;
-            TB_Thick.Top = 2;
             Window AddWin = new Window()
             {
-                Title = "Add Recipe",
-                ResizeMode = ResizeMode.NoResize,
-                Height = 550,
                 Width = 450,
-                Padding = Thick
+                Height = 550
             };
-
-            StackPanel Stkpnl = new StackPanel() { Margin = Thick};
-
-            System.Windows.Controls.Label Lb_Title = new System.Windows.Controls.Label
-            {
-                Content = "Title:",
-               // Margin = Thick,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = VerticalAlignment.Bottom,
-                VerticalAlignment = VerticalAlignment.Bottom
-            };
-            System.Windows.Controls.TextBox TB_Title = new System.Windows.Controls.TextBox
-            {
-                BorderBrush = Brushes.Black,
-                BorderThickness = TB_Thick,
-               // Margin = Thick,
-                Width = 400,
-                Height = 20,
-                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
-            };
-
-            System.Windows.Controls.Label Lb_Author = new System.Windows.Controls.Label
-            {
-                Content = "Author:",
-              //  Margin = Thick,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = VerticalAlignment.Bottom,
-                VerticalAlignment = VerticalAlignment.Bottom
-            };
-            System.Windows.Controls.TextBox TB_Author = new System.Windows.Controls.TextBox
-            {
-                BorderBrush = Brushes.Black,
-                BorderThickness = TB_Thick,
-              //  Margin = Thick,
-                Width = 400,
-                Height = 20,
-                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
-            };
-            System.Windows.Controls.Label Lb_Serving = new System.Windows.Controls.Label
-            {
-                Content = "Serving:",
-                //  Margin = Thick,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = VerticalAlignment.Bottom,
-                VerticalAlignment = VerticalAlignment.Bottom
-            };
-            System.Windows.Controls.TextBox TB_Serving = new System.Windows.Controls.TextBox
-            {
-                BorderBrush = Brushes.Black,
-                BorderThickness = TB_Thick,
-                //  Margin = Thick,
-                Width = 400,
-                Height = 20,
-                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
-            };
-
-
-            System.Windows.Controls.Label Lb_Time = new System.Windows.Controls.Label
-            {
-                Content = "Preperation Time:",
-               // Margin = Thick,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = VerticalAlignment.Bottom,
-                VerticalAlignment = VerticalAlignment.Bottom
-            };
-            System.Windows.Controls.TextBox TB_Time = new System.Windows.Controls.TextBox
-            {
-                BorderBrush = Brushes.Black,
-                BorderThickness = TB_Thick,
-               // Margin = Thick,
-                Width = 400,
-                Height = 20,
-                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
-            };
-
-            System.Windows.Controls.Label Lb_Ingridients = new System.Windows.Controls.Label
-            {
-                Content = "Ingridients (Seperate by ','):",
-                //  Margin = Thick,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = VerticalAlignment.Bottom,
-                VerticalAlignment = VerticalAlignment.Bottom
-            };
-            System.Windows.Controls.TextBox TB_Ingridients = new System.Windows.Controls.TextBox
-            {
-                BorderBrush = Brushes.Black,
-                BorderThickness = TB_Thick,
-                //  Margin = Thick,
-                Width = 400,
-                Height = 20,
-                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = System.Windows.VerticalAlignment.Bottom,
-            };
-
-            System.Windows.Controls.Label Lb_Instructions = new System.Windows.Controls.Label
-            {
-                Content = "Instructions:",
-                // Margin = Thick,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                VerticalContentAlignment = VerticalAlignment.Bottom,
-                VerticalAlignment = VerticalAlignment.Bottom
-            };
-
-
-            ScrollViewer Scroller = new ScrollViewer()
-            {
-                CanContentScroll = false,
-                Width = 420,
-                Height = 200
-            };
-
-            System.Windows.Controls.TextBox TB_Instructions = new System.Windows.Controls.TextBox
-            {
-               TextWrapping = TextWrapping.Wrap,
-               Width = 400,
-               Margin = TB_Thick
-               
-            };
-
-
-            System.Windows.Controls.Button Save_Button = new System.Windows.Controls.Button
-            {
-                Content = "Save",
-                Width = 30
-            };
-            
-            
-            Scroller.Content = TB_Instructions;
-            Stkpnl.Children.Add(Lb_Title);
-            Stkpnl.Children.Add(TB_Title);
-            Stkpnl.Children.Add(Lb_Author);
-            Stkpnl.Children.Add(TB_Author);
-            Stkpnl.Children.Add(Lb_Serving);
-            Stkpnl.Children.Add(TB_Serving);
-            Stkpnl.Children.Add(Lb_Time);
-            Stkpnl.Children.Add(TB_Time);
-            Stkpnl.Children.Add(Lb_Ingridients);
-            Stkpnl.Children.Add(TB_Ingridients);
-            Stkpnl.Children.Add(Lb_Instructions);
-            Stkpnl.Children.Add(Scroller);
-            Stkpnl.Children.Add(Save_Button);
-            AddWin.Content = Stkpnl;
+            AddRecipesWindow AddRec = new AddRecipesWindow(PM);
+            AddWin.Content = AddRec;
             AddWin.Show();
-
-            Save_Button.MouseDown += Voidance;
         }
-
-        private MouseButtonEventHandler Save_Button_Click(string title, string author, string serving, string time, string ingridients, string instructions, Window addwin)
-        {
-            string[] ing = new string[30];
-
-            ingridients.Trim(' ');
-            ing = ingridients.Split(',');
-
-            Ingredient[] ings = new Ingredient[30];
-
-            foreach (string item in ing)
-            {
-                int index = 0;
-                ings[index] = new Ingredient()
-                {
-                    Name = item,
-                    Catagory = "userinputted"
-                };
-                index++;
-            };
-
-            Recipe rec = new Recipe()
-            {
-                Title = title,
-                Author = author,
-                ServingSize = serving,
-                PrepTime = time,
-                Ingredients = ings,
-                Instructions = instructions
-            };
-
-            PM.RecipeList.Add(rec);
-            //addwin.Close();
-            return Voidance; 
-        }
-
-        private void Voidance(object sender, RoutedEventArgs e)
-        {
-            Window thanks = new Window()
-            {
-                Content= "Recipe Saved!",
-                Width = 100, 
-                Height = 100
-            };
-            thanks.Show();
-        }
-
-        //(TB_Title.Text, TB_Author.Text, TB_Serving.Text, TB_Time.Text, TB_Ingridients.Text, TB_Instructions.Text)
-
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -450,5 +236,13 @@ namespace PantryProject
         {
 
         }
+
+        private void Refresh(object sender, MouseButtonEventArgs e)
+        {
+            
+            MyRecipeList.Items.Refresh();
+            populate_List();
+        }
+
     }
 }
