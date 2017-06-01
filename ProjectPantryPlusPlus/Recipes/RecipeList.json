@@ -332,30 +332,30 @@
 		"PrepTime": "2 hours",
 		"ServingSize": "4 servings",
 		"Instructions": "1. Divide strawberries among four 8-ounce dessert dishes. Sprinkle 1 teaspoon demarara sugar over strawberries in each dish.\n 2. With electric mixer, whip cream to soft peaks. Fold in yogurt and spread evenly over strawberries.\n 3. Sprinkle 1 teaspoon of the remaining demerara sugar over each. Cover and chill for 2 to 6 hours.",
-			"Ingredients": [
-							{
-								"Name": "strawberries",
-								"Catagory": ""
-							},
-							{
-								"Name": "turbinado sugar",
-								"Catagory": ""
-							},
-							{
-								"Name": "whipping cream",
-								"Catagory": ""
-							},
-							{
-								"Name": "lowfat vanilla yogurt",
-								"Catagory": ""
-							}
-			],
-			"IngredientPortions": {
-				"strawberries": "2 cups",
-				"turbinado sugar": "8 teaspoons",
-				"whipping cream": "1/2 cup",
-				"lowfat vanilla yogurt": "1/3 cup"
+		"Ingredients": [
+			{
+				"Name": "strawberries",
+				"Catagory": ""
+			},
+			{
+				"Name": "turbinado sugar",
+				"Catagory": ""
+			},
+			{
+				"Name": "whipping cream",
+				"Catagory": ""
+			},
+			{
+				"Name": "lowfat vanilla yogurt",
+				"Catagory": ""
 			}
+		],
+		"IngredientPortions": {
+			"strawberries": "2 cups",
+			"turbinado sugar": "8 teaspoons",
+			"whipping cream": "1/2 cup",
+			"lowfat vanilla yogurt": "1/3 cup"
+		}
 	},
 	{
 		"Title": "",

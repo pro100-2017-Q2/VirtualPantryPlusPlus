@@ -25,12 +25,12 @@ namespace ProjectPantryPlusPlus.DataModels
 		public static List<Recipe> LoadRecipes(string filename)
 		{
 			List<Recipe> rec = null;
-			if(File.Exists(filename))
-			using (var stream = File.OpenRead(filename))
-			{
-				var serializer = new XmlSerializer(typeof(List<Recipe>));
-				rec = serializer.Deserialize(stream) as List<Recipe>;
-			}
+			if (File.Exists(filename))
+				using (var stream = File.OpenRead(filename))
+				{
+					var serializer = new XmlSerializer(typeof(List<Recipe>));
+					rec = serializer.Deserialize(stream) as List<Recipe>;
+				}
 			return rec;
 		}
 
@@ -46,7 +46,7 @@ namespace ProjectPantryPlusPlus.DataModels
 		}
 
 		public static void SaveIngredients(List<Ingredient> ingredientList, string filename)
-		
+
 		{
 			XmlSerializer xs = new XmlSerializer(typeof(List<Ingredient>));
 			using (var writer = new StreamWriter(@filename))
@@ -55,19 +55,18 @@ namespace ProjectPantryPlusPlus.DataModels
 				writer.Flush();
 			}
 		}
-		
+
 		public static void SaveRecipesJson(List<Recipe> recipeList, string filename)
 		{
-			if(!File.Exists(filename)){ File.Create(filename).Close(); }
-
+			File.Open(@filename, FileMode.OpenOrCreate).Close();
 			var json = new JavaScriptSerializer().Serialize(recipeList);
-			Console.WriteLine(json);
 			File.WriteAllText(filename, json);
 
 		}
 
 
-		public static List<Recipe> LoadRecipesJson(string filename){
+		public static List<Recipe> LoadRecipesJson(string filename)
+		{
 
 			Object[] output = new Object[0];
 			string json = "";
@@ -80,9 +79,9 @@ namespace ProjectPantryPlusPlus.DataModels
 				}
 				output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
 			}
-			catch(System.ArgumentException e){ /*throw e;*/ }//this is a system exception that we can't fix on our own, so we throw it back.
-			catch(System.IO.DirectoryNotFoundException e){ /*throw new DirectoryNotFoundException(String.Format("Filepath >{0}< could not be found.", @filename));*/ }
-			catch(System.IO.FileNotFoundException e){ /*throw new FileNotFoundException(String.Format("File >{0}< could not be found.", @filename)); */}
+			catch (System.ArgumentException e) { /*throw e;*/ }//this is a system exception that we can't fix on our own, so we throw it back.
+			catch (System.IO.DirectoryNotFoundException e) { /*throw new DirectoryNotFoundException(String.Format("Filepath >{0}< could not be found.", @filename));*/ }
+			catch (System.IO.FileNotFoundException e) { /*throw new FileNotFoundException(String.Format("File >{0}< could not be found.", @filename)); */}
 
 
 			List<Recipe> outputRecipes = new List<Recipe>();
@@ -133,7 +132,7 @@ namespace ProjectPantryPlusPlus.DataModels
 				}
 			}
 			return outputRecipes;
-			
+
 		}
 
 		//comment
