@@ -178,7 +178,6 @@ namespace PantryProject
 
             TextBlock PrepTime = new TextBlock()
             {
-                Background = Brushes.Aqua,
                 MaxWidth = 700,
                 MaxHeight = 200,
                 Text = "Preperation Time: " + Selected.PrepTime,
@@ -209,8 +208,8 @@ namespace PantryProject
             StkPnl.Children.Add(ServSize);
             StkPnl.Children.Add(Instructions);
             Scroller.Content = StkPnl;
-            RecipeWindow.Content = Scroller;   
-
+            RecipeWindow.Content = Scroller;
+            RecipeWindow.Topmost = true;
             RecipeWindow.Show();
 
         }
@@ -220,11 +219,13 @@ namespace PantryProject
             Window AddWin = new Window()
             {
                 Width = 450,
-                Height = 550
+                Height = 550,
             };
-            AddRecipesWindow AddRec = new AddRecipesWindow(PM);
+            AddRecipesWindow AddRec = new AddRecipesWindow(PM, MyRecipeList);
             AddWin.Content = AddRec;
+            AddWin.Topmost = true;
             AddWin.Show();
+            
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)

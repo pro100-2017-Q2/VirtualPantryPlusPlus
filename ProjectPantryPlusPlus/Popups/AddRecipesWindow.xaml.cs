@@ -21,16 +21,17 @@ namespace ProjectPantryPlusPlus.Popups
     /// <summary>
     /// Interaction logic for AddRecipesWindow.xaml
     /// </summary>
-    public partial class AddRecipesWindow : UserControl, INotifyCollectionChanged
+    public partial class AddRecipesWindow : UserControl
     {
         PantryManager PM;
-        public AddRecipesWindow(PantryManager PantryM)
+        ListBox MR;
+        public AddRecipesWindow(PantryManager PantryM, ListBox MyRecipe)
         {
             InitializeComponent();
             PM = PantryM;
+            MR = MyRecipe;
         }
 
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -61,9 +62,8 @@ namespace ProjectPantryPlusPlus.Popups
                 Instructions = instructions.Text
             };
 
-           // PM.DisplayRecipeList.Add(rec);
-           // PM.FieldChanged();
-            //PM.UserRecipeList.Add(rec);
+            PM.DisplayRecipeList.Add(rec);
+            MR.Items.Refresh();
 
             Window.GetWindow(this).Close();
         }
