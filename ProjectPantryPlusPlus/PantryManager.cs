@@ -8,14 +8,15 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using PantryProject;
 
 namespace ProjectPantryPlusPlus
 {
 	public class PantryManager: INotifyPropertyChanged
 	{
 		//Display list will be what we're expecting to put in the main panel. 
-		//At first this will just be all of our recipes, 
-		//with perhaps a way to make a few suggested ones float to the top.
+		//At first this will just be all of our recipes
+		//with perhaps a way to make a few suggested ones float to te top.
 		//However, after the user has entered their available ingredients, 
 		//Display list will be the filtered list of what the user can make. 
 
@@ -40,7 +41,7 @@ namespace ProjectPantryPlusPlus
 		public ObservableCollection<Ingredient> IngredientList
 		{
 			get { return ingredientList; }
-			set { ingredientList = value; FieldChanged(); }
+			set { ingredientList = value; this.NotifyPropertyChanged("IngredientList"); }
 		}
 		public List<Ingredient> AvailableIngredients
 		{
@@ -53,10 +54,9 @@ namespace ProjectPantryPlusPlus
 			set { displayRecipeList = value; FieldChanged(); }
 		}
 
-
 		public PantryManager()
 		{
-            ingredientList.CollectionChanged += HandleChange;
+            
 			//file structure currently expected to be as follows
 			//(Recipes/Ingredients)/(user)(Recipe/Ingredient)List(.extension)
 			//Example: 
@@ -92,10 +92,7 @@ namespace ProjectPantryPlusPlus
 			}
 		}
 
-        public void HandleChange(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            
-        }
+        
 
 		public List<Recipe> FilterList() {
 			List<Recipe> outputRecipes = new List<Recipe>();
@@ -107,18 +104,15 @@ namespace ProjectPantryPlusPlus
 				//Check the recipe. If the user is missing even one ingredient, then do no add it to the list. 
 				//Only if all ingredients are available will the recipe be added.
 				bool canBeMadeWithAvailable = true;
-				foreach(Ingredient ing in rec.Ingredients)
-				{
-					if(canBeMadeWithAvailable && !AvailableIngredients.Contains(ing))
-					{
-						canBeMadeWithAvailable = false;
-					}
-				}
-
+                foreach (Ingredient ing in rec.Ingredients)
+                {
+                    if (canBeMadeWithAvailable && !AvailableIngredients.Contains(ing))
+                    {
+                        canBeMadeWithAvailable = false;
+                    }
+                }
 				if(canBeMadeWithAvailable)
 				{ outputRecipes.Add(rec); }
-
-
 			}
 
 			foreach (Recipe rec in UserRecipeList)
@@ -133,13 +127,9 @@ namespace ProjectPantryPlusPlus
 						canBeMadeWithAvailable = false;
 					}
 				}
-
 				if (canBeMadeWithAvailable)
 				{ outputRecipes.Add(rec); }
-
-
 			}
-
 			return outputRecipes;
 		}
 
@@ -149,6 +139,15 @@ namespace ProjectPantryPlusPlus
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(field));
             }
+        }
+ 
+        public void NotifyPropertyChanged(string propName)
+        {
+            if(this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            MainWindow mw = new MainWindow();
+            mw.populate_List();
+               
         }
 
 
