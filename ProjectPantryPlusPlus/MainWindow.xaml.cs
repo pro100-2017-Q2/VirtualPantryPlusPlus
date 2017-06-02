@@ -217,6 +217,7 @@ namespace PantryProject
             dlg.DefaultExt = ".txt";
             dlg.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
 
+            string filename;
 
             // Display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result = dlg.ShowDialog();
@@ -225,7 +226,7 @@ namespace PantryProject
             // Get the selected file name
             if (result == true)
             {
-                string filename = dlg.FileName;
+                filename = dlg.FileName;
             }
 
 
@@ -234,7 +235,7 @@ namespace PantryProject
             {
                 tempList.Add(ing);
             }
-            FileIO.SaveIngredientsJson(tempList, "CurrentlySelectedIngridients");
+            FileIO.SaveIngredientsJson(tempList, filename);
 
             Window Thanks = new Window()
             {
