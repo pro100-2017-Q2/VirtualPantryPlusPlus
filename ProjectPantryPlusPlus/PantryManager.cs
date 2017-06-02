@@ -66,14 +66,15 @@ namespace ProjectPantryPlusPlus
 			string recipeFilePath = "Recipes/";
 			string ingredientFilePath = "Ingredients/";
 			string userTag = "user";
-			string recipeTag = "Recipe";
+			string recipeTag = "RecipeList";
 			string ingredientTag = "Ingredient";
 
 			List<Ingredient> tempIngredients = new List<Ingredient>();
 
+			string test = recipeFilePath + userTag + recipeTag + fileExtension;
 
 			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
-			//this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
+			this.UserRecipeList		= FileIO.LoadRecipesJson(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
 			//this.IngredientList		= FileIO.LoadIngredients(ingredientFilePath + ingredientTag				+ fileExtension);
 			//tempIngredients = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
@@ -106,7 +107,7 @@ namespace ProjectPantryPlusPlus
 				bool canBeMadeWithAvailable = true;
                 foreach (Ingredient ing in rec.Ingredients)
                 {
-                    if (canBeMadeWithAvailable && !AvailableIngredients.Contains(ing))
+                    if (canBeMadeWithAvailable && AvailableContains(ing))
                     {
                         canBeMadeWithAvailable = false;
                     }
@@ -133,7 +134,17 @@ namespace ProjectPantryPlusPlus
 			return outputRecipes;
 		}
 
-        public void FieldChanged([CallerMemberName] string field = null)
+		private bool AvailableContains(Ingredient ing)
+		{
+			foreach(Ingredient ingredient in AvailableIngredients){
+				if(ing.Name == ingredient.Name){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public void FieldChanged([CallerMemberName] string field = null)
         {
             if (PropertyChanged != null)
             {
