@@ -18,9 +18,8 @@ namespace PantryProject
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, IAddChild
-
     {
-        
+
         private PantryManager PM = new PantryManager();
         ObservableCollection<Ingredient> meatsList = new ObservableCollection<Ingredient>();
         ObservableCollection<Ingredient> dairyList = new ObservableCollection<Ingredient>();
@@ -99,13 +98,13 @@ namespace PantryProject
                 this.Visibility = Visibility.Visible;
             }
             else
-               this.Visibility = Visibility.Collapsed;
+                this.Visibility = Visibility.Collapsed;
         }
 
         private void addRecipeClick(object sender, RoutedEventArgs e)
         {
             //Creating hard-coded recipes
-           
+
 
         }
         public void populate_List()
@@ -160,8 +159,8 @@ namespace PantryProject
             StackPanel StkPnl = new StackPanel();
             Image RecImg = new Image()
             {
-               Height = 300,
-               Width = 790
+                Height = 300,
+                Width = 790
             };
 
             ScrollViewer Scroller = new ScrollViewer()
@@ -225,7 +224,7 @@ namespace PantryProject
                 Height = 550,
             };
 
-    
+
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -250,7 +249,8 @@ namespace PantryProject
             System.Windows.Controls.TextBox TB_Instructions = new System.Windows.Controls.TextBox
             {
                 tempList.Add(ing);
-            }
+        
+
             FileIO.SaveIngredientsJson(tempList, filename);
 
             Window Thanks = new Window()
@@ -265,6 +265,7 @@ namespace PantryProject
             };
             Thanks.Topmost = true;
             Thanks.Show();
+        
         }
 
         private void SaveIngList_Click(object sender, RoutedEventArgs e)
@@ -274,10 +275,12 @@ namespace PantryProject
 
         private void Refresh(object sender, MouseButtonEventArgs e)
         {
-            
-            MyRecipeList.Items.Refresh();
-            
-        }
 
+            MyRecipeList.Items.Refresh();
+
+        }
     }
+    
 }
+   
+
