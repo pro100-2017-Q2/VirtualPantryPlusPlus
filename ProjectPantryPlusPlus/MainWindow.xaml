@@ -193,7 +193,7 @@
                 <Label Content="Food duh."/>
             </TabItem>
 
-            <TabItem Header="My Recipes">
+            <TabItem Header="My Recipes" MouseDown="Refresh">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25"/>
@@ -207,6 +207,7 @@
                     />
                     
                     <ListBox x:Name="MyRecipeList"
+
                          SelectionMode="Single" 
                          ScrollViewer.CanContentScroll="False"
                          Grid.Row="1">

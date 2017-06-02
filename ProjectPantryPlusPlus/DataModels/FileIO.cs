@@ -13,7 +13,7 @@ namespace ProjectPantryPlusPlus.DataModels
 	public static class FileIO
 	{
 		public static void SaveRecipies(List<Recipe> recipeList, string filename)
-		{
+		{//Depricated
 			XmlSerializer xs = new XmlSerializer(typeof(List<Recipe>));
 			using (var writer = new StreamWriter(filename))
 			{
@@ -45,17 +45,28 @@ namespace ProjectPantryPlusPlus.DataModels
 			return rec;
 		}
 
-		public static void SaveIngredients(List<Ingredient> ingredientList, string filename)
-
+		public static void SaveIngredientsJson(List<Ingredient> ingredientList, string filename)
 		{
-			XmlSerializer xs = new XmlSerializer(typeof(List<Ingredient>));
-			using (var writer = new StreamWriter(@filename))
-			{
-				xs.Serialize(writer, ingredientList);
-				writer.Flush();
-			}
+			
 		}
+		public static List<Ingredient> LoadIngredientsJson(string filename)
+		{
+			Object output = new Object();
+			List<Ingredient> outIngredients = new List<Ingredient>(500);
+			string json = "";
+			try
+			{
+				var fileStream = new FileStream(@filename, FileMode.OpenOrCreate, FileAccess.Read);
+				var streamReader = new StreamReader(fileStream);
+				json = streamReader.ReadToEnd();
+				output = (Object[])(new JavaScriptSerializer().Deserialize(json, outIngredients.GetType()));
+			}
+			catch (FileNotFoundException) { }
+			catch (OutOfMemoryException) { }
+			outIngredients = (List<Ingredient>)output;
+			return outIngredients;
 
+		}
 		public static void SaveRecipesJson(List<Recipe> recipeList, string filename)
 		{
 			File.Open(@filename, FileMode.OpenOrCreate).Close();
