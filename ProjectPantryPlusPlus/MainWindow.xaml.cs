@@ -234,7 +234,7 @@ namespace PantryProject
             {
                 tempList.Add(ing);
             }
-            FileIO.SaveIngredients(tempList, "CurrentlySelectedIngridients");
+            FileIO.SaveIngredientsJson(tempList, "CurrentlySelectedIngridients");
 
             Window Thanks = new Window()
             {
@@ -252,7 +252,7 @@ namespace PantryProject
 
         private void SaveIngList_Click(object sender, RoutedEventArgs e)
         {//ToDo: Implement Letting the user change where they want to save their pantryState to.
-            FileIO.SaveIngredients(PM.AvailableIngredients, "pantryState.xml");
+            FileIO.SaveIngredientsJson(PM.AvailableIngredients, "pantryState.json");
         }
 
         private void Refresh(object sender, MouseButtonEventArgs e)
