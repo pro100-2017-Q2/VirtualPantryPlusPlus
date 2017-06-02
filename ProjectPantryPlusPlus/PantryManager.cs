@@ -72,8 +72,8 @@ namespace ProjectPantryPlusPlus
 			List<Ingredient> tempIngredients = new List<Ingredient>();
 
 
-			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
-			//this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
+			this.RecipeList			= FileIO.LoadRecipesJson("/"+recipeFilePath			+ recipeTag					+ fileExtension);
+			this.UserRecipeList		= FileIO.LoadRecipesJson("/"+recipeFilePath			+ userTag + recipeTag		+ fileExtension);
 			//this.IngredientList		= FileIO.LoadIngredients(ingredientFilePath + ingredientTag				+ fileExtension);
 			//tempIngredients = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
