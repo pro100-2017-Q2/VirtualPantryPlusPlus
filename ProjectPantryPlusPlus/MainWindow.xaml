@@ -246,12 +246,81 @@
   
         >
             <TabItem Header="PopularRecipes">
-                <ScrollViewer x:Name="popular_Scroller"/>
+				<ListBox x:Name="PopRecipeList"
 
-            </TabItem>
+                         SelectionMode="Single" 
+                         ScrollViewer.CanContentScroll="False"
+                         Grid.Row="1">
+
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Border BorderBrush="Silver" BorderThickness="3" Width="450">
+								<Grid Background="White"  MouseLeftButtonDown="MyRecipeList_MouseLeftButtonDown">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1*"/>
+										<ColumnDefinition Width="3*"/>
+									</Grid.ColumnDefinitions>
+									<Image Grid.Column="0"
+                                                   Width="150"
+                                                   Height="100"/>
+									<StackPanel Grid.Column="1" Margin="5">
+										<Label Content="{Binding Title}" FontWeight="ExtraBold" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="Serves: " FontWeight="Bold"/>
+                                                <Run Text="{Binding ServingSize}"/>
+										</TextBlock>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="PrepTime: " FontWeight="Bold"/>
+                                                <Run Text="{Binding PrepTime}"/>
+										</TextBlock>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="{Binding Instructions}"/>
+										</TextBlock>
+									</StackPanel>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</TabItem>
             <TabItem Header="WhatCanIMake?">
-                <Label Content="Food duh."/>
-            </TabItem>
+				<ListBox x:Name="MakeableRecipeList"
+
+                         SelectionMode="Single" 
+                         ScrollViewer.CanContentScroll="False"
+                         Grid.Row="1">
+
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Border BorderBrush="Silver" BorderThickness="3" Width="450">
+								<Grid Background="White"  MouseLeftButtonDown="MyRecipeList_MouseLeftButtonDown">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1*"/>
+										<ColumnDefinition Width="3*"/>
+									</Grid.ColumnDefinitions>
+									<Image Grid.Column="0"
+                                                   Width="150"
+                                                   Height="100"/>
+									<StackPanel Grid.Column="1" Margin="5">
+										<Label Content="{Binding Title}" FontWeight="ExtraBold" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="Serves: " FontWeight="Bold"/>
+                                                <Run Text="{Binding ServingSize}"/>
+										</TextBlock>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="PrepTime: " FontWeight="Bold"/>
+                                                <Run Text="{Binding PrepTime}"/>
+										</TextBlock>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="{Binding Instructions}"/>
+										</TextBlock>
+									</StackPanel>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</TabItem>
 
             <TabItem Header="My Recipes" >
                 <Grid>

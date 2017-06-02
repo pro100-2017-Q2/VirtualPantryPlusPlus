@@ -34,7 +34,9 @@ namespace PantryProject
         {
             InitializeComponent();
             populate_List();
-            MyRecipeList.ItemsSource = PM.DisplayRecipeList;
+            MyRecipeList.ItemsSource = PM.UserRecipeList;
+			PopRecipeList.ItemsSource = PM.RecipeList;
+			MakeableRecipeList.ItemsSource = PM.DisplayRecipeList;
             meatIng.ItemsSource = meatsList;
             dairyIng.ItemsSource = dairyList;
             fruitIng.ItemsSource = fruitsList;
