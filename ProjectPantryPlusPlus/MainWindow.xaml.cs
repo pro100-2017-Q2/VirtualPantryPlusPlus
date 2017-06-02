@@ -230,7 +230,13 @@ namespace PantryProject
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            //FileIO.SaveIngredients(PM.IngredientList, "CurrentlySelectedIngridients");
+            List<Ingredient> tempList = new List<Ingredient>();
+            foreach (Ingredient ing in PM.IngredientList)
+            {
+                tempList.Add(ing);
+            }
+            FileIO.SaveIngredients(tempList, "CurrentlySelectedIngridients");
+
             Window Thanks = new Window()
             {
                 Width = 100,
@@ -246,8 +252,8 @@ namespace PantryProject
         }
 
         private void SaveIngList_Click(object sender, RoutedEventArgs e)
-        {
-
+        {//ToDo: Implement Letting the user change where they want to save their pantryState to.
+            FileIO.SaveIngredients(PM.AvailableIngredients, "pantryState.xml");
         }
 
         private void Refresh(object sender, MouseButtonEventArgs e)
