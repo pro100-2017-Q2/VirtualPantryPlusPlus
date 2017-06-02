@@ -2,6 +2,7 @@
 using ProjectPantryPlusPlus.DataModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,26 @@ namespace ProjectPantryPlusPlus.Popups
     public partial class AddIngredient : Window
     {
         private PantryManager local_pm;
-        
+        public event NotifyCollectionChangedEventHandler onAdd;
+
+        protected void OnAddEvent()
+        {
+            MessageBox.Show("Event handled");
+           
+        }
         public AddIngredient(PantryManager pm)
         {
             InitializeComponent();
             categoryBox.ItemsSource = Ingredient.IngredientCatagories;
             local_pm = pm;
+            pm.IngredientList.CollectionChanged += new NotifyCollectionChangedEventHandler(OnCollectionChanged);
         }
 
+
+        void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            
+        }
         private void addIngredientButton_Click(object sender, RoutedEventArgs e)
         {
             Ingredient i = new Ingredient(this.nameBox.Text, this.categoryBox.Text);

@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using ProjectPantryPlusPlus.Popups;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 
 namespace PantryProject
 {
@@ -19,6 +20,7 @@ namespace PantryProject
     public partial class MainWindow : Window, IAddChild
 
     {
+        
         private PantryManager PM = new PantryManager();
         ObservableCollection<Ingredient> meatsList = new ObservableCollection<Ingredient>();
         ObservableCollection<Ingredient> dairyList = new ObservableCollection<Ingredient>();
@@ -40,6 +42,12 @@ namespace PantryProject
             vegetableIng.ItemsSource = vegetableList;
             beverageIng.ItemsSource = beverageList;
             spiceIng.ItemsSource = spicesList;
+            PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
+        }
+
+        private void IngredientList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            populate_List();
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()

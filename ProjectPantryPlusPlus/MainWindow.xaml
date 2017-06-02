@@ -204,7 +204,7 @@
             Grid.Row="3"
             Grid.ColumnSpan="2"
             VerticalAlignment="Top"
-            Margin="0 10" Click="SaveIngList_Click"/>
+            Margin="0 10" />
             <Button
                 x:Name="import"
                 Grid.Column="1"
@@ -253,7 +253,7 @@
                 <Label Content="Food duh."/>
             </TabItem>
 
-            <TabItem Header="My Recipes" MouseDown="Refresh">
+            <TabItem Header="My Recipes" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25"/>
