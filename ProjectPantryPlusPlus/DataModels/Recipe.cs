@@ -13,7 +13,7 @@ namespace ProjectPantryPlusPlus.DataModels
 	{
 		public Recipe()
 		{
-
+                
 		}
 		public event PropertyChangedEventHandler PropertyChanged;
 		protected void NotifyChange([CallerMemberName] string field = null)
@@ -86,10 +86,7 @@ namespace ProjectPantryPlusPlus.DataModels
 		}
 
 		public Card ToCard()
-		{
-			//Planned feture 
-			//Prerequisits:	
-			//1) userControl for recipe cards having been created and useable
+        { 
 			throw new NotImplementedException();
 		}
 

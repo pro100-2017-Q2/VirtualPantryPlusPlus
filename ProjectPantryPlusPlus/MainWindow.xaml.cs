@@ -20,14 +20,26 @@ namespace PantryProject
 
     {
         private PantryManager PM = new PantryManager();
-
+        ObservableCollection<Ingredient> meatsList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> dairyList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> fruitsList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> grainsList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> vegetableList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> beverageList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> spicesList = new ObservableCollection<Ingredient>();
 
         public MainWindow()
         {
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-           
+            meatIng.ItemsSource = meatsList;
+            dairyIng.ItemsSource = dairyList;
+            fruitIng.ItemsSource = fruitsList;
+            grainIng.ItemsSource = grainsList;
+            vegetableIng.ItemsSource = vegetableList;
+            beverageIng.ItemsSource = beverageList;
+            spiceIng.ItemsSource = spicesList;
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -88,56 +100,35 @@ namespace PantryProject
            
 
         }
-
         public void populate_List()
         {
-            PM.IngredientList.Add(new Ingredient("Steak", "Meats"));
-            
             foreach (Ingredient i in PM.IngredientList)
             {
                 switch (i.Catagory)
                 {
                     case "Meats":
-                        meatsList.Children.Add(new System.Windows.Controls.Label
-                        {
-                            Content = i.Name
-                        });
-                        
+                        meatsList.Add(i);
                         break;
                     case "Eggs & Dairy":
+                        dairyList.Add(i);
                         break;
                     case "Nuts, Grains, and beans":
+                        grainsList.Add(i);
                         break;
                     case "Fruits":
+                        fruitsList.Add(i);
                         break;
                     case "Vegetables":
+                        vegetableList.Add(i);
                         break;
                     case "Beverages":
+                        beverageList.Add(i);
                         break;
                     case "Spices and Oils":
+                        spicesList.Add(i);
                         break;
-                    
                 }
             }
-            //foreach (string Category in Ingredient.IngredientCatagories)
-            //{
-            //    Thickness ListThic = new Thickness();
-            //    ListThic.Left = 20;
-            //    ListThic.Right = 7;
-            //    ListThic.Bottom = 3;
-            //    ListThic.Top = 1;
-            //    pantryList.Children.Add(new System.Windows.Controls.Label
-            //    {
-            //        Content = "-" + Category + ""
-            //    });
-            //    pantryList.Children.Add(new System.Windows.Controls.TextBlock
-            //    {
-            //        Margin = ListThic,
-            //        Width = 200,
-            //        TextWrapping = TextWrapping.Wrap,
-                    
-            //    });
-            //}
         }
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -438,7 +429,7 @@ namespace PantryProject
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            FileIO.SaveIngredients(PM.IngredientList, "CurrentlySelectedIngridients");
+            //FileIO.SaveIngredients(PM.IngredientList, "CurrentlySelectedIngridients");
         }
 
     }
