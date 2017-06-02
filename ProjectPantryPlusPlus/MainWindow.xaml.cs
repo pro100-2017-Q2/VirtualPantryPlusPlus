@@ -108,32 +108,81 @@ namespace PantryProject
            
 
         }
+
+       
+        
+        
         public void populate_List()
         {
             foreach (Ingredient i in PM.IngredientList)
             {
+
                 switch (i.Catagory)
                 {
                     case "Meats":
-                        meatsList.Add(i);
+                        if (!meatsList.Contains(i))
+                        {
+                            meatsList.Add(i);
+                        } else
+                        {
+                            
+                        }
                         break;
                     case "Eggs & Dairy":
-                        dairyList.Add(i);
+                        if (!dairyList.Contains(i))
+                        {
+                            dairyList.Add(i);
+                        }
+                        else
+                        {
+                            
+                        }
                         break;
                     case "Nuts, Grains, and beans":
-                        grainsList.Add(i);
+
+                        if (!grainsList.Contains(i))
+                        {
+                            grainsList.Add(i);
+                        }
+                        else
+                        {
+                        }
                         break;
                     case "Fruits":
-                        fruitsList.Add(i);
+                        if (!fruitsList.Contains(i))
+                        {
+                            fruitsList.Add(i);
+                        }
+                        else
+                        {
+                        }
                         break;
                     case "Vegetables":
-                        vegetableList.Add(i);
+                        if (!vegetableList.Contains(i))
+                        {
+                            vegetableList.Add(i);
+                        }
+                        else
+                        {
+                        }
                         break;
                     case "Beverages":
-                        beverageList.Add(i);
+                        if (!beverageList.Contains(i))
+                        {
+                            beverageList.Add(i);
+                        }
+                        else
+                        {
+                        }
                         break;
                     case "Spices and Oils":
-                        spicesList.Add(i);
+                        if (!spicesList.Contains(i))
+                        {
+                            spicesList.Add(i);
+                        }
+                        else
+                        {
+                        }
                         break;
                 }
             }
