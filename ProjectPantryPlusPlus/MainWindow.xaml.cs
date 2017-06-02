@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using ProjectPantryPlusPlus.Popups;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Windows.Input;
+using System.Collections.Specialized;
 
 namespace PantryProject
 {
@@ -20,19 +20,37 @@ namespace PantryProject
     public partial class MainWindow : Window, IAddChild
 
     {
+        
         private PantryManager PM = new PantryManager();
-
+        ObservableCollection<Ingredient> meatsList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> dairyList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> fruitsList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> grainsList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> vegetableList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> beverageList = new ObservableCollection<Ingredient>();
+        ObservableCollection<Ingredient> spicesList = new ObservableCollection<Ingredient>();
 
         public MainWindow()
         {
             InitializeComponent();
-            MyRecipeList.ItemsSource = PM.UserRecipeList;
             populate_List();
-
+            MyRecipeList.ItemsSource = PM.DisplayRecipeList;
+            meatIng.ItemsSource = meatsList;
+            dairyIng.ItemsSource = dairyList;
+            fruitIng.ItemsSource = fruitsList;
+            grainIng.ItemsSource = grainsList;
+            vegetableIng.ItemsSource = vegetableList;
+            beverageIng.ItemsSource = beverageList;
+            spiceIng.ItemsSource = spicesList;
+            PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
         }
 
+        private void IngredientList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            populate_List();
+        }
 
-        private System.Windows.Input.MouseEventHandler Content_MouseLeftButtonDown()
+        private MouseEventHandler Content_MouseLeftButtonDown()
         {
             if (this.Visibility == Visibility.Collapsed)
             {
@@ -84,38 +102,41 @@ namespace PantryProject
                this.Visibility = Visibility.Collapsed;
         }
 
+        private void addRecipeClick(object sender, RoutedEventArgs e)
+        {
+            //Creating hard-coded recipes
+           
 
+        }
         public void populate_List()
         {
-            PM.IngredientList.Add(new Ingredient("Steak", "Meats"));
-            
             foreach (Ingredient i in PM.IngredientList)
             {
                 switch (i.Catagory)
                 {
                     case "Meats":
-                        meatsList.Children.Add(new System.Windows.Controls.Label
-                        {
-                            Content = i.Name
-                        });
-                        
+                        meatsList.Add(i);
                         break;
                     case "Eggs & Dairy":
+                        dairyList.Add(i);
                         break;
                     case "Nuts, Grains, and beans":
+                        grainsList.Add(i);
                         break;
                     case "Fruits":
+                        fruitsList.Add(i);
                         break;
                     case "Vegetables":
+                        vegetableList.Add(i);
                         break;
                     case "Beverages":
+                        beverageList.Add(i);
                         break;
                     case "Spices and Oils":
+                        spicesList.Add(i);
                         break;
-                    
                 }
             }
-          
         }
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -203,13 +224,9 @@ namespace PantryProject
                 Width = 450,
                 Height = 550,
             };
-            AddRecipesWindow AddRec = new AddRecipesWindow(PM, MyRecipeList);
-            AddWin.Content = AddRec;
-            AddWin.Topmost = true;
-            AddWin.Show();
-            
-        }
 
+    
+        }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
@@ -230,8 +247,7 @@ namespace PantryProject
             }
 
 
-            List<Ingredient> tempList = new List<Ingredient>();
-            foreach (Ingredient ing in PM.IngredientList)
+            System.Windows.Controls.TextBox TB_Instructions = new System.Windows.Controls.TextBox
             {
                 tempList.Add(ing);
             }
