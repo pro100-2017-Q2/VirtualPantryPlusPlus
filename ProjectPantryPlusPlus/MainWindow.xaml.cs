@@ -26,9 +26,9 @@ namespace PantryProject
         public MainWindow()
         {
             InitializeComponent();
-            MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            
-           
+            MyRecipeList.ItemsSource = PM.UserRecipeList;
+            populate_List();
+
         }
 
 
@@ -115,25 +115,7 @@ namespace PantryProject
                     
                 }
             }
-            //foreach (string Category in Ingredient.IngredientCatagories)
-            //{
-            //    Thickness ListThic = new Thickness();
-            //    ListThic.Left = 20;
-            //    ListThic.Right = 7;
-            //    ListThic.Bottom = 3;
-            //    ListThic.Top = 1;
-            //    pantryList.Children.Add(new System.Windows.Controls.Label
-            //    {
-            //        Content = "-" + Category + ""
-            //    });
-            //    pantryList.Children.Add(new System.Windows.Controls.TextBlock
-            //    {
-            //        Margin = ListThic,
-            //        Width = 200,
-            //        TextWrapping = TextWrapping.Wrap,
-                    
-            //    });
-            //}
+          
         }
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -228,26 +210,56 @@ namespace PantryProject
             
         }
 
-		private void Save_Click(object sender, RoutedEventArgs e)
-         {
-			List<Ingredient> tempList = new List<Ingredient>();
-			foreach(Ingredient ing in PM.IngredientList){
-				tempList.Add(ing);
-			}
-             FileIO.SaveIngredients(tempList, "CurrentlySelectedIngridients");
-         }
- 		
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
 
-	private void SaveIngList_Click(object sender, RoutedEventArgs e)
-		{//ToDo: Implement Letting the user change where they want to save their pantryState to.
-			FileIO.SaveIngredients(PM.AvailableIngredients, "pantryState.xml");
-		}
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
 
-		private void Refresh(object sender, MouseButtonEventArgs e)
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+            }
+
+
+            List<Ingredient> tempList = new List<Ingredient>();
+            foreach (Ingredient ing in PM.IngredientList)
+            {
+                tempList.Add(ing);
+            }
+            FileIO.SaveIngredients(tempList, "CurrentlySelectedIngridients");
+
+            Window Thanks = new Window()
+            {
+                Width = 100,
+                Height = 60,
+                Content = "Saving complete",
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
+                Background = Brushes.DarkGray,
+                ResizeMode = ResizeMode.NoResize
+            };
+            Thanks.Topmost = true;
+            Thanks.Show();
+        }
+
+        private void SaveIngList_Click(object sender, RoutedEventArgs e)
+        {//ToDo: Implement Letting the user change where they want to save their pantryState to.
+            FileIO.SaveIngredients(PM.AvailableIngredients, "pantryState.xml");
+        }
+
+        private void Refresh(object sender, MouseButtonEventArgs e)
         {
             
             MyRecipeList.Items.Refresh();
-            populate_List();
+            
         }
 
     }
