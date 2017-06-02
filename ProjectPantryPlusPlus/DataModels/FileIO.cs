@@ -47,7 +47,9 @@ namespace ProjectPantryPlusPlus.DataModels
 
 		public static void SaveIngredientsJson(List<Ingredient> ingredientList, string filename)
 		{
-			
+			var serializer = new JavaScriptSerializer();
+			var json = serializer.Serialize(ingredientList);
+			File.WriteAllText(@filename, json);
 		}
 		public static List<Ingredient> LoadIngredientsJson(string filename)
 		{
