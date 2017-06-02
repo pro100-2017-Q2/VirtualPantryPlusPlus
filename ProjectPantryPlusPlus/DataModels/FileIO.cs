@@ -13,7 +13,7 @@ namespace ProjectPantryPlusPlus.DataModels
 	public static class FileIO
 	{
 		public static void SaveRecipies(List<Recipe> recipeList, string filename)
-		{
+		{//Depricated
 			XmlSerializer xs = new XmlSerializer(typeof(List<Recipe>));
 			using (var writer = new StreamWriter(filename))
 			{
@@ -25,12 +25,12 @@ namespace ProjectPantryPlusPlus.DataModels
 		public static List<Recipe> LoadRecipes(string filename)
 		{
 			List<Recipe> rec = null;
-			if(File.Exists(filename))
-			using (var stream = File.OpenRead(filename))
-			{
-				var serializer = new XmlSerializer(typeof(List<Recipe>));
-				rec = serializer.Deserialize(stream) as List<Recipe>;
-			}
+			if (File.Exists(filename))
+				using (var stream = File.OpenRead(filename))
+				{
+					var serializer = new XmlSerializer(typeof(List<Recipe>));
+					rec = serializer.Deserialize(stream) as List<Recipe>;
+				}
 			return rec;
 		}
 
@@ -45,29 +45,39 @@ namespace ProjectPantryPlusPlus.DataModels
 			return rec;
 		}
 
-		public static void SaveIngredients(List<Ingredient> ingredientList, string filename)
-		
+		public static void SaveIngredientsJson(List<Ingredient> ingredientList, string filename)
 		{
-			XmlSerializer xs = new XmlSerializer(typeof(List<Ingredient>));
-			using (var writer = new StreamWriter(@filename))
-			{
-				xs.Serialize(writer, ingredientList);
-				writer.Flush();
-			}
+			
 		}
-		
+		public static List<Ingredient> LoadIngredientsJson(string filename)
+		{
+			Object output = new Object();
+			List<Ingredient> outIngredients = new List<Ingredient>(500);
+			string json = "";
+			try
+			{
+				var fileStream = new FileStream(@filename, FileMode.OpenOrCreate, FileAccess.Read);
+				var streamReader = new StreamReader(fileStream);
+				json = streamReader.ReadToEnd();
+				output = (Object[])(new JavaScriptSerializer().Deserialize(json, outIngredients.GetType()));
+			}
+			catch (FileNotFoundException) { }
+			catch (OutOfMemoryException) { }
+			outIngredients = (List<Ingredient>)output;
+			return outIngredients;
+
+		}
 		public static void SaveRecipesJson(List<Recipe> recipeList, string filename)
 		{
-			if(!File.Exists(filename)){ File.Create(filename).Close(); }
-
+			File.Open(@filename, FileMode.OpenOrCreate).Close();
 			var json = new JavaScriptSerializer().Serialize(recipeList);
-			Console.WriteLine(json);
 			File.WriteAllText(filename, json);
 
 		}
 
 
-		public static List<Recipe> LoadRecipesJson(string filename){
+		public static List<Recipe> LoadRecipesJson(string filename)
+		{
 
 			Object[] output = new Object[0];
 			string json = "";
@@ -80,9 +90,9 @@ namespace ProjectPantryPlusPlus.DataModels
 				}
 				output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
 			}
-			catch(System.ArgumentException e){ /*throw e;*/ }//this is a system exception that we can't fix on our own, so we throw it back.
-			catch(System.IO.DirectoryNotFoundException e){ /*throw new DirectoryNotFoundException(String.Format("Filepath >{0}< could not be found.", @filename));*/ }
-			catch(System.IO.FileNotFoundException e){ /*throw new FileNotFoundException(String.Format("File >{0}< could not be found.", @filename)); */}
+			catch (System.ArgumentException e) { /*throw e;*/ }//this is a system exception that we can't fix on our own, so we throw it back.
+			catch (System.IO.DirectoryNotFoundException e) { /*throw new DirectoryNotFoundException(String.Format("Filepath >{0}< could not be found.", @filename));*/ }
+			catch (System.IO.FileNotFoundException e) { /*throw new FileNotFoundException(String.Format("File >{0}< could not be found.", @filename)); */}
 
 
 			List<Recipe> outputRecipes = new List<Recipe>();
@@ -133,7 +143,7 @@ namespace ProjectPantryPlusPlus.DataModels
 				}
 			}
 			return outputRecipes;
-			
+
 		}
 
 		//comment

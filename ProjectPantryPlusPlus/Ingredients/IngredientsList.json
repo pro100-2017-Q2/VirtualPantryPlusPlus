@@ -1,0 +1,263 @@
+[
+	{
+		"Name": "strawberries",
+		"Catagory": ""
+	},
+	{
+		"Name": "turbinado sugar",
+		"Catagory": ""
+	},
+	{
+		"Name": "whipping cream",
+		"Catagory": ""
+	},
+	{
+		"Name": "lowfat vanilla yogurt",
+		"Catagory": ""
+	},
+	{
+		"Name": "macaroni",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "condensed Cheddar cheese soup",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "milk",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "shredded Colby cheese",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "Pillsbury biscuits",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "mozzarella cheese sticks",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "your favorite pizza toppings",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "Pizza Sauce",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "large flour tortilla",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "butter",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "grated  or shredded cheese",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "*Optional roasted green chilies",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "elbow macaroni",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "small curd cottage cheese",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "cheddar cheese",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "sour cream",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "egg",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "salt",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "coconut oil",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "paprika",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "cinnamon sticks",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "star anise pods",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "cardamom pods",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "cloves",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "water",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "sugar",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "orange peel",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "fresh cranberries",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "fresh lime juice",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "Spiced Cranberry Cordial",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "freshly squeezed grapefruit juice",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "London Dry gin",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "chilled sparkling wine",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "dried pinto beans",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "Kosher Salt",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "diced bacon",
+		"Catagory": "Meats"
+	},
+	{
+		"Name": "white or yellow onion",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "jalapeño",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "garlic cloves",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "fire-roasted tomatoes",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "low-sodium chicken stock",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "bay leaves",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "spring epazote",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "cilantro leaves and fine stems",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "bread crumbs",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "garlic powder",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "dried thyme",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "Dijon mustard",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "light mayonnaise",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "chicken tenders",
+		"Catagory": "Meats"
+	},
+	{
+		"Name": "green beans",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "asparagus",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "olive oil",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "Dried spaghetti",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "mentaiko",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "Light usukuchi soy sauce",
+		"Catagory": "Other"
+	},
+
+	{
+		"Name": "Unsalted butter, melted",
+		"Catagory": "Other"
+	},
+	{
+		"Name": "Nori seaweed strips",
+		"Catagory": "Other"
+	}
+]
+
+/**
+
+		"Meats",
+    "Eggs & Dairy",
+		"Nuts, Grains, and beans",
+		"Fruits",
+		"Vegetables",
+		"Beverages",
+		"Spices and Oils"
+
+**/
