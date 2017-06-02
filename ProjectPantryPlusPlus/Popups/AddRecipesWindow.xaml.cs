@@ -62,7 +62,7 @@ namespace ProjectPantryPlusPlus.Popups
                 Instructions = instructions.Text
             };
 
-            PM.DisplayRecipeList.Add(rec);
+            PM.UserRecipeList.Add(rec);
             MR.Items.Refresh();
 
             Window.GetWindow(this).Close();

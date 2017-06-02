@@ -26,9 +26,9 @@ namespace PantryProject
         public MainWindow()
         {
             InitializeComponent();
-            MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            
-           
+            MyRecipeList.ItemsSource = PM.UserRecipeList;
+            populate_List();
+
         }
 
 
@@ -115,25 +115,7 @@ namespace PantryProject
                     
                 }
             }
-            //foreach (string Category in Ingredient.IngredientCatagories)
-            //{
-            //    Thickness ListThic = new Thickness();
-            //    ListThic.Left = 20;
-            //    ListThic.Right = 7;
-            //    ListThic.Bottom = 3;
-            //    ListThic.Top = 1;
-            //    pantryList.Children.Add(new System.Windows.Controls.Label
-            //    {
-            //        Content = "-" + Category + ""
-            //    });
-            //    pantryList.Children.Add(new System.Windows.Controls.TextBlock
-            //    {
-            //        Margin = ListThic,
-            //        Width = 200,
-            //        TextWrapping = TextWrapping.Wrap,
-                    
-            //    });
-            //}
+          
         }
 
         private void MyRecipeList_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -230,6 +212,23 @@ namespace PantryProject
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+            }
+
+
             List<Ingredient> tempList = new List<Ingredient>();
             foreach (Ingredient ing in PM.IngredientList)
             {
@@ -260,7 +259,7 @@ namespace PantryProject
         {
             
             MyRecipeList.Items.Refresh();
-            populate_List();
+            
         }
 
     }

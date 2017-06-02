@@ -185,11 +185,11 @@
             Grid.Column="1"
   
         >
-            <TabItem Header="Popular Recipes">
+            <TabItem Header="PopularRecipes">
                 <ScrollViewer x:Name="popular_Scroller"/>
 
             </TabItem>
-            <TabItem Header="What Can I Make?">
+            <TabItem Header="WhatCanIMake?">
                 <Label Content="Food duh."/>
             </TabItem>
 
