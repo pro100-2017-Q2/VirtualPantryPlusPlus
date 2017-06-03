@@ -33,7 +33,6 @@ namespace PantryProject
         public MainWindow()
         {
             InitializeComponent();
-            populate_List();
             MyRecipeList.ItemsSource = PM.UserRecipeList;
 			PopRecipeList.ItemsSource = PM.RecipeList;
 			MakeableRecipeList.ItemsSource = PM.DisplayRecipeList;
@@ -44,7 +43,8 @@ namespace PantryProject
             vegetableIng.ItemsSource = vegetableList;
             beverageIng.ItemsSource = beverageList;
             spiceIng.ItemsSource = spicesList;
-            PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
+            //PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
+            populate_List();
         }
 
         private void IngredientList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

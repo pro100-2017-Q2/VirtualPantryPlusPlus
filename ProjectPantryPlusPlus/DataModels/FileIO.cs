@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Web.Script.Serialization;//Json
+using System.Collections.ObjectModel;
 
 namespace ProjectPantryPlusPlus.DataModels
 {
@@ -63,12 +64,81 @@ namespace ProjectPantryPlusPlus.DataModels
 				json = streamReader.ReadToEnd();
 				output = (Object[])(new JavaScriptSerializer().Deserialize(json, outIngredients.GetType()));
 			}
+			catch (DirectoryNotFoundException) { }
 			catch (FileNotFoundException) { }
 			catch (OutOfMemoryException) { }
 			outIngredients = (List<Ingredient>)output;
 			return outIngredients;
 
 		}
+
+		public static ObservableCollection<Ingredient> LoadIngredientsJsonObservable(string filename)
+		{
+			//Object output = new Object();
+			//ObservableCollection<Ingredient> outIngredients = new ObservableCollection<Ingredient>();
+			//string json = "";
+			//try
+			//{
+			//	var fileStream = new FileStream(@filename, FileMode.OpenOrCreate, FileAccess.Read);
+			//	var streamReader = new StreamReader(fileStream);
+			//	json = streamReader.ReadToEnd();
+			//	output = (Object[])(new JavaScriptSerializer().Deserialize(json, outIngredients.GetType()));
+			//}
+			//catch (DirectoryNotFoundException) { }
+			//catch (FileNotFoundException) { }
+			//catch (OutOfMemoryException) { }
+			//outIngredients = (ObservableCollection<Ingredient>)output;
+			//return outIngredients;
+
+
+			string json = "";
+			ObservableCollection<Ingredient> outIngredients = new ObservableCollection<Ingredient>();
+			Object[] output = new Object[0];
+
+
+
+
+			try
+			{
+				using (FileStream fileStream = new FileStream(@filename, FileMode.Open, FileAccess.Read))
+				{
+					using (StreamReader streamReader = new StreamReader(fileStream, Encoding.UTF8))
+					{
+						json = streamReader.ReadToEnd();
+					}
+				}
+
+				output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
+			}
+			catch (System.ArgumentException e) { /*throw e;*/ }//this is a system exception that we can't fix on our own, so we throw it back.
+			catch (System.IO.DirectoryNotFoundException e) { /*throw new DirectoryNotFoundException(String.Format("Filepath >{0}< could not be found.", @filename));*/ }
+			catch (System.IO.FileNotFoundException e) { /*throw new FileNotFoundException(String.Format("File >{0}< could not be found.", @filename)); */}
+
+
+
+
+			if (!String.IsNullOrEmpty(json))
+			{
+
+				List<Ingredient> ing = new List<Ingredient>();
+				foreach (Dictionary<string, Object> ingredientDictionary in output)
+				{
+					//Ingredients parsing
+					string name = (string)ingredientDictionary["Name"];
+					string catagory = (string)ingredientDictionary["Catagory"];
+					//bool isInUserPantry = (bool)ingredient["IsInUserPantry"];
+
+					outIngredients.Add(new Ingredient() { Name = name });
+				}
+
+				
+			}
+			return outIngredients;
+
+
+		}
+		
+	
 		public static void SaveRecipesJson(List<Recipe> recipeList, string filename)
 		{
 			File.Open(@filename, FileMode.OpenOrCreate).Close();
@@ -85,10 +155,12 @@ namespace ProjectPantryPlusPlus.DataModels
 			string json = "";
 			try
 			{
-				var fileStream = new FileStream(@filename, FileMode.Open, FileAccess.Read);
-				using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+				using (FileStream fileStream = new FileStream(@filename, FileMode.Open, FileAccess.Read))
 				{
-					json = streamReader.ReadToEnd();
+					using (StreamReader streamReader = new StreamReader(fileStream, Encoding.UTF8))
+					{
+						json = streamReader.ReadToEnd();
+					}
 				}
 				output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
 			}

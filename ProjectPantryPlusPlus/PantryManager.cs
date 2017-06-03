@@ -41,7 +41,7 @@ namespace ProjectPantryPlusPlus
 		public ObservableCollection<Ingredient> IngredientList
 		{
 			get { return ingredientList; }
-			set { ingredientList = value; this.NotifyPropertyChanged("IngredientList"); }
+			set { ingredientList = value; this.FieldChanged(); }
 		}
 		public List<Ingredient> AvailableIngredients
 		{
@@ -75,7 +75,7 @@ namespace ProjectPantryPlusPlus
 
 			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
 			this.UserRecipeList		= FileIO.LoadRecipesJson(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
-			//this.IngredientList		= FileIO.LoadIngredients(ingredientFilePath + ingredientTag				+ fileExtension);
+			this.IngredientList		= FileIO.LoadIngredientsJsonObservable(ingredientFilePath + ingredientTag				+ fileExtension);
 			//tempIngredients = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
 
@@ -152,14 +152,7 @@ namespace ProjectPantryPlusPlus
             }
         }
  
-        public void NotifyPropertyChanged(string propName)
-        {
-            if(this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            MainWindow mw = new MainWindow();
-            mw.populate_List();
-               
-        }
+        
 
 
 
