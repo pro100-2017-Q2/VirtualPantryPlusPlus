@@ -11,6 +11,7 @@ using ProjectPantryPlusPlus.Popups;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Windows.Input;
 
 namespace PantryProject
 {
@@ -34,13 +35,13 @@ namespace PantryProject
             InitializeComponent();
             populate_List();
             MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            meatIng.ItemsSource = meatsList;
-            dairyIng.ItemsSource = dairyList;
-            fruitIng.ItemsSource = fruitsList;
-            grainIng.ItemsSource = grainsList;
-            vegetableIng.ItemsSource = vegetableList;
-            beverageIng.ItemsSource = beverageList;
-            spiceIng.ItemsSource = spicesList;
+            //meatIng.ItemsSource = meatsList;
+            //dairyIng.ItemsSource = dairyList;
+            //fruitIng.ItemsSource = fruitsList;
+            //grainIng.ItemsSource = grainsList;
+            //vegetableIng.ItemsSource = vegetableList;
+            //beverageIng.ItemsSource = beverageList;
+            //spiceIng.ItemsSource = spicesList;
             PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
         }
 
@@ -49,7 +50,7 @@ namespace PantryProject
             populate_List();
         }
 
-        private MouseEventHandler Content_MouseLeftButtonDown()
+        private System.Windows.Input.MouseEventHandler Content_MouseLeftButtonDown()
         {
             if (this.Visibility == Visibility.Collapsed)
             {
@@ -113,27 +114,27 @@ namespace PantryProject
             {
                 switch (i.Catagory)
                 {
-                    case "Meats":
-                        meatsList.Add(i);
-                        break;
-                    case "Eggs & Dairy":
-                        dairyList.Add(i);
-                        break;
-                    case "Nuts, Grains, and beans":
-                        grainsList.Add(i);
-                        break;
-                    case "Fruits":
-                        fruitsList.Add(i);
-                        break;
-                    case "Vegetables":
-                        vegetableList.Add(i);
-                        break;
-                    case "Beverages":
-                        beverageList.Add(i);
-                        break;
-                    case "Spices and Oils":
-                        spicesList.Add(i);
-                        break;
+                    //case "Meats":
+                    //    meatsList.Add(i);
+                    //    break;
+                    //case "Eggs & Dairy":
+                    //    dairyList.Add(i);
+                    //    break;
+                    //case "Nuts, Grains, and beans":
+                    //    grainsList.Add(i);
+                    //    break;
+                    //case "Fruits":
+                    //    fruitsList.Add(i);
+                    //    break;
+                    //case "Vegetables":
+                    //    vegetableList.Add(i);
+                    //    break;
+                    //case "Beverages":
+                    //    beverageList.Add(i);
+                    //    break;
+                    //case "Spices and Oils":
+                    //    spicesList.Add(i);
+                    //    break;
                 }
             }
         }
@@ -221,7 +222,7 @@ namespace PantryProject
             Window AddWin = new Window()
             {
                 Width = 450,
-                Height = 550,
+                Height = 550
             };
             AddRecipesWindow AddRec = new AddRecipesWindow(PM, MyRecipeList);
             AddWin.Content = AddRec;
@@ -249,13 +250,6 @@ namespace PantryProject
             }
 
 
-            System.Windows.Controls.TextBox TB_Instructions = new System.Windows.Controls.TextBox
-            {
-                tempList.Add(ing);
-        
-
-            FileIO.SaveIngredientsJson(tempList, filename);
-
             Window Thanks = new Window()
             {
                 Width = 100,
@@ -282,6 +276,7 @@ namespace PantryProject
             MyRecipeList.Items.Refresh();
 
         }
+
     }
     
 }

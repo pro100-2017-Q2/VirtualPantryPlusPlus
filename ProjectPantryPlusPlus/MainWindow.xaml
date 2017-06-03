@@ -201,9 +201,9 @@
                     </Grid.RowDefinitions>
                     <Button Height="20"
                             Width="70"
-                            HorizontalAlignment="Left"
-                            Content="Add Recipe"
                             Click="Recipe_Add"
+                            HorizontalAlignment="Left"
+                            Content="Add Recipe"    
                     />
                     
                     <ListBox x:Name="MyRecipeList"
