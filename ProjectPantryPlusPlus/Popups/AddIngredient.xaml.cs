@@ -42,7 +42,7 @@ namespace ProjectPantryPlusPlus.Popups
         }
 
 
-        void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             
         }
@@ -52,14 +52,13 @@ namespace ProjectPantryPlusPlus.Popups
             
             if (local_pm.IngredientList.Contains(i))
             {
-                
+                MessageBox.Show("You've already added that ingredient!");
                 this.Close();
             }
             else
-            {
-                local_pm.IngredientList.Add(i);
+            {               
                 i.Name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(i.Name);
-
+                local_pm.IngredientList.Add(i);
                 MessageBox.Show("Ingredient name: " + i.Name + " Category: " + i.Catagory);
             }
             this.Close();

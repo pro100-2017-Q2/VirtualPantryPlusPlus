@@ -49,7 +49,9 @@ namespace PantryProject
 
         private void IngredientList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            populate_List();
+            int index = PM.IngredientList.Count - 1;
+            Ingredient i = PM.IngredientList[index];
+            add_To_List(i);
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -111,9 +113,37 @@ namespace PantryProject
 
         }
 
-       
-        
-        
+        public void add_To_List(Ingredient i)
+        {
+            switch (i.Catagory)
+            {
+                case "Meats":
+                    meatsList.Add(i);
+                    break;
+                case "Eggs & Dairy":
+                    dairyList.Add(i);
+                    break;
+                case "Nuts, Grains, and beans":
+                    grainsList.Add(i);
+                    break;
+                case "Fruits":
+                    fruitsList.Add(i);
+                    break;
+                case "Vegetables":
+                    vegetableList.Add(i);
+                    break;
+                case "Beverages":
+                    beverageList.Add(i);
+                    break;
+                case "Spices and Oils":
+                    spicesList.Add(i);
+                    break;
+            }
+
+        }
+
+
+
         public void populate_List()
         {
             foreach (Ingredient i in PM.IngredientList)
@@ -122,69 +152,25 @@ namespace PantryProject
                 switch (i.Catagory)
                 {
                     case "Meats":
-                        if (!meatsList.Contains(i))
-                        {
-                            meatsList.Add(i);
-                        } else
-                        {
-                            
-                        }
+                        meatsList.Add(i);
                         break;
-                    case "Eggs & Dairy":
-                        if (!dairyList.Contains(i))
-                        {
-                            dairyList.Add(i);
-                        }
-                        else
-                        {
-                            
-                        }
+                    case "Eggs & Dairy":                        
+                        dairyList.Add(i);                     
                         break;
                     case "Nuts, Grains, and beans":
-
-                        if (!grainsList.Contains(i))
-                        {
-                            grainsList.Add(i);
-                        }
-                        else
-                        {
-                        }
+                        grainsList.Add(i);
                         break;
                     case "Fruits":
-                        if (!fruitsList.Contains(i))
-                        {
-                            fruitsList.Add(i);
-                        }
-                        else
-                        {
-                        }
+                        fruitsList.Add(i);
                         break;
                     case "Vegetables":
-                        if (!vegetableList.Contains(i))
-                        {
-                            vegetableList.Add(i);
-                        }
-                        else
-                        {
-                        }
+                        vegetableList.Add(i);
                         break;
                     case "Beverages":
-                        if (!beverageList.Contains(i))
-                        {
-                            beverageList.Add(i);
-                        }
-                        else
-                        {
-                        }
+                        beverageList.Add(i);
                         break;
                     case "Spices and Oils":
-                        if (!spicesList.Contains(i))
-                        {
                             spicesList.Add(i);
-                        }
-                        else
-                        {
-                        }
                         break;
                 }
             }
