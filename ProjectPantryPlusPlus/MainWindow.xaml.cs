@@ -252,23 +252,39 @@ namespace PantryProject
                 filename = dlg.FileName;
             }
 
+            
 
             System.Windows.Controls.Button Save_Button = new System.Windows.Controls.Button
             {
                 Content = "Save",
                 Width = 30
             };
-            Thanks.Topmost = true;
-            Thanks.Show();
+            
         
         }
 
         private void SaveIngList_Click(object sender, RoutedEventArgs e)
         {//ToDo: Implement Letting the user change where they want to save their pantryState to.
-            FileIO.SaveIngredientsJson(PM.AvailableIngredients, "pantryState.json");
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
+
+            string filename = "";
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Get the selected file name
+            if (result == true)
+            {
+                filename = dlg.FileName;
+            }
+            Console.WriteLine(filename);
+            FileIO.SaveIngredientsJson(PM.AvailableIngredients, filename);
         }
 
-        private void Refresh(object sender, MouseButtonEventArgs e)
+        private void Refresh(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
 
             MyRecipeList.Items.Refresh();
