@@ -48,7 +48,9 @@ namespace PantryProject
 
         private void IngredientList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            populate_List();
+            int index = PM.IngredientList.Count - 1;
+            Ingredient i = PM.IngredientList[index];
+            add_To_List(i);
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -109,17 +111,50 @@ namespace PantryProject
            
 
         }
+
+        public void add_To_List(Ingredient i)
+        {
+            switch (i.Catagory)
+            {
+                case "Meats":
+                    meatsList.Add(i);
+                    break;
+                case "Eggs & Dairy":
+                    dairyList.Add(i);
+                    break;
+                case "Nuts, Grains, and beans":
+                    grainsList.Add(i);
+                    break;
+                case "Fruits":
+                    fruitsList.Add(i);
+                    break;
+                case "Vegetables":
+                    vegetableList.Add(i);
+                    break;
+                case "Beverages":
+                    beverageList.Add(i);
+                    break;
+                case "Spices and Oils":
+                    spicesList.Add(i);
+                    break;
+            }
+
+        }
+
+
+
         public void populate_List()
         {
             foreach (Ingredient i in PM.IngredientList)
             {
+
                 switch (i.Catagory)
                 {
                     case "Meats":
                         meatsList.Add(i);
                         break;
-                    case "Eggs & Dairy":
-                        dairyList.Add(i);
+                    case "Eggs & Dairy":                        
+                        dairyList.Add(i);                     
                         break;
                     case "Nuts, Grains, and beans":
                         grainsList.Add(i);
@@ -134,7 +169,7 @@ namespace PantryProject
                         beverageList.Add(i);
                         break;
                     case "Spices and Oils":
-                        spicesList.Add(i);
+                            spicesList.Add(i);
                         break;
                 }
             }

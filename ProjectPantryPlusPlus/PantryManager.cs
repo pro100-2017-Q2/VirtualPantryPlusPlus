@@ -31,27 +31,27 @@ namespace ProjectPantryPlusPlus
         public List<Recipe> RecipeList
 		{
 			get { return recipeList; }
-			set { recipeList = value; FieldChanged(); }
+			set { recipeList = value;  }
 		}
 		public List<Recipe> UserRecipeList
 		{
 			get { return userRecipeList; }
-			set { userRecipeList = value; FieldChanged(); }
+			set { userRecipeList = value;  }
 		}
 		public ObservableCollection<Ingredient> IngredientList
 		{
 			get { return ingredientList; }
-			set { ingredientList = value; this.NotifyPropertyChanged("IngredientList"); }
+			set { ingredientList = value;  }
 		}
 		public List<Ingredient> AvailableIngredients
 		{
 			get { return AvailableIngredients; }
-			set { AvailableIngredients = value; FieldChanged(); }
+			set { AvailableIngredients = value;  }
 		}	
 		public List<Recipe> DisplayRecipeList
 		{
 			get { return displayRecipeList; }
-			set { displayRecipeList = value; FieldChanged(); }
+			set { displayRecipeList = value; }
 		}
 
 		public PantryManager()
@@ -144,22 +144,7 @@ namespace ProjectPantryPlusPlus
 			return false;
 		}
 
-		public void FieldChanged([CallerMemberName] string field = null)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(field));
-            }
-        }
- 
-        public void NotifyPropertyChanged(string propName)
-        {
-            if(this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            MainWindow mw = new MainWindow();
-            mw.populate_List();
-               
-        }
+		
 
 
 
