@@ -20,6 +20,10 @@ namespace ProjectPantryPlusPlus
 		//However, after the user has entered their available ingredients, 
 		//Display list will be the filtered list of what the user can make. 
 
+		private string fileExtension = ".json";
+		private string recipeFilePath = "Recipes/";
+		private string ingredientFilePath = "Ingredients/";
+
 		private List<Recipe> recipeList = new List<Recipe>();
 		private List<Recipe> userRecipeList = new List<Recipe>();
 		private ObservableCollection<Ingredient> ingredientList = new ObservableCollection<Ingredient>();
@@ -62,19 +66,15 @@ namespace ProjectPantryPlusPlus
 			//Example: 
 			//		Recipes/userRecipeList.bin
 
-			string fileExtension = ".json";
-			string recipeFilePath = "Recipes/";
-			string ingredientFilePath = "Ingredients/";
 			string userTag = "user";
-			string recipeTag = "RecipeList";
+			string recipeTag = "Recipe";
 			string ingredientTag = "Ingredient";
 
 			List<Ingredient> tempIngredients = new List<Ingredient>();
 
-			string test = recipeFilePath + userTag + recipeTag + fileExtension;
 
 			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
-			this.UserRecipeList		= FileIO.LoadRecipesJson(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
+			//this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
 			//this.IngredientList		= FileIO.LoadIngredients(ingredientFilePath + ingredientTag				+ fileExtension);
 			//tempIngredients = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
@@ -93,7 +93,15 @@ namespace ProjectPantryPlusPlus
 			}
 		}
 
-        
+        public void SaveState()
+		{
+			//save the availableIngredients, recipeList, and displayRecipeList. 
+			FileIO.SaveIngredientsJson(AvailableIngredients, ingredientFilePath + "availableIngredients" + fileExtension);
+		}
+		public void LoadState()
+		{
+			AvailableIngredients = FileIO.LoadIngredientsJson(ingredientFilePath + "availableIngredients" + fileExtension);
+		}
 
 		public List<Recipe> FilterList() {
 			List<Recipe> outputRecipes = new List<Recipe>();
@@ -107,7 +115,7 @@ namespace ProjectPantryPlusPlus
 				bool canBeMadeWithAvailable = true;
                 foreach (Ingredient ing in rec.Ingredients)
                 {
-                    if (canBeMadeWithAvailable && AvailableContains(ing))
+                    if (canBeMadeWithAvailable && !AvailableIngredients.Contains(ing))
                     {
                         canBeMadeWithAvailable = false;
                     }
@@ -134,6 +142,22 @@ namespace ProjectPantryPlusPlus
 			return outputRecipes;
 		}
 
+        public void FieldChanged([CallerMemberName] string field = null)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(field));
+            }
+        }
+ 
+        public void NotifyPropertyChanged(string propName)
+        {
+            if(this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            MainWindow mw = new MainWindow();
+            mw.populate_List();
+               
+        }
 		private bool AvailableContains(Ingredient ing)
 		{
 			foreach(Ingredient ingredient in AvailableIngredients){
