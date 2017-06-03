@@ -223,8 +223,11 @@ namespace PantryProject
                 Width = 450,
                 Height = 550,
             };
-
-
+            AddRecipesWindow AddRec = new AddRecipesWindow(PM, MyRecipeList);
+            AddWin.Content = AddRec;
+            AddWin.Topmost = true;
+            AddWin.Show();
+            
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
