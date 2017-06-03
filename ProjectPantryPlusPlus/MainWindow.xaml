@@ -204,7 +204,8 @@
             Grid.Row="3"
             Grid.ColumnSpan="2"
             VerticalAlignment="Top"
-            Margin="0 10" />
+            Margin="0 10"
+            Click="SaveIngList_Click"/>
             <Button
                 x:Name="import"
                 Grid.Column="1"
@@ -330,9 +331,9 @@
                     </Grid.RowDefinitions>
                     <Button Height="20"
                             Width="70"
-                            HorizontalAlignment="Left"
-                            Content="Add Recipe"
                             Click="Recipe_Add"
+                            HorizontalAlignment="Left"
+                            Content="Add Recipe"    
                     />
                     
                     <ListBox x:Name="MyRecipeList"

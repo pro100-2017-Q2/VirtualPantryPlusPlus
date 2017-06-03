@@ -31,27 +31,27 @@ namespace ProjectPantryPlusPlus
         public List<Recipe> RecipeList
 		{
 			get { return recipeList; }
-			set { recipeList = value; FieldChanged(); }
+			set { recipeList = value;  }
 		}
 		public List<Recipe> UserRecipeList
 		{
 			get { return userRecipeList; }
-			set { userRecipeList = value; FieldChanged(); }
+			set { userRecipeList = value;  }
 		}
 		public ObservableCollection<Ingredient> IngredientList
 		{
 			get { return ingredientList; }
-			set { ingredientList = value; this.FieldChanged(); }
+			set { ingredientList = value;  }
 		}
 		public List<Ingredient> AvailableIngredients
 		{
 			get { return AvailableIngredients; }
-			set { AvailableIngredients = value; FieldChanged(); }
+			set { AvailableIngredients = value;  }
 		}	
 		public List<Recipe> DisplayRecipeList
 		{
 			get { return displayRecipeList; }
-			set { displayRecipeList = value; FieldChanged(); }
+			set { displayRecipeList = value; }
 		}
 
 		public PantryManager()
@@ -75,7 +75,7 @@ namespace ProjectPantryPlusPlus
 
 			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
 			this.UserRecipeList		= FileIO.LoadRecipesJson(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
-			this.IngredientList		= FileIO.LoadIngredientsJsonObservable(ingredientFilePath + ingredientTag				+ fileExtension);
+			//this.IngredientList		= FileIO.LoadIngredients(ingredientFilePath + ingredientTag				+ fileExtension);
 			//tempIngredients = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
 
@@ -144,15 +144,7 @@ namespace ProjectPantryPlusPlus
 			return false;
 		}
 
-		public void FieldChanged([CallerMemberName] string field = null)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(field));
-            }
-        }
- 
-        
+		
 
 
 
