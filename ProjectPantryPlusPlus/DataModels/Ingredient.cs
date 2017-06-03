@@ -62,7 +62,11 @@ namespace ProjectPantryPlusPlus.DataModels
 		{
 
 		}
+        public override string ToString()
+        {
+            return this.Name;
+        }
 
 
-	}
+    }
 }

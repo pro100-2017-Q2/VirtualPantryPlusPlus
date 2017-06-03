@@ -47,7 +47,9 @@ namespace ProjectPantryPlusPlus.DataModels
 
 		public static void SaveIngredientsJson(List<Ingredient> ingredientList, string filename)
 		{
-			
+			var serializer = new JavaScriptSerializer();
+			var json = serializer.Serialize(ingredientList);
+			File.WriteAllText(@filename, json);
 		}
 		public static List<Ingredient> LoadIngredientsJson(string filename)
 		{
@@ -107,7 +109,7 @@ namespace ProjectPantryPlusPlus.DataModels
 					string title = (string)Dictionary["Title"];
 					string author = (string)Dictionary["Author"];
 					string servingSize = (string)Dictionary["ServingSize"];
-					string prepTime = (string)Dictionary["PrepTime"];
+					string prepTime = Dictionary["PrepTime"].ToString();
 					string instructions = (string)Dictionary["Instructions"];
 
 
@@ -116,10 +118,10 @@ namespace ProjectPantryPlusPlus.DataModels
 					foreach (Dictionary<String, Object> ingredient in (Object[])Dictionary["Ingredients"])
 					{
 						string name = (String)ingredient["Name"];
-						string catagory = (string)ingredient["Catagory"];
-						bool isInUserPantry = (bool)ingredient["IsInUserPantry"];
+						//string catagory = (string)ingredient["Catagory"];
+						//bool isInUserPantry = (bool)ingredient["IsInUserPantry"];
 
-						ing.Add(new Ingredient(name, catagory));
+						ing.Add(new Ingredient() { Name = name });
 					}
 					Ingredient[] ingredients = ing.ToArray();
 

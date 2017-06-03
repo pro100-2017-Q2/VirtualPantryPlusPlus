@@ -54,43 +54,103 @@
                            Grid.Row="3"/>
                     <Label Content="Vegetables"
                            Grid.Row="4"/>
-                    <Label Content="SpicesOils"
+                    <Label Content="Beverages"
                            Grid.Row="5"
                     />
-                    <WrapPanel x:Name="meatsList"
-                             Grid.Row="0"
-                             Width="150"
-                             Margin="70,0,0,0" 
-                    >
-                        
-                    </WrapPanel>
-
-
-                    <ListBox x:Name="dairyList"
-                             Grid.Row="1"
-                             Width="150"
-                             Margin="70,0,0,0"/>
-                    <ListBox x:Name="grainsList"
-                             Grid.Row="2"
-                             Width="150"
-                             Margin="70,0,0,0"/>
-                    <ListBox x:Name="fruitsList"
-                             Grid.Row="3"
-                             Width="150"
-                             Margin="70,0,0,0"/>
-                    <ListBox x:Name="vegetablesList"
-                             Grid.Row="4"
-                             Width="150"
-                             Margin="70,0,0,0"/>
-                    <ListBox x:Name="spicesList"
-                             Grid.Row="5"
-                             Width="150"
-                             Margin="70,0,0,0"
+                    <Label Content="SpicesOil"
+                           Grid.Row="6"
                     />
 
+                    <ListView
+                            x:Name="meatIng"
+                            Margin="75,0,0,0">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel>
+                                    
+
+                                </WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                    <ListView
+                            x:Name="dairyIng"
+                            Margin="75,0,0,0"
+                            Grid.Row="1">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel>
 
 
+                                </WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                    <ListView
+                            x:Name="grainIng"
+                            Margin="75,0,0,0"
+                            Grid.Row="2">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel>
 
+
+                                </WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                    <ListView
+                            x:Name="fruitIng"
+                            Margin="75,0,0,0"
+                            Grid.Row="3">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel>
+
+
+                                </WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                    <ListView
+                            x:Name="vegetableIng"
+                            Margin="75,0,0,0"
+                            Grid.Row="4">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel>
+
+
+                                </WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                    <ListView
+                            x:Name="beverageIng"
+                            Margin="75,0,0,0"
+                            Grid.Row="5">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel>
+
+
+                                </WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                    <ListView                 
+                            x:Name="spiceIng"
+                            Margin="75,0,0,0"
+                            Grid.Row="6">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel>
+
+
+                                </WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
                 </Grid>
 
                 <!--<StackPanel x:Name="pantryList" 
@@ -144,7 +204,7 @@
             Grid.Row="3"
             Grid.ColumnSpan="2"
             VerticalAlignment="Top"
-            Margin="0 10" Click="SaveIngList_Click"/>
+            Margin="0 10" />
             <Button
                 x:Name="import"
                 Grid.Column="1"
@@ -186,14 +246,83 @@
   
         >
             <TabItem Header="PopularRecipes">
-                <ScrollViewer x:Name="popular_Scroller"/>
+				<ListBox x:Name="PopRecipeList"
 
-            </TabItem>
+                         SelectionMode="Single" 
+                         ScrollViewer.CanContentScroll="False"
+                         Grid.Row="1">
+
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Border BorderBrush="Silver" BorderThickness="3" Width="450">
+								<Grid Background="White"  MouseLeftButtonDown="MyRecipeList_MouseLeftButtonDown">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1*"/>
+										<ColumnDefinition Width="3*"/>
+									</Grid.ColumnDefinitions>
+									<Image Grid.Column="0"
+                                                   Width="150"
+                                                   Height="100"/>
+									<StackPanel Grid.Column="1" Margin="5">
+										<Label Content="{Binding Title}" FontWeight="ExtraBold" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="Serves: " FontWeight="Bold"/>
+                                                <Run Text="{Binding ServingSize}"/>
+										</TextBlock>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="PrepTime: " FontWeight="Bold"/>
+                                                <Run Text="{Binding PrepTime}"/>
+										</TextBlock>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="{Binding Instructions}"/>
+										</TextBlock>
+									</StackPanel>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</TabItem>
             <TabItem Header="WhatCanIMake?">
-                <Label Content="Food duh."/>
-            </TabItem>
+				<ListBox x:Name="MakeableRecipeList"
 
-            <TabItem Header="My Recipes" MouseDown="Refresh">
+                         SelectionMode="Single" 
+                         ScrollViewer.CanContentScroll="False"
+                         Grid.Row="1">
+
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Border BorderBrush="Silver" BorderThickness="3" Width="450">
+								<Grid Background="White"  MouseLeftButtonDown="MyRecipeList_MouseLeftButtonDown">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1*"/>
+										<ColumnDefinition Width="3*"/>
+									</Grid.ColumnDefinitions>
+									<Image Grid.Column="0"
+                                                   Width="150"
+                                                   Height="100"/>
+									<StackPanel Grid.Column="1" Margin="5">
+										<Label Content="{Binding Title}" FontWeight="ExtraBold" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="Serves: " FontWeight="Bold"/>
+                                                <Run Text="{Binding ServingSize}"/>
+										</TextBlock>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="PrepTime: " FontWeight="Bold"/>
+                                                <Run Text="{Binding PrepTime}"/>
+										</TextBlock>
+										<TextBlock FontSize="9" HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="700" Padding="5">
+                                                <Run Text="{Binding Instructions}"/>
+										</TextBlock>
+									</StackPanel>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</TabItem>
+
+            <TabItem Header="My Recipes" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25"/>

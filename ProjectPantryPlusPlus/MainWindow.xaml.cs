@@ -11,7 +11,6 @@ using ProjectPantryPlusPlus.Popups;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Windows.Input;
 
 namespace PantryProject
 {
@@ -34,14 +33,16 @@ namespace PantryProject
         {
             InitializeComponent();
             populate_List();
-            MyRecipeList.ItemsSource = PM.DisplayRecipeList;
-            //meatIng.ItemsSource = meatsList;
-            //dairyIng.ItemsSource = dairyList;
-            //fruitIng.ItemsSource = fruitsList;
-            //grainIng.ItemsSource = grainsList;
-            //vegetableIng.ItemsSource = vegetableList;
-            //beverageIng.ItemsSource = beverageList;
-            //spiceIng.ItemsSource = spicesList;
+            MyRecipeList.ItemsSource = PM.UserRecipeList;
+			PopRecipeList.ItemsSource = PM.RecipeList;
+			MakeableRecipeList.ItemsSource = PM.DisplayRecipeList;
+            meatIng.ItemsSource = meatsList;
+            dairyIng.ItemsSource = dairyList;
+            fruitIng.ItemsSource = fruitsList;
+            grainIng.ItemsSource = grainsList;
+            vegetableIng.ItemsSource = vegetableList;
+            beverageIng.ItemsSource = beverageList;
+            spiceIng.ItemsSource = spicesList;
             PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
         }
 
@@ -50,7 +51,7 @@ namespace PantryProject
             populate_List();
         }
 
-        private System.Windows.Input.MouseEventHandler Content_MouseLeftButtonDown()
+        private MouseEventHandler Content_MouseLeftButtonDown()
         {
             if (this.Visibility == Visibility.Collapsed)
             {
@@ -105,7 +106,7 @@ namespace PantryProject
         private void addRecipeClick(object sender, RoutedEventArgs e)
         {
             //Creating hard-coded recipes
-
+           
 
         }
         public void populate_List()
@@ -114,27 +115,27 @@ namespace PantryProject
             {
                 switch (i.Catagory)
                 {
-                    //case "Meats":
-                    //    meatsList.Add(i);
-                    //    break;
-                    //case "Eggs & Dairy":
-                    //    dairyList.Add(i);
-                    //    break;
-                    //case "Nuts, Grains, and beans":
-                    //    grainsList.Add(i);
-                    //    break;
-                    //case "Fruits":
-                    //    fruitsList.Add(i);
-                    //    break;
-                    //case "Vegetables":
-                    //    vegetableList.Add(i);
-                    //    break;
-                    //case "Beverages":
-                    //    beverageList.Add(i);
-                    //    break;
-                    //case "Spices and Oils":
-                    //    spicesList.Add(i);
-                    //    break;
+                    case "Meats":
+                        meatsList.Add(i);
+                        break;
+                    case "Eggs & Dairy":
+                        dairyList.Add(i);
+                        break;
+                    case "Nuts, Grains, and beans":
+                        grainsList.Add(i);
+                        break;
+                    case "Fruits":
+                        fruitsList.Add(i);
+                        break;
+                    case "Vegetables":
+                        vegetableList.Add(i);
+                        break;
+                    case "Beverages":
+                        beverageList.Add(i);
+                        break;
+                    case "Spices and Oils":
+                        spicesList.Add(i);
+                        break;
                 }
             }
         }
@@ -221,8 +222,10 @@ namespace PantryProject
         {
             Window AddWin = new Window()
             {
-                Width = 450,
-                Height = 550
+                Title = "Add Recipe",
+                ResizeMode = ResizeMode.NoResize,
+                Height = 550,
+                Width = 450
             };
             AddRecipesWindow AddRec = new AddRecipesWindow(PM, MyRecipeList);
             AddWin.Content = AddRec;
@@ -250,15 +253,10 @@ namespace PantryProject
             }
 
 
-            Window Thanks = new Window()
+            System.Windows.Controls.Button Save_Button = new System.Windows.Controls.Button
             {
-                Width = 100,
-                Height = 60,
-                Content = "Saving complete",
-                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
-                Background = Brushes.DarkGray,
-                ResizeMode = ResizeMode.NoResize
+                Content = "Save",
+                Width = 30
             };
             Thanks.Topmost = true;
             Thanks.Show();
