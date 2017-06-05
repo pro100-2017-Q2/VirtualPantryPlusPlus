@@ -49,8 +49,8 @@ namespace ProjectPantryPlusPlus
 		}
 		public List<Ingredient> AvailableIngredients
 		{
-			get { return AvailableIngredients; }
-			set { AvailableIngredients = value;  }
+			get { return availableIngredients; }
+			set { availableIngredients = value;  }
 		}	
 		public List<Recipe> DisplayRecipeList
 		{
@@ -74,7 +74,7 @@ namespace ProjectPantryPlusPlus
 
 
 			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
-			//this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
+			this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
 			this.IngredientList		= FileIO.LoadIngredientsJsonObservable(ingredientFilePath + ingredientTag				+ fileExtension);
 			//tempIngredients = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
