@@ -49,8 +49,8 @@ namespace ProjectPantryPlusPlus
 		}
 		public List<Ingredient> AvailableIngredients
 		{
-			get { return AvailableIngredients; }
-			set { AvailableIngredients = value;  }
+			get { return availableIngredients; }
+			set { availableIngredients = value;  }
 		}	
 		public List<Recipe> DisplayRecipeList
 		{
