@@ -42,7 +42,7 @@ namespace PantryProject
             vegetableIng.ItemsSource = vegetableList;
             beverageIng.ItemsSource = beverageList;
             spiceIng.ItemsSource = spicesList;
-            //PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
+            PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
             populate_List();
         }
 

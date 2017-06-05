@@ -26,13 +26,7 @@ namespace ProjectPantryPlusPlus.Popups
     public partial class AddIngredient : Window
     {
         private PantryManager local_pm;
-        public event NotifyCollectionChangedEventHandler OnAdd;
 
-        protected void OnAddEvent()
-        {
-            MessageBox.Show("Event handled");
-           
-        }
         public AddIngredient(PantryManager pm)
         {
             InitializeComponent();
@@ -49,15 +43,20 @@ namespace ProjectPantryPlusPlus.Popups
         private void addIngredientButton_Click(object sender, RoutedEventArgs e)
         {
             Ingredient i = new Ingredient(this.nameBox.Text, this.categoryBox.Text);
-            
-            if (local_pm.IngredientList.Contains(i))
+            i.Name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(i.Name);
+            if (local_pm.IngredientList.Count != 0)
             {
-                MessageBox.Show("You've already added that ingredient!");
-                this.Close();
+                foreach (Ingredient ingredient in local_pm.IngredientList)
+                {
+                    if (i.Name.Equals(ingredient.Name))
+                    {
+                        MessageBox.Show("You've already added that ingredient!");
+                        local_pm.IngredientList.Remove(i);
+                    }
+                }
             }
             else
-            {               
-                i.Name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(i.Name);
+            {
                 local_pm.IngredientList.Add(i);
                 MessageBox.Show("Ingredient name: " + i.Name + " Category: " + i.Catagory);
             }
