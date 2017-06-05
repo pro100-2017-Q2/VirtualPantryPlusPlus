@@ -270,31 +270,9 @@ namespace PantryProject
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
 
-            dlg.DefaultExt = ".txt";
-            dlg.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
-
-            string filename;
-
-            // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
-
-
-            // Get the selected file name
-            if (result == true)
-            {
-                filename = dlg.FileName;
-            }
-
-            
-
-            System.Windows.Controls.Button Save_Button = new System.Windows.Controls.Button
-            {
-                Content = "Save",
-                Width = 30
-            };
-            
+           
+           
         
         }
 
@@ -315,7 +293,7 @@ namespace PantryProject
             {
                 filename = dlg.FileName;
             }
-            Console.WriteLine(filename);
+            
             FileIO.SaveIngredientsJson(PM.AvailableIngredients, filename);
         }
 

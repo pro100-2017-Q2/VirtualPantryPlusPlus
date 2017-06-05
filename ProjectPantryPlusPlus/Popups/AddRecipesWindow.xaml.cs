@@ -35,6 +35,8 @@ namespace ProjectPantryPlusPlus.Popups
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+
             string[] ing = new string[30];
 
             ingridients.Text.Trim(' ');
@@ -62,8 +64,10 @@ namespace ProjectPantryPlusPlus.Popups
                 Instructions = instructions.Text
             };
 
+
             PM.UserRecipeList.Add(rec);
             MR.Items.Refresh();
+
 
             Window.GetWindow(this).Close();
         }
