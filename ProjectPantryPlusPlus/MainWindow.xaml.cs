@@ -42,15 +42,18 @@ namespace PantryProject
             vegetableIng.ItemsSource = vegetableList;
             beverageIng.ItemsSource = beverageList;
             spiceIng.ItemsSource = spicesList;
-            PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
             populate_List();
+            PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
         }
 
         private void IngredientList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            int index = PM.IngredientList.Count - 1;
-            Ingredient i = PM.IngredientList[index];
-            add_To_List(i);
+            
+            if(PM.IngredientList.Count != 0)
+            {
+                int index = PM.IngredientList.Count -1;
+                add_To_List(PM.IngredientList[index]);
+            }
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()

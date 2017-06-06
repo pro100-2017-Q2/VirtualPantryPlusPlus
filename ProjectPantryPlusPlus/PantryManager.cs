@@ -58,6 +58,7 @@ namespace ProjectPantryPlusPlus
 			set { displayRecipeList = value; }
 		}
 
+       
 		public PantryManager()
 		{
             
@@ -83,10 +84,10 @@ namespace ProjectPantryPlusPlus
 			foreach(Recipe recipe in RecipeList){
 				DisplayRecipeList.Add(recipe);
 			}
-            foreach (recipe recipe in userrecipelist)
-            {
-                displayrecipelist.add(recipe);
-            }
+            //foreach (recipe recipe in userrecipelist)
+            //{
+            //    displayrecipelist.add(recipe);
+            //}
             foreach (Ingredient ing in tempIngredients)
 			{
 				IngredientList.Add(ing);
@@ -150,14 +151,7 @@ namespace ProjectPantryPlusPlus
             }
         }
  
-        public void NotifyPropertyChanged(string propName)
-        {
-            if(this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            MainWindow mw = new MainWindow();
-            mw.populate_List();
-               
-        }
+     
 		private bool AvailableContains(Ingredient ing)
 		{
 			foreach(Ingredient ingredient in AvailableIngredients){
