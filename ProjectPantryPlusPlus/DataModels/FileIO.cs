@@ -37,7 +37,7 @@ namespace ProjectPantryPlusPlus.DataModels
 
 		public static List<Ingredient> LoadIngredients(string filename)
 		{
-			List<Ingredient> rec;
+			List<Ingredient> rec = new List<Ingredient>();
 			using (var stream = File.OpenRead(filename))
 			{
 				var serializer = new XmlSerializer(typeof(List<Recipe>));
@@ -55,7 +55,7 @@ namespace ProjectPantryPlusPlus.DataModels
 		public static List<Ingredient> LoadIngredientsJson(string filename)
 		{
 			Object output = new Object();
-			List<Ingredient> outIngredients = new List<Ingredient>(500);
+			List<Ingredient> outIngredients = new List<Ingredient>();
 			string json = "";
 			try
 			{
@@ -107,7 +107,6 @@ namespace ProjectPantryPlusPlus.DataModels
 						json = streamReader.ReadToEnd();
 					}
 				}
-
 				output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
 			}
 			catch (System.ArgumentException e) { /*throw e;*/ }//this is a system exception that we can't fix on our own, so we throw it back.
@@ -130,8 +129,6 @@ namespace ProjectPantryPlusPlus.DataModels
 
 					outIngredients.Add(new Ingredient() { Name = name });
 				}
-
-				
 			}
 			return outIngredients;
 
