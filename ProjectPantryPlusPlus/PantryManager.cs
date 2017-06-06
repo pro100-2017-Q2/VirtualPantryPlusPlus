@@ -83,9 +83,9 @@ namespace ProjectPantryPlusPlus
 			foreach(Recipe recipe in RecipeList){
 				DisplayRecipeList.Add(recipe);
 			}
-            foreach (recipe recipe in userrecipelist)
+            foreach (Recipe recipe in UserRecipeList)
             {
-                displayrecipelist.add(recipe);
+                DisplayRecipeList.Add(recipe);
             }
             foreach (Ingredient ing in tempIngredients)
 			{
