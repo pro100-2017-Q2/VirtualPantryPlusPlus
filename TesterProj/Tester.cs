@@ -10,7 +10,7 @@ namespace ProjectPantryPlusPlus
 	class Tester
 	{
 
-		private static Recipe t = new Recipe("spoup", "2", "20 gondalas", new Ingredient[1] { new Ingredient("name","catagory",false) }, "mix them and eat them", new Dictionary<string, string>() {});
+		private static Recipe t = new Recipe("spoup", "2", "20 gondalas", new Ingredient[1] { new Ingredient("name","catagory") }, "mix them and eat them", new Dictionary<string, string>() {});
 
 
 

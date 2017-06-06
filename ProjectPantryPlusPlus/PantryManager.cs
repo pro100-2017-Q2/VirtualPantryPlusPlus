@@ -73,24 +73,24 @@ namespace ProjectPantryPlusPlus
 			List<Ingredient> tempIngredients = new List<Ingredient>();
 
 
-			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
-			this.UserRecipeList		= FileIO.LoadRecipesJson(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
-			this.IngredientList		= FileIO.LoadIngredientsJsonObservable(ingredientFilePath + ingredientTag				+ fileExtension);
+			this.RecipeList			= FileIO.LoadRecipesJson(				recipeFilePath		+ recipeTag				+ fileExtension);
+			this.UserRecipeList		= FileIO.LoadRecipesJson(				recipeFilePath		+ userTag + recipeTag	+ fileExtension);
+			this.IngredientList		= FileIO.LoadIngredientsJsonObservable(ingredientFilePath	+ ingredientTag			+ fileExtension);
 			//tempIngredients = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
 
 			this.DisplayRecipeList	= new List<Recipe>(); 
-			foreach(Recipe recipe in RecipeList){
-				DisplayRecipeList.Add(recipe);
+			foreach(Recipe rec in RecipeList){
+				DisplayRecipeList.Add(rec);
 			}
-			foreach (Recipe recipe in UserRecipeList)
+			foreach (Recipe rec in UserRecipeList)
 			{
-				DisplayRecipeList.Add(recipe);
+				DisplayRecipeList.Add(rec);
 			}
-			foreach (Ingredient ing in tempIngredients)
-			{
-				IngredientList.Add(ing);
-			}
+			//foreach (Ingredient ing in tempIngredients)
+			//{
+			//	IngredientList.Add(ing);
+			//}
 		}
 
         public void SaveState()
