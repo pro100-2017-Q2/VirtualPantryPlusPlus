@@ -68,6 +68,26 @@ namespace ProjectPantryPlusPlus.Popups
             PM.UserRecipeList.Add(rec);
             MR.Items.Refresh();
 
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
+
+            string filename = "";
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Get the selected file name
+            if (result == true)
+            {
+                filename = dlg.FileName;
+            }
+
+            if (!String.IsNullOrEmpty(filename))
+            {
+                FileIO.SaveRecipesJson(PM.UserRecipeList, filename);
+            }
 
             Window.GetWindow(this).Close();
         }
