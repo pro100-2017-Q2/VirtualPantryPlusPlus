@@ -29,9 +29,10 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="300"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition />
+				<RowDefinition Height="300"/>
+				<RowDefinition Height="40"/>
+				<RowDefinition Height="40"/>
+				<RowDefinition />
             </Grid.RowDefinitions>
             <ScrollViewer x:Name="mainScrollViewer"
                 BorderBrush="Black" Grid.ColumnSpan="3" Grid.Row ="1">
@@ -228,7 +229,17 @@
                 Margin="0 10"
                 Click="export_Click"
             />
-        </Grid>
+			<Button x:Name="FilterListButton"
+            Height="20"
+            Width="220"
+            Content="Filter Display"
+            Grid.Column="0"
+            Grid.Row="4"
+            Grid.ColumnSpan="3"
+            VerticalAlignment="Top"
+            Margin="0 10"
+            Click="FilterListClick"/>
+		</Grid>
 
 
 

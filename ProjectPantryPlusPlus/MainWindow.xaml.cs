@@ -320,7 +320,11 @@ namespace PantryProject
 
         }
 
-    }
+		private void FilterListClick(object sender, RoutedEventArgs e)
+		{
+			PM.FilterList();
+		}
+	}
     
 }
    
