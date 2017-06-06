@@ -25,7 +25,7 @@ namespace ProjectPantryPlusPlus.DataModels
 
 		public static List<Recipe> LoadRecipes(string filename)
 		{
-			List<Recipe> rec = null;
+			List<Recipe> rec = new List<Recipe>(); 
 			if (File.Exists(filename))
 				using (var stream = File.OpenRead(filename))
 				{
