@@ -270,7 +270,6 @@ namespace PantryProject
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-
             Window Saved = new Window()
             {
                 HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center,
