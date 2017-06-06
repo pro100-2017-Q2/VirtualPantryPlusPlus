@@ -83,11 +83,11 @@ namespace ProjectPantryPlusPlus
 			foreach(Recipe recipe in RecipeList){
 				DisplayRecipeList.Add(recipe);
 			}
-			foreach (Recipe recipe in UserRecipeList)
-			{
-				DisplayRecipeList.Add(recipe);
-			}
-			foreach (Ingredient ing in tempIngredients)
+            foreach (recipe recipe in userrecipelist)
+            {
+                displayrecipelist.add(recipe);
+            }
+            foreach (Ingredient ing in tempIngredients)
 			{
 				IngredientList.Add(ing);
 			}
