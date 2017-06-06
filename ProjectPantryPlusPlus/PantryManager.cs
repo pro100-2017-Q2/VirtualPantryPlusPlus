@@ -67,14 +67,14 @@ namespace ProjectPantryPlusPlus
 			//		Recipes/userRecipeList.bin
 
 			string userTag = "user";
-			string recipeTag = "Recipe";
-			string ingredientTag = "Ingredient";
+			string recipeTag = "RecipeList";
+			string ingredientTag = "IngredientsList";
 
 			List<Ingredient> tempIngredients = new List<Ingredient>();
 
 
 			this.RecipeList			= FileIO.LoadRecipesJson(recipeFilePath			+ recipeTag					+ fileExtension);
-			this.UserRecipeList		= FileIO.LoadRecipes(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
+			this.UserRecipeList		= FileIO.LoadRecipesJson(recipeFilePath			+ userTag + recipeTag		+ fileExtension);
 			this.IngredientList		= FileIO.LoadIngredientsJsonObservable(ingredientFilePath + ingredientTag				+ fileExtension);
 			//tempIngredients = FileIO.LoadIngredients(ingredientFilePath + userTag + ingredientTag	+ fileExtension);
 			
