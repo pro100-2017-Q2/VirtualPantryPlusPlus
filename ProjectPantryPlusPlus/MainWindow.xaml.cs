@@ -271,8 +271,19 @@ namespace PantryProject
         private void Save_Click(object sender, RoutedEventArgs e)
         {
 
-           
-           
+            Window Saved = new Window()
+            {
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
+                Content = "Saved!",
+                FontSize = 30,
+                Height = 70,
+                Width = 10,
+                ResizeMode = ResizeMode.NoResize
+            };
+
+            PM.SaveState();
+            Saved.Show();
         
         }
 
@@ -293,8 +304,13 @@ namespace PantryProject
             {
                 filename = dlg.FileName;
             }
+
+            if(!String.IsNullOrEmpty(filename))
+            {
+                FileIO.SaveIngredientsJson(PM.AvailableIngredients, filename);
+            }
+    
             
-            FileIO.SaveIngredientsJson(PM.AvailableIngredients, filename);
         }
 
         private void Refresh(object sender, System.Windows.Input.MouseButtonEventArgs e)
