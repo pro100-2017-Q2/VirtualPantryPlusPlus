@@ -43,23 +43,28 @@ namespace ProjectPantryPlusPlus.Popups
         private void addIngredientButton_Click(object sender, RoutedEventArgs e)
         {
             Ingredient i = new Ingredient(this.nameBox.Text, this.categoryBox.Text);
-            i.Name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(i.Name);
-            if (local_pm.IngredientList.Count != 0)
+            CultureInfo.CurrentCulture.TextInfo.ToTitleCase(i.Name);
+            bool inList = false;
+            
+
+            if (local_pm.IngredientList.Count >= 1)
             {
                 foreach (Ingredient ingredient in local_pm.IngredientList)
                 {
                     if (i.Name.Equals(ingredient.Name))
                     {
                         MessageBox.Show("You've already added that ingredient!");
-                        local_pm.IngredientList.Remove(i);
+                        inList = true;
                     }
                 }
             }
-            else
+
+            if (!inList)
             {
                 local_pm.IngredientList.Add(i);
-                MessageBox.Show("Ingredient name: " + i.Name + " Category: " + i.Catagory);
+                MessageBox.Show("You've added " + i.Name + " to " + i.Catagory);
             }
+
             this.Close();
         }
     }

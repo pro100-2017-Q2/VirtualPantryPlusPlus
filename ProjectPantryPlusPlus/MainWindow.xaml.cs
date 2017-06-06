@@ -43,8 +43,8 @@ namespace PantryProject
             vegetableIng.ItemsSource = vegetableList;
             beverageIng.ItemsSource = beverageList;
             spiceIng.ItemsSource = spicesList;
-            PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
             populate_List();
+            PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
         }
 
 		private void PopulateIngredients()
@@ -86,9 +86,12 @@ namespace PantryProject
 
 		private void IngredientList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            int index = PM.IngredientList.Count - 1;
-            Ingredient i = PM.IngredientList[index];
-            add_To_List(i);
+            
+            if(PM.IngredientList.Count != 0)
+            {
+                int index = PM.IngredientList.Count -1;
+                add_To_List(PM.IngredientList[index]);
+            }
         }
 
         private MouseEventHandler Content_MouseLeftButtonDown()
@@ -308,9 +311,19 @@ namespace PantryProject
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            Window Saved = new Window()
+            {
+                HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center,
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
+                Content = "Saved!",
+                FontSize = 30,
+                Height = 70,
+                Width = 10,
+                ResizeMode = ResizeMode.NoResize
+            };
 
-           
-           
+            PM.SaveState();
+            Saved.Show();
         
         }
 
@@ -331,8 +344,13 @@ namespace PantryProject
             {
                 filename = dlg.FileName;
             }
+
+            if(!String.IsNullOrEmpty(filename))
+            {
+                FileIO.SaveIngredientsJson(PM.AvailableIngredients, filename);
+            }
+    
             
-            FileIO.SaveIngredientsJson(PM.AvailableIngredients, filename);
         }
 
         private void Refresh(object sender, System.Windows.Input.MouseButtonEventArgs e)

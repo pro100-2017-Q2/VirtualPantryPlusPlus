@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PantryProject"
         xmlns:DataModels="clr-namespace:ProjectPantryPlusPlus.DataModels" x:Class="PantryProject.MainWindow"
         mc:Ignorable="d"
-        Title="My Pantry V0.01" Height="550" Width="725"
+        Title="My Pantry V0.01" Height="550" Width="800"
         ResizeMode="NoResize"
         x:Name="mainWindow">
 
