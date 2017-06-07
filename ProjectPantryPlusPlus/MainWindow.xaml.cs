@@ -216,7 +216,7 @@ namespace PantryProject
             Thickness Thick = new Thickness();
             Thick.Left = 5;
             Thick.Right = 5;
-            Thick.Bottom = 5;
+            Thick.Bottom = 10;
             Thick.Top = 5;
 
             Recipe Selected = (Recipe)(((Grid)sender).DataContext);
@@ -237,7 +237,8 @@ namespace PantryProject
 
             ScrollViewer Scroller = new ScrollViewer()
             {
-                CanContentScroll = false
+                CanContentScroll = false,
+                Margin = Thick
             };
 
             System.Windows.Controls.Label Title = new System.Windows.Controls.Label()
@@ -271,12 +272,13 @@ namespace PantryProject
             string inglist = "";
             foreach(Ingredient ing in Selected.Ingredients)
             {
-                inglist += "- " + ing + "\n";
+                string portion;
+                Selected.IngredientPortions.TryGetValue(ing.Name, out portion);
+                inglist += "- " + ing.Name + " (" + portion +")" + "\n";
             }
             TextBlock Ingridients = new TextBlock()
             {
                 MaxWidth = 700,
-                MaxHeight = 200,
                 Text = "Ingridients : \n " + inglist,
                 FontSize = 18,
                 TextWrapping = TextWrapping.Wrap,
