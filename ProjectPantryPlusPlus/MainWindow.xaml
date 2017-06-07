@@ -40,7 +40,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition x:Name="Meats"/>
                         <RowDefinition x:Name="DairyEggs"/>
-                        <RowDefinition x:Name="NutsGrainsBeans" Height="55"/>
+                        <RowDefinition x:Name="NutsGrainsBeans" />
                         <RowDefinition x:Name="Fruits"/>
                         <RowDefinition x:Name="Vegetables"/>
                         <RowDefinition x:Name="Beverages"/>
