@@ -1,23 +1,23 @@
 [
 	{
 		"Name": "strawberries",
-		"Catagory": ""
+		"Catagory": "Fruits"
 	},
 	{
 		"Name": "turbinado sugar",
-		"Catagory": ""
+		"Catagory": "Other"
 	},
 	{
 		"Name": "whipping cream",
-		"Catagory": ""
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "lowfat vanilla yogurt",
-		"Catagory": ""
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "macaroni",
-		"Catagory": "Other"
+		"Catagory": "Nuts, Grains, and beans"
 	},
 	{
 		"Name": "condensed Cheddar cheese soup",
@@ -25,11 +25,11 @@
 	},
 	{
 		"Name": "milk",
-		"Catagory": "Other"
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "shredded Colby cheese",
-		"Catagory": "Other"
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "Pillsbury biscuits",
@@ -37,7 +37,7 @@
 	},
 	{
 		"Name": "mozzarella cheese sticks",
-		"Catagory": "Other"
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "your favorite pizza toppings",
@@ -49,39 +49,39 @@
 	},
 	{
 		"Name": "large flour tortilla",
-		"Catagory": "Other"
+		"Catagory": "Nuts, Grains, and beans"
 	},
 	{
 		"Name": "butter",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "grated  or shredded cheese",
-		"Catagory": "Other"
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "*Optional roasted green chilies",
-		"Catagory": "Other"
+		"Catagory": "Fruits"
 	},
 	{
 		"Name": "elbow macaroni",
-		"Catagory": "Other"
+		"Catagory": "Nuts, Grains, and beans"
 	},
 	{
 		"Name": "small curd cottage cheese",
-		"Catagory": "Other"
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "cheddar cheese",
-		"Catagory": "Other"
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "sour cream",
-		"Catagory": "Other"
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "egg",
-		"Catagory": "Other"
+		"Catagory": "Eggs & Dairy"
 	},
 	{
 		"Name": "salt",
@@ -89,11 +89,11 @@
 	},
 	{
 		"Name": "coconut oil",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "paprika",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "cinnamon sticks",
@@ -101,7 +101,7 @@
 	},
 	{
 		"Name": "star anise pods",
-		"Catagory": "Other"
+		"Catagory": "Fruit"
 	},
 	{
 		"Name": "cardamom pods",
@@ -121,35 +121,35 @@
 	},
 	{
 		"Name": "orange peel",
-		"Catagory": "Other"
+		"Catagory": "Fruits"
 	},
 	{
 		"Name": "fresh cranberries",
-		"Catagory": "Other"
+		"Catagory": "Fruits"
 	},
 	{
 		"Name": "fresh lime juice",
-		"Catagory": "Other"
+		"Catagory": "chilies"
 	},
 	{
 		"Name": "Spiced Cranberry Cordial",
-		"Catagory": "Other"
+		"Catagory": "Fruits"
 	},
 	{
 		"Name": "freshly squeezed grapefruit juice",
-		"Catagory": "Other"
+		"Catagory": "Fruits"
 	},
 	{
 		"Name": "London Dry gin",
-		"Catagory": "Other"
+		"Catagory": "chilies"
 	},
 	{
 		"Name": "chilled sparkling wine",
-		"Catagory": "Other"
+		"Catagory": "chilies"
 	},
 	{
 		"Name": "dried pinto beans",
-		"Catagory": "Other"
+		"Catagory": "Nuts, Grains, and beans"
 	},
 	{
 		"Name": "Kosher Salt",
@@ -165,7 +165,7 @@
 	},
 	{
 		"Name": "jalapeño",
-		"Catagory": "Other"
+		"Catagory": "Fruits"
 	},
 	{
 		"Name": "garlic cloves",
@@ -181,15 +181,15 @@
 	},
 	{
 		"Name": "bay leaves",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "spring epazote",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "cilantro leaves and fine stems",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "bread crumbs",
@@ -197,11 +197,11 @@
 	},
 	{
 		"Name": "garlic powder",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "dried thyme",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "Dijon mustard",
@@ -217,23 +217,23 @@
 	},
 	{
 		"Name": "green beans",
-		"Catagory": "Other"
+		"Catagory": "Nuts, Grains, and beans"
 	},
 	{
 		"Name": "asparagus",
-		"Catagory": "Other"
+		"Catagory": "Vegitables"
 	},
 	{
 		"Name": "olive oil",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "Dried spaghetti",
-		"Catagory": "Other"
+		"Catagory": "Nuts, Grains, and beans"
 	},
 	{
 		"Name": "mentaiko",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "Light usukuchi soy sauce",
@@ -242,22 +242,10 @@
 
 	{
 		"Name": "Unsalted butter, melted",
-		"Catagory": "Other"
+		"Catagory": "Spices and Oils"
 	},
 	{
 		"Name": "Nori seaweed strips",
-		"Catagory": "Other"
+		"Catagory": "Vegitables"
 	}
 ]
-
-/**
-
-		"Meats",
-    "Eggs & Dairy",
-		"Nuts, Grains, and beans",
-		"Fruits",
-		"Vegetables",
-		"Beverages",
-		"Spices and Oils"
-
-**/
