@@ -66,7 +66,6 @@ namespace ProjectPantryPlusPlus.DataModels
 			}
 			catch (DirectoryNotFoundException) { }
 			catch (FileNotFoundException) { }
-			catch (OutOfMemoryException) { }
 			outIngredients = (List<Ingredient>)output;
 			return outIngredients;
 
