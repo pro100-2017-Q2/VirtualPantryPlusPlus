@@ -45,48 +45,42 @@ namespace PantryProject
             spiceIng.ItemsSource = spicesList;
             populate_List();
             PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
 
 		private void PopulateIngredients()
 		{
 			foreach(Ingredient ing in PM.IngredientList){
-				switch(ing.Catagory){
-					case "Meats":
-						meatsList.Add(ing);
-						break;
-					case "Eggs & Dairy":
-						dairyList.Add(ing);
-						break;
-					case "Nuts, Grains, and beans":
-						grainsList.Add(ing);
-						break;
-					case "Fruits":
-						fruitsList.Add(ing);
-						break;
-					case "Vegetables":
-						vegetableList.Add(ing);
-						break;
-					case "Beverages":
-						beverageList.Add(ing);
-						break;
-					case "Spices and Oils":
-						spicesList.Add(ing);
-						break;
+                switch (ing.Catagory)
+                {
+                    case "Meats":
+                        meatsList.Add(ing);
+                        break;
+                    case "Eggs & Dairy":
+                        dairyList.Add(ing);
+                        break;
+                    case "Nuts, Grains, and beans":
+                        grainsList.Add(ing);
+                        break;
+                    case "Fruits":
+                        fruitsList.Add(ing);
+                        break;
+                    case "Vegetables":
+                        vegetableList.Add(ing);
+                        break;
+                    case "Beverages":
+                        beverageList.Add(ing);
+                        break;
+                    case "Spices and Oils":
+                        spicesList.Add(ing);
+                        break;
 
-				}
-				/*"Meats",
-        "Eggs & Dairy",
-        "Nuts, Grains, and beans",
-		"Fruits",
-		"Vegetables",
-		"Beverages",
-		"Spices and Oils" */
+                }
 			}
 		}
 
 		private void IngredientList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            
             if(PM.IngredientList.Count != 0)
             {
                 int index = PM.IngredientList.Count -1;
