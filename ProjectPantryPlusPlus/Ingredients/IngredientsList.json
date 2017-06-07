@@ -141,11 +141,11 @@
 	},
 	{
 		"Name": "London Dry gin",
-		"Catagory": "chilies"
+		"Catagory": "Beverages"
 	},
 	{
 		"Name": "chilled sparkling wine",
-		"Catagory": "chilies"
+		"Catagory": "Beverages"
 	},
 	{
 		"Name": "dried pinto beans",
@@ -173,7 +173,7 @@
 	},
 	{
 		"Name": "fire-roasted tomatoes",
-		"Catagory": "Other"
+		"Catagory": "Vegetables"
 	},
 	{
 		"Name": "low-sodium chicken stock",
@@ -221,7 +221,7 @@
 	},
 	{
 		"Name": "asparagus",
-		"Catagory": "Vegitables"
+		"Catagory": "Vegetables"
 	},
 	{
 		"Name": "olive oil",
