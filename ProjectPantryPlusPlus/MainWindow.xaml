@@ -66,12 +66,23 @@
                             x:Name="meatIng"
                             Margin="75,0,0,0"
                             Width="250"
-                            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel 
+                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+							>
+
+
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<EventSetter Event="PreviewMouseLeftButtonDown" Handler="ToggleAvailable" />
+							</Style>
+						</ListView.ItemContainerStyle>
+
+
+						<ListView.ItemsPanel>
+							<ItemsPanelTemplate >
+								<WrapPanel 
                                     Orientation="Horizontal"
                                     Width="250">
+									
                                 </WrapPanel>
                             </ItemsPanelTemplate>
                         </ListView.ItemsPanel>

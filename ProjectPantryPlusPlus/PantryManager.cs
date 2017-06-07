@@ -102,7 +102,6 @@ namespace ProjectPantryPlusPlus
 		{
 			AvailableIngredients = FileIO.LoadIngredientsJson(ingredientFilePath + "availableIngredients" + fileExtension);
 		}
-
 		public List<Recipe> FilterList() {
 			List<Recipe> outputRecipes = new List<Recipe>();
 

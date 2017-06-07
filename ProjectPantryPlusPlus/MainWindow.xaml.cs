@@ -32,11 +32,11 @@ namespace PantryProject
         public MainWindow()
         {
             InitializeComponent();
-            MyRecipeList.ItemsSource = PM.UserRecipeList;
-			PopRecipeList.ItemsSource = PM.RecipeList;
-			MakeableRecipeList.ItemsSource = PM.DisplayRecipeList;
+            MyRecipeList.ItemsSource		= PM.UserRecipeList;
+			PopRecipeList.ItemsSource		= PM.RecipeList;
+			MakeableRecipeList.ItemsSource	= PM.DisplayRecipeList;
 			PopulateIngredients();
-            meatIng.ItemsSource = meatsList;
+			meatIng.ItemsSource = meatsList;
             dairyIng.ItemsSource = dairyList;
             fruitIng.ItemsSource = fruitsList;
             grainIng.ItemsSource = grainsList;
@@ -362,7 +362,22 @@ namespace PantryProject
 
 		private void FilterListClick(object sender, RoutedEventArgs e)
 		{
-			PM.FilterList();
+			PM.DisplayRecipeList = PM.FilterList();
+			MakeableRecipeList.ItemsSource = PM.DisplayRecipeList;
+		}
+
+		private void ToggleAvailable(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			System.Windows.Controls.ListViewItem clickedItem = (sender as System.Windows.Controls.ListViewItem);
+			Ingredient clickedIngredient = clickedItem.DataContext as Ingredient;
+			
+			if(PM.AvailableIngredients.Contains(clickedIngredient)){
+				PM.AvailableIngredients.Remove(clickedIngredient);
+				clickedItem.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+			}else{
+				PM.AvailableIngredients.Add(clickedIngredient);
+				clickedItem.Background = new SolidColorBrush(Color.FromArgb(128, 0, 0, 0));
+			}
 		}
 	}
     
