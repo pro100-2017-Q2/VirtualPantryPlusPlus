@@ -45,8 +45,7 @@ namespace ProjectPantryPlusPlus.Popups
             Ingredient i = new Ingredient(this.nameBox.Text, this.categoryBox.Text);
             CultureInfo.CurrentCulture.TextInfo.ToTitleCase(i.Name);
             bool inList = false;
-            
-
+           
             if (local_pm.IngredientList.Count >= 1)
             {
                 foreach (Ingredient ingredient in local_pm.IngredientList)
