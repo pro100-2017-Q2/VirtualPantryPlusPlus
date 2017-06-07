@@ -66,7 +66,6 @@ namespace ProjectPantryPlusPlus.DataModels
 			}
 			catch (DirectoryNotFoundException) { }
 			catch (FileNotFoundException) { }
-			catch (OutOfMemoryException) { }
 			outIngredients = (List<Ingredient>)output;
 			return outIngredients;
 
@@ -127,7 +126,7 @@ namespace ProjectPantryPlusPlus.DataModels
 					string catagory = (string)ingredientDictionary["Catagory"];
 					//bool isInUserPantry = (bool)ingredient["IsInUserPantry"];
 
-					outIngredients.Add(new Ingredient() { Name = name });
+					outIngredients.Add(new Ingredient() { Name = name , Catagory=catagory});
 				}
 			}
 			return outIngredients;
