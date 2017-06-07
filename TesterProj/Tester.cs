@@ -18,9 +18,23 @@ namespace ProjectPantryPlusPlus
 		{
 			t.IngredientPortions.Add(t.Ingredients[0].Name, "test");
 			//TestSaveRecipe();
-			//testLoadRecipe()
+			//TestLoadRecipe();
+
+
+			Console.WriteLine("----------------------------------------------------------");
+			Console.WriteLine("Save/Load JSON                                           |");
+			Console.WriteLine("----------------------------------------------------------");
 			TestSaveRecipeListJson();
 			TestLoadRecipeListJson();
+
+
+
+			Console.WriteLine("----------------------------------------------------------");
+			Console.WriteLine("FilterList                                               |");
+			Console.WriteLine("----------------------------------------------------------");
+
+			TestFilterList();
+
 		}
 
 		private static void TestSaveRecipe()
@@ -35,7 +49,7 @@ namespace ProjectPantryPlusPlus
 			List<Recipe> recipeList;
 			recipeList = FileIO.LoadRecipes("Recipes/testRecipe.rcp");
 
-			Console.Write("Results of loading from file : ");
+			Console.Write("Results of loading from file : \n\t");
 			Console.WriteLine(recipeList[1].Title);
 		}
 
@@ -43,12 +57,77 @@ namespace ProjectPantryPlusPlus
 		{
 			List<Recipe> recipeList = new List<Recipe>() { t };
 			FileIO.SaveRecipesJson(recipeList, "Recipes/testRecipe.rcp");
+			Console.WriteLine("File saved, in JSON, supposedly.");
 		}
 
 		private static void TestLoadRecipeListJson()
 		{
 			List<Recipe> recipeList = FileIO.LoadRecipesJson("Recipes/testRecipe.rcp");
-			Console.WriteLine(recipeList[0].Title);
+			Console.WriteLine("Title of loaded recipe: " + recipeList[0].Title);
+
+		}
+
+		private static void TestFilterList(){
+
+			List<Recipe> testerRecipeList = new List<Recipe>()
+			{
+				new Recipe("Title1", "Servings 1", "Preptime1", new Ingredient[1]{new Ingredient("TestIngredient1","Other") },"Instructions 1",new Dictionary<string, string>() ),
+				new Recipe("Title2", "Servings 2", "Preptime2", new Ingredient[1]{new Ingredient("TestIngredient2","Other") },"Instructions 2",new Dictionary<string, string>() )
+
+
+			};
+
+			PantryManager PM = new PantryManager()
+			{
+				//clear the lists of anything that may have loaded for a sterile testing environment.
+				//The reason being that we want to test with very known values to make sure that the methode works, as to 
+				//Isolate issues to either the code or the date being fed into the code. 
+				AvailableIngredients = new List<Ingredient>(),
+				UserRecipeList = new List<Recipe>(),
+				RecipeList = testerRecipeList
+			};
+
+
+
+
+			if (PM.RecipeList == testerRecipeList)
+			{
+				Console.WriteLine("Lists Initialized successfully."); 
+			}else{
+				Console.WriteLine("ERROR : not properly initialized");
+			}
+
+
+
+			PM.DisplayRecipeList = PM.FilterList();
+
+			if (PM.DisplayRecipeList != testerRecipeList) {
+				Console.WriteLine("FilterList returns empty when all ingredients are not present.");
+			}else{
+				Console.WriteLine("ERROR : FilterList returns with all values.");
+			}
+
+			PM.AvailableIngredients.Add(testerRecipeList[0].Ingredients[0]);
+			PM.DisplayRecipeList =PM.FilterList();
+
+			if(PM.DisplayRecipeList.Contains(testerRecipeList[0]))
+			{
+				Console.WriteLine("FilterList properly returning possible recipes.");
+			}else{
+				Console.WriteLine("ERROR : FilterList not returning recipes it should");
+			}
+
+			if (!PM.DisplayRecipeList.Contains(testerRecipeList[1])){
+				Console.WriteLine("FilterList not returning recipes that can't be made with current ingredients.");
+			}else{
+				Console.WriteLine("ERROR : FilterList returning extra recipes it shouldn't.");
+			}
+
+
+
+
+
+
 		}
 	}
 }
