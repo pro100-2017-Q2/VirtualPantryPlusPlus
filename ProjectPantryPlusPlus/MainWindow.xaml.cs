@@ -274,6 +274,20 @@ namespace PantryProject
                 TextWrapping = TextWrapping.Wrap,
             };
 
+            string inglist = "";
+            foreach(Ingredient ing in Selected.Ingredients)
+            {
+                inglist += "- " + ing + "\n";
+            }
+            TextBlock Ingridients = new TextBlock()
+            {
+                MaxWidth = 700,
+                MaxHeight = 200,
+                Text = "Ingridients : \n " + inglist,
+                FontSize = 18,
+                TextWrapping = TextWrapping.Wrap,
+            };
+
             TextBlock Instructions = new TextBlock()
             {
                 MaxWidth = 700,
@@ -286,6 +300,7 @@ namespace PantryProject
             StkPnl.Children.Add(Title);
             StkPnl.Children.Add(PrepTime);
             StkPnl.Children.Add(ServSize);
+            StkPnl.Children.Add(Ingridients);
             StkPnl.Children.Add(Instructions);
             Scroller.Content = StkPnl;
             RecipeWindow.Content = Scroller;

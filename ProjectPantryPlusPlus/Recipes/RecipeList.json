@@ -305,12 +305,153 @@
 		}
 	},
 	{
+
+		"Title": "Peanut butter-Chocolate No-Bake Cookies",
+		"Author": "Food Network Kitchen",
+		"Img": 1,
+		"PrepTime": "40",
+		"ServingSize": "60 cookies",
+		"Instructions": "Line a baking sheet with wax paper or parchment. Bring the sugar (2cups) , milk (1/2 cup), butter (1 stick) and cocoa (1/4 cup) to a boil in a medium saucepan over medium heat, stirring occasionally, then let boil for 1 minute. Remove from the heat. Add the oats (3 cups), peanut butter(1 cup), vanilla(1 Tablespoon) and salt (Large Pinch), and stir to combine. Drop teaspoonfuls of the mixture onto the prepared baking sheet, and let sit at room temperature until cooled and hardened, about 30 minutes. Refrigerate in an airtight container for up to 3 days."
+		"Ingredients": [
+			{
+				"Name": "Sugar"
+			},
+			{
+				"Name": "Milk"
+			},
+			{
+				"Name": "Unsalted Butter"
+			},
+			{
+				"Name": "Cocoa"
+			},
+			{
+				"Name": "Rolled oats"
+			},
+			{
+				"Name": "Peanut Butter"
+			},
+			{
+				"Name": "Vanilla Extract"
+			},
+			{
+				"Name": "Kosher Salt"
+			}
+		],
+
+
+		"IngredientPortions": {
+			"Sugar": "2 Cups",
+			"Milk": "1/2 Milk",
+			"Unsalted Butter": "1 Stick",
+			"Cocoa powder": "1/4 cup",
+			"Rolled oats": "3 Cups",
+			"Peanut Butter" : "1 cup",
+			"Vanilla Extract" : "1 Tbsp",
+			"Kosher Salt" : "1 large pinch"
+		}
+	},
+	{
+		"Title": "The Baked Potato",
+		"Author": "Alton Brown",
+		"Img": 1,
+		"PrepTime": "1 hr 10 min",
+		"ServingSize": "1",
+		"Instructions": "Heat oven to 350 degrees and position racks in top and bottom thirds. Wash potato (or potatoes) thoroughly with a stiff brush and cold running water. Dry, then using a standard fork poke 8 to 12 deep holes all over the spud so that moisture can escape during cooking. Place in a bowl and coat lightly with oil. Sprinkle with kosher salt and place potato directly on rack in middle of oven. Place a baking sheet on the lower rack to catch any drippings. Bake 1 hour or until skin feels crisp but flesh beneath feels soft. Serve by creating a dotted line from end to end with your fork, then crack the spud open by squeezing the ends towards one another. It will pop right open. But watch out, there will be some steam. If cooking more than 4 potatos, add 15 minutes.",
+		"Ingredients": [
+			{
+				"Name": "Russet Potato",
+				"Name": "Canola oil",
+				"Name": "Kosher salt"
+			}
+		],
+		"IngredientPortions": {
+			"Russet Potato": "1 large potato",
+			"Canola oil" : "Enough to coat",
+			"Kosher Salt" : "Enough to sprinkle"
+		}
+	},
+
+	{
+		"Title": "French Toast",
+		"Author": "Robert Irvine",
+		"Img": 1,
+		"PrepTime": "30",
+		"ServingSize": 4",
+		"Instructions": "In a small bowl, combine, cinnamon, nutmeg, and sugar and set aside briefly. n a 10-inch or 12-inch skillet, melt butter over medium heat. Whisk together cinnamon mixture, eggs, milk, and vanilla and pour into a shallow container such as a pie plate. Dip bread in egg mixture. Fry slices until golden brown, then flip to cook the other side. Serve with syrup.",
+		"Ingredients": [
+			{
+				"Name": "Cinnamon",
+				"Name": "Nutmeg",
+				"Name": "Sugar",
+				"Name": "Butter",
+				"Name": "Eggs",
+				"Name": "Milk",
+				"Name": "Vanilla Extract",
+				"Name": "Sliced bread",
+				"Name": "Maple Syrup"
+			}
+		],
+		"IngredientPortions": {
+			"Cinnamon": "1 tsp",
+			"Nutmeg": "1/4 tsp",
+			"Sugar": "2 tbsp",
+			"Butter": "4 tbsp",
+			"Eggs": "4",
+			"Milk": "1/4 cup",
+			"Vanilla Extract": "1/2 tsp",
+			"Sliced Bread": "8 slices",
+			"Maple Syrup": "1/2 cup",
+			
+		}
+	}
+	{
+		"Title": "Breakfast Pizza",
+		"Author": "Food Network Kitchen",
+		"Img": 1,
+		"PrepTime": "30 min",
+		"ServingSize": "4",
+		"Instructions": "Preheat the oven to 425 degrees F. Cook the bacon in a large nonstick skillet over medium heat until the fat is rendered and the bacon is crisp, about 8 minutes. Remove using a slotted spoon to a paper-towel-lined plate. Add the onions to the bacon drippings and cook until very soft, about 10 minutes. Add the sun dried tomatoes, oregano and garlic. Cook until fragrant, about 2 minutes. Brush the flatbread with some of the sun-dried tomato oil, and then spread the onion mixture on the flatbread. Sprinkle with the bacon and provolone and spoon the ricotta in large dollops over the surface. Place the pizza in the oven and bake until the edges of the flatbread are crisp and the cheese is melted and lightly browned, about 10 minutes. Meanwhile, wipe out the skillet used to cook the onions. Heat the skillet over medium heat and add the oil. Carefully break the eggs into the skillet, sprinkle with salt and pepper and cook until the whites are set, 4 to 5 minutes. If using lavash, cut the pizza into 4 pieces. Place a fried egg on each piece. Scatter the torn basil leaves over the top and serve immediately."
+		"Ingredients": [
+			{
+				"Name": "Thick Cut Bacon",
+				"Name": "Red Onion",
+				"Name": "Kosher Salt",
+				"Name": "black pepper"
+				"Name": "Sun-Dried tomatoes",
+				"Name": "oregano leaves",
+				"Name": "minced Garlic",
+				"Name": "flatbread",
+				"Name": "provolone",
+				"Name": "ricotta",
+				"Name": "vegetable oil",
+				"Name": "eggs",
+				"Name": "basil leaves"
+			}
+		],
+		"IngredientPortions": {
+			"Thick Cut Bacon": "3 slices, sliced into 1/2 inch pieces",
+			"Red Onion": "1 small, sliced",
+			"Kosher Salt": "ground",
+			"black pepper": "ground",
+			"sun-dried tomatoes": "1/4 cup, chopped ,oiled",
+			"oregano leaves": "1 tbsp, chopped",
+			"minced garlic": "1 clove's worth",
+			"flatbread": "one 9x11 inch or four 6 inch round flatbreads",
+			"provolone": "1/2 cup shredded",
+			"ricotta": "1/2 cup",
+			"vegetable oil": "1 tbsp",
+			"egg": "4 large",
+			"basil leaves": "torn"
+		}
+	},
+	{
 		"Title": "",
 		"Author": "",
-		"Img": "",
-		"PrepTime": "1",
+		"Img": 1,
+		"PrepTime": "",
 		"ServingSize": "",
-		"Instructions": "",
+		"Instructions": ""
 		"Ingredients": [
 			{
 				"Name": ""
@@ -318,6 +459,7 @@
 		],
 		"IngredientPortions": {
 			"": ""
+		
 		}
 	}
 ]
