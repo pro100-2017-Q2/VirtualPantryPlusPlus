@@ -183,30 +183,30 @@ namespace PantryProject
             foreach (Ingredient i in PM.IngredientList)
             {
 
-                switch (i.Catagory)
-                {
-                    case "Meats":
-                        meatsList.Add(i);
-                        break;
-                    case "Eggs & Dairy":                        
-                        dairyList.Add(i);                     
-                        break;
-                    case "Nuts, Grains, and beans":
-                        grainsList.Add(i);
-                        break;
-                    case "Fruits":
-                        fruitsList.Add(i);
-                        break;
-                    case "Vegetables":
-                        vegetableList.Add(i);
-                        break;
-                    case "Beverages":
-                        beverageList.Add(i);
-                        break;
-                    case "Spices and Oils":
-                            spicesList.Add(i);
-                        break;
-                }
+           //    switch (i.Catagory)
+           //    {
+           //        case "Meats":
+           //            meatsList.Add(i);
+           //            break;
+           //        case "Eggs & Dairy":                        
+           //            dairyList.Add(i);                     
+           //            break;
+           //        case "Nuts, Grains, and beans":
+           //            grainsList.Add(i);
+           //            break;
+           //        case "Fruits":
+           //            fruitsList.Add(i);
+           //            break;
+           //        case "Vegetables":
+           //            vegetableList.Add(i);
+           //            break;
+           //        case "Beverages":
+           //            beverageList.Add(i);
+           //            break;
+           //        case "Spices and Oils":
+           //                spicesList.Add(i);
+           //            break;
+           //    }
             }
         }
 
