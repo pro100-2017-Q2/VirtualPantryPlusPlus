@@ -93,8 +93,12 @@
                             Grid.Row="1"
                             Width="250"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-
-                        <ListView.ItemsPanel>
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<EventSetter Event="PreviewMouseLeftButtonDown" Handler="ToggleAvailable" />
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel
                                     Orientation="Horizontal"
@@ -109,7 +113,12 @@
                             Grid.Row="2"
                             Width="250"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-                        <ListView.ItemsPanel>
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<EventSetter Event="PreviewMouseLeftButtonDown" Handler="ToggleAvailable" />
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel 
                                     Width="250">
@@ -123,7 +132,12 @@
                             Grid.Row="3"
                             Width="250"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-                        <ListView.ItemsPanel>
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<EventSetter Event="PreviewMouseLeftButtonDown" Handler="ToggleAvailable" />
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel
                                     Width="250">
@@ -137,7 +151,12 @@
                             Grid.Row="4"
                             Width="250"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-                        <ListView.ItemsPanel>
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<EventSetter Event="PreviewMouseLeftButtonDown" Handler="ToggleAvailable" />
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel
                                     Width="250"
@@ -154,7 +173,12 @@
                             Grid.Row="5"
                             Width="250"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-                        <ListView.ItemsPanel>
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<EventSetter Event="PreviewMouseLeftButtonDown" Handler="ToggleAvailable" />
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel
                                     Width="250">
@@ -170,7 +194,12 @@
                             Grid.Row="6"
                             Width="250"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-                        <ListView.ItemsPanel>
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<EventSetter Event="PreviewMouseLeftButtonDown" Handler="ToggleAvailable" />
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel
                                     Width="250">
