@@ -45,48 +45,42 @@ namespace PantryProject
             spiceIng.ItemsSource = spicesList;
             populate_List();
             PM.IngredientList.CollectionChanged += IngredientList_CollectionChanged;
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
 
 		private void PopulateIngredients()
 		{
 			foreach(Ingredient ing in PM.IngredientList){
-				switch(ing.Catagory){
-					case "Meats":
-						meatsList.Add(ing);
-						break;
-					case "Eggs & Dairy":
-						dairyList.Add(ing);
-						break;
-					case "Nuts, Grains, and beans":
-						grainsList.Add(ing);
-						break;
-					case "Fruits":
-						fruitsList.Add(ing);
-						break;
-					case "Vegetables":
-						vegetableList.Add(ing);
-						break;
-					case "Beverages":
-						beverageList.Add(ing);
-						break;
-					case "Spices and Oils":
-						spicesList.Add(ing);
-						break;
+                switch (ing.Catagory)
+                {
+                    case "Meats":
+                        meatsList.Add(ing);
+                        break;
+                    case "Eggs & Dairy":
+                        dairyList.Add(ing);
+                        break;
+                    case "Nuts, Grains, and beans":
+                        grainsList.Add(ing);
+                        break;
+                    case "Fruits":
+                        fruitsList.Add(ing);
+                        break;
+                    case "Vegetables":
+                        vegetableList.Add(ing);
+                        break;
+                    case "Beverages":
+                        beverageList.Add(ing);
+                        break;
+                    case "Spices and Oils":
+                        spicesList.Add(ing);
+                        break;
 
-				}
-				/*"Meats",
-        "Eggs & Dairy",
-        "Nuts, Grains, and beans",
-		"Fruits",
-		"Vegetables",
-		"Beverages",
-		"Spices and Oils" */
+                }
 			}
 		}
 
 		private void IngredientList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            
             if(PM.IngredientList.Count != 0)
             {
                 int index = PM.IngredientList.Count -1;
@@ -222,7 +216,7 @@ namespace PantryProject
             Thickness Thick = new Thickness();
             Thick.Left = 5;
             Thick.Right = 5;
-            Thick.Bottom = 5;
+            Thick.Bottom = 10;
             Thick.Top = 5;
 
             Recipe Selected = (Recipe)(((Grid)sender).DataContext);
@@ -243,7 +237,8 @@ namespace PantryProject
 
             ScrollViewer Scroller = new ScrollViewer()
             {
-                CanContentScroll = false
+                CanContentScroll = false,
+                Margin = Thick
             };
 
             System.Windows.Controls.Label Title = new System.Windows.Controls.Label()
@@ -274,6 +269,21 @@ namespace PantryProject
                 TextWrapping = TextWrapping.Wrap,
             };
 
+            string inglist = "";
+            foreach(Ingredient ing in Selected.Ingredients)
+            {
+                string portion;
+                Selected.IngredientPortions.TryGetValue(ing.Name, out portion);
+                inglist += "- " + ing.Name + " (" + portion +")" + "\n";
+            }
+            TextBlock Ingridients = new TextBlock()
+            {
+                MaxWidth = 700,
+                Text = "Ingridients : \n " + inglist,
+                FontSize = 18,
+                TextWrapping = TextWrapping.Wrap,
+            };
+
             TextBlock Instructions = new TextBlock()
             {
                 MaxWidth = 700,
@@ -286,6 +296,7 @@ namespace PantryProject
             StkPnl.Children.Add(Title);
             StkPnl.Children.Add(PrepTime);
             StkPnl.Children.Add(ServSize);
+            StkPnl.Children.Add(Ingridients);
             StkPnl.Children.Add(Instructions);
             Scroller.Content = StkPnl;
             RecipeWindow.Content = Scroller;

@@ -62,11 +62,10 @@ namespace ProjectPantryPlusPlus.DataModels
 				var fileStream = new FileStream(@filename, FileMode.OpenOrCreate, FileAccess.Read);
 				var streamReader = new StreamReader(fileStream);
 				json = streamReader.ReadToEnd();
-				output = (Object[])(new JavaScriptSerializer().Deserialize(json, outIngredients.GetType()));
+				outIngredients = (List<Ingredient>)(new JavaScriptSerializer().Deserialize(json, outIngredients.GetType()));
 			}
 			catch (DirectoryNotFoundException) { }
 			catch (FileNotFoundException) { }
-			outIngredients = (List<Ingredient>)output;
 			return outIngredients;
 
 		}
@@ -93,9 +92,6 @@ namespace ProjectPantryPlusPlus.DataModels
 			string json = "";
 			ObservableCollection<Ingredient> outIngredients = new ObservableCollection<Ingredient>();
 			Object[] output = new Object[0];
-
-
-
 
 			try
 			{
@@ -160,9 +156,8 @@ namespace ProjectPantryPlusPlus.DataModels
 				}
 				output = (Object[])(new JavaScriptSerializer().DeserializeObject(json));
 			}
-			catch (System.ArgumentException e) { /*throw e;*/ }//this is a system exception that we can't fix on our own, so we throw it back.
-			catch (System.IO.DirectoryNotFoundException e) { /*throw new DirectoryNotFoundException(String.Format("Filepath >{0}< could not be found.", @filename));*/ }
-			catch (System.IO.FileNotFoundException e) { /*throw new FileNotFoundException(String.Format("File >{0}< could not be found.", @filename)); */}
+			catch (System.IO.DirectoryNotFoundException e) { throw new DirectoryNotFoundException(String.Format("Filepath >{0}< could not be found.", @filename));}
+			catch (System.IO.FileNotFoundException e) { throw new FileNotFoundException(String.Format("File >{0}< could not be found.", @filename)); }
 
 
 			List<Recipe> outputRecipes = new List<Recipe>();
@@ -170,7 +165,6 @@ namespace ProjectPantryPlusPlus.DataModels
 			{
 				foreach (Object recipeDictionary in output)
 				{//create the recipe object based on available JSON;
-
 
 					Dictionary<String, Object> Dictionary = (Dictionary<String, Object>)recipeDictionary;
 
